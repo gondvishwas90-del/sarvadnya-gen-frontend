@@ -1,0 +1,497 @@
+[
+  {
+    "key": " ",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "_",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "add",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "generators.card.addToQuote",
+    "en": "Add to Quote",
+    "hi": "कोटेशन में जोड़ें"
+  },
+  {
+    "key": "generators.card.addedToQuote",
+    "en": "Added to Quote",
+    "hi": "जुड़ गया"
+  },
+  {
+    "key": "generators.card.compare",
+    "en": "Compare",
+    "hi": "तुलना करें"
+  },
+  {
+    "key": "generators.card.fuelCons",
+    "en": "Fuel Cons.",
+    "hi": "डीज़ल खपत"
+  },
+  {
+    "key": "generators.card.maxRuntime",
+    "en": "Max Runtime",
+    "hi": "चलने का समय"
+  },
+  {
+    "key": "generators.card.noiseLevel",
+    "en": "Noise Level",
+    "hi": "आवाज़ स्तर"
+  },
+  {
+    "key": "generators.card.perDay",
+    "en": "/ day",
+    "hi": "/ दिन"
+  },
+  {
+    "key": "generators.card.phase",
+    "en": "Phase",
+    "hi": "फेज़"
+  },
+  {
+    "key": "generators.card.viewDetails",
+    "en": "View Details",
+    "hi": "पूरी जानकारी देखें"
+  },
+  {
+    "key": "generators.compare.active",
+    "en": "Active",
+    "hi": "चुना हुआ"
+  },
+  {
+    "key": "generators.compare.addComparison",
+    "en": "Add to Comparison",
+    "hi": "तुलना में जोड़ें"
+  },
+  {
+    "key": "generators.compare.addGen",
+    "en": "Add Generator",
+    "hi": "जेनरेटर जोड़ें"
+  },
+  {
+    "key": "generators.compare.autoStart",
+    "en": "Auto Start",
+    "hi": "ऑटो स्टार्ट (AMF)"
+  },
+  {
+    "key": "generators.compare.book",
+    "en": "Book",
+    "hi": "बुक करें"
+  },
+  {
+    "key": "generators.compare.change",
+    "en": "Change",
+    "hi": "बदलें"
+  },
+  {
+    "key": "generators.compare.chooseSilent",
+    "en": "Choose from our verified silent fleet",
+    "hi": "हमारे वेरिफाइड सायलेंट फ्लीट में से चुनें"
+  },
+  {
+    "key": "generators.compare.clearAll",
+    "en": "Clear All",
+    "hi": "सभी हटाएं"
+  },
+  {
+    "key": "generators.compare.compareFleet",
+    "en": "Compare Fleet",
+    "hi": "जेनरेटरों की तुलना करें"
+  },
+  {
+    "key": "generators.compare.customQuote",
+    "en": "Request Custom Quote",
+    "hi": "कोटेशन मांगें"
+  },
+  {
+    "key": "generators.compare.desc",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "generators.compare.fuelType",
+    "en": "Fuel Type",
+    "hi": "ईंधन का प्रकार"
+  },
+  {
+    "key": "generators.compare.helpDesc",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "generators.compare.helpTitle1",
+    "en": "Need help",
+    "hi": "सही चुनाव में"
+  },
+  {
+    "key": "generators.compare.helpTitle2",
+    "en": "choosing?",
+    "hi": "मदद चाहिए?"
+  },
+  {
+    "key": "generators.compare.highlightDiff",
+    "en": "Highlight Differences",
+    "hi": "अंतर दिखाएं"
+  },
+  {
+    "key": "generators.compare.howLongRuns",
+    "en": "How Long It Runs",
+    "hi": "लगातार कितने घंटे चलेगा"
+  },
+  {
+    "key": "generators.compare.included",
+    "en": "Included",
+    "hi": "शामिल है"
+  },
+  {
+    "key": "generators.compare.noiseLevel",
+    "en": "Noise Level",
+    "hi": "आवाज़ का स्तर"
+  },
+  {
+    "key": "generators.compare.remoteMonitoring",
+    "en": "Remote Monitoring",
+    "hi": "रिमोट मॉनिटरिंग"
+  },
+  {
+    "key": "generators.compare.replacing",
+    "en": "Replacing",
+    "hi": "इसकी जगह"
+  },
+  {
+    "key": "generators.compare.restore3",
+    "en": "Restore 3 Units",
+    "hi": "3 यूनिट रीसेट करें"
+  },
+  {
+    "key": "generators.compare.selectReplacement",
+    "en": "Select Replacement",
+    "hi": "दूसरा जेनरेटर चुनें"
+  },
+  {
+    "key": "generators.compare.specs",
+    "en": "Specifications",
+    "hi": "मुख्य खूबियां"
+  },
+  {
+    "key": "generators.compare.standard",
+    "en": "Standard",
+    "hi": "स्टैंडर्ड"
+  },
+  {
+    "key": "generators.compare.swipeSpecs",
+    "en": "← Swipe cards to compare specifications →",
+    "hi": "← खूबियों की तुलना करने के लिए कार्ड स्वाइप करें →"
+  },
+  {
+    "key": "generators.compare.talkExpert",
+    "en": "Talk to an Expert",
+    "hi": "एक्सपर्ट से बात करें"
+  },
+  {
+    "key": "generators.compare.techMatrix",
+    "en": "Technical Matrix",
+    "hi": "टेक्निकल जानकारी"
+  },
+  {
+    "key": "generators.compare.title1",
+    "en": "Find the right",
+    "hi": "अपनी ज़रूरत के लिए सही"
+  },
+  {
+    "key": "generators.compare.title2",
+    "en": "generator for you",
+    "hi": "जेनरेटर चुनें"
+  },
+  {
+    "key": "generators.detail.assetCode",
+    "en": "Asset Code",
+    "hi": "एसेट कोड"
+  },
+  {
+    "key": "generators.detail.back",
+    "en": "Back to Generator Fleet",
+    "hi": "वापस जेनरेटर लिस्ट पर जाएं"
+  },
+  {
+    "key": "generators.detail.bookNow",
+    "en": "Book Now",
+    "hi": "अभी बुक करें"
+  },
+  {
+    "key": "generators.detail.callNow",
+    "en": "Call Now",
+    "hi": "अभी कॉल करें"
+  },
+  {
+    "key": "generators.detail.deposit",
+    "en": "Security Deposit:",
+    "hi": "सिक्योरिटी डिपॉजिट:"
+  },
+  {
+    "key": "generators.detail.frequency",
+    "en": "Frequency",
+    "hi": "फ्रीक्वेंसी"
+  },
+  {
+    "key": "generators.detail.keyFeatures",
+    "en": "Key Features",
+    "hi": "खास विशेषताएं"
+  },
+  {
+    "key": "generators.detail.needInfo",
+    "en": "Need More Information?",
+    "hi": "और जानकारी चाहिए?"
+  },
+  {
+    "key": "generators.detail.needInfoDesc",
+    "en": "Our experts are ready to help you choose the right product",
+    "hi": "सही जेनरेटर चुनने में मदद के लिए हमारे एक्सपर्ट्स तैयार हैं"
+  },
+  {
+    "key": "generators.detail.shiftRate",
+    "en": "Shift Rate:",
+    "hi": "प्रति शिफ्ट रेट:"
+  },
+  {
+    "key": "generators.detail.techSpecs",
+    "en": "Technical Specifications",
+    "hi": "टेक्निकल खूबियां"
+  },
+  {
+    "key": "generators.detail.viewFleet",
+    "en": "View Fleet",
+    "hi": "सभी जेनरेटर देखें"
+  },
+  {
+    "key": "generators.detail.voltage",
+    "en": "Voltage",
+    "hi": "वोल्टेज"
+  },
+  {
+    "key": "generators.detail.whatsApp",
+    "en": "WhatsApp",
+    "hi": "व्हाट्सएप"
+  },
+  {
+    "key": "generators.detail.youMayLike",
+    "en": "You May Also Like",
+    "hi": "इन्हें भी देखें"
+  },
+  {
+    "key": "generators.gallery.allCapacities",
+    "en": "All Capacities",
+    "hi": "सभी क्षमताएं"
+  },
+  {
+    "key": "generators.gallery.allTypes",
+    "en": "All Types",
+    "hi": "सभी प्रकार"
+  },
+  {
+    "key": "generators.gallery.allUsage",
+    "en": "All Usage",
+    "hi": "सभी काम"
+  },
+  {
+    "key": "generators.gallery.byCapacity",
+    "en": "By Power Capacity",
+    "hi": "पावर क्षमता के अनुसार"
+  },
+  {
+    "key": "generators.gallery.byType",
+    "en": "By Generator Type",
+    "hi": "जेनरेटर के प्रकार के अनुसार"
+  },
+  {
+    "key": "generators.gallery.byUsage",
+    "en": "By Usage / Industry",
+    "hi": "काम या इंडस्ट्री के अनुसार"
+  },
+  {
+    "key": "generators.gallery.desc",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "generators.gallery.dieselGen",
+    "en": "Diesel Generators",
+    "hi": "डीज़ल जेनरेटर"
+  },
+  {
+    "key": "generators.gallery.loading",
+    "en": "Loading generators...",
+    "hi": "जेनरेटर लोड हो रहे हैं..."
+  },
+  {
+    "key": "generators.gallery.mobileVans",
+    "en": "Mobile DG Vans",
+    "hi": "मोबाइल डीजी वैन"
+  },
+  {
+    "key": "generators.gallery.resetFilters",
+    "en": "Reset Filters",
+    "hi": "फ़िल्टर हटाएं"
+  },
+  {
+    "key": "generators.gallery.silentGen",
+    "en": "Silent Generators",
+    "hi": "सायलेंट जेनरेटर"
+  },
+  {
+    "key": "generators.gallery.title1",
+    "en": "Browse All",
+    "hi": "सभी उपलब्ध"
+  },
+  {
+    "key": "generators.gallery.title2",
+    "en": "Generators",
+    "hi": "जेनरेटर"
+  },
+  {
+    "key": "generators.gallery.trailerMounted",
+    "en": "Trailer Mounted",
+    "hi": "ट्रेलर माउंटेड"
+  },
+  {
+    "key": "generators.hero.browse",
+    "en": "Browse Generators",
+    "hi": "सभी जेनरेटर देखें"
+  },
+  {
+    "key": "generators.hero.desc",
+    "en": "",
+    "hi": ""
+  },
+  {
+    "key": "generators.hero.durDaily",
+    "en": "Daily",
+    "hi": "रोज़ाना"
+  },
+  {
+    "key": "generators.hero.durLongterm",
+    "en": "Long Term",
+    "hi": "लंबे समय के लिए"
+  },
+  {
+    "key": "generators.hero.durMonthly",
+    "en": "Monthly",
+    "hi": "महीने भर के लिए"
+  },
+  {
+    "key": "generators.hero.durWeekly",
+    "en": "Weekly",
+    "hi": "हफ़्ते भर के लिए"
+  },
+  {
+    "key": "generators.hero.emergency",
+    "en": "Emergency Rental",
+    "hi": "इमरजेंसी में जेनरेटर चाहिए"
+  },
+  {
+    "key": "generators.hero.enterCity",
+    "en": "Enter City",
+    "hi": "शहर का नाम लिखें"
+  },
+  {
+    "key": "generators.hero.findGenerators",
+    "en": "Find Available Generators",
+    "hi": "उपलब्ध जेनरेटर देखें"
+  },
+  {
+    "key": "generators.hero.getQuote",
+    "en": "Get Instant Quote",
+    "hi": "तुरंत कोटेशन पाएं"
+  },
+  {
+    "key": "generators.hero.help",
+    "en": "Need Help Choosing?",
+    "hi": "सही जेनरेटर चुनने में मदद चाहिए?"
+  },
+  {
+    "key": "generators.hero.indConstruction",
+    "en": "Construction",
+    "hi": "कंस्ट्रक्शन"
+  },
+  {
+    "key": "generators.hero.indEvents",
+    "en": "Events & Weddings",
+    "hi": "शादी और इवेंट्स"
+  },
+  {
+    "key": "generators.hero.indFactories",
+    "en": "Factories",
+    "hi": "फैक्ट्री और इंडस्ट्री"
+  },
+  {
+    "key": "generators.hero.indHospitals",
+    "en": "Hospitals",
+    "hi": "अस्पताल"
+  },
+  {
+    "key": "generators.hero.industryType",
+    "en": "Industry Type",
+    "hi": "काम का प्रकार"
+  },
+  {
+    "key": "generators.hero.loadCalc",
+    "en": "Load Calculator",
+    "hi": "लोड कैलकुलेटर"
+  },
+  {
+    "key": "generators.hero.location",
+    "en": "Location",
+    "hi": "साइट की लोकेशन"
+  },
+  {
+    "key": "generators.hero.panelTitle",
+    "en": "Find Your Perfect Match",
+    "hi": "अपनी ज़रूरत के हिसाब से जेनरेटर खोजें"
+  },
+  {
+    "key": "generators.hero.powerReq",
+    "en": "Power Requirement",
+    "hi": "पावर की ज़रूरत"
+  },
+  {
+    "key": "generators.hero.rentalDuration",
+    "en": "Rental Duration",
+    "hi": "कितने समय के लिए चाहिए"
+  },
+  {
+    "key": "generators.hero.selectDuration",
+    "en": "Select Duration",
+    "hi": "समय चुनें"
+  },
+  {
+    "key": "generators.hero.selectIndustry",
+    "en": "Select Industry",
+    "hi": "काम का प्रकार चुनें"
+  },
+  {
+    "key": "generators.hero.selectKva",
+    "en": "Select kVA",
+    "hi": "kVA चुनें"
+  },
+  {
+    "key": "generators.hero.title1",
+    "en": "Industrial Generator",
+    "hi": "पूरे महाराष्ट्र में"
+  },
+  {
+    "key": "generators.hero.title2",
+    "en": "Rentals Across Maharashtra",
+    "hi": "इंडस्ट्रियल जेनरेटर किराए पर"
+  },
+  {
+    "key": "generators.hero.whatsapp",
+    "en": "WhatsApp Enquiry",
+    "hi": "व्हाट्सएप पर पूछें"
+  }
+]

@@ -1,0 +1,240 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { motion, AnimatePresence, type MotionValue, useTransform } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/LanguageContext";
+
+export interface ServiceSpec {
+  label: string;
+  value: string;
+}
+
+export interface ServiceVertical {
+  id: string;
+  index: string;
+  tabLabel: string;
+  tagline: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  capacity: string;
+  specs: ServiceSpec[];
+  primaryImage: string;
+  unitImage: string;
+  unitBadge: string;
+  statusBadge: string;
+  href: string;
+  ctaText: string;
+}
+
+interface ServicesWeOfferClientProps {
+  verticals: ServiceVertical[];
+  activeIndex: number;
+  scrollYProgress?: MotionValue<number>;
+  onVerticalClick: (index: number) => void;
+}
+
+/**
+ * ServicesWeOfferClient
+ * 
+ * High-end architectural layout adapted from Joint Talent (jointalent.net/about/):
+ * - Light luxury background (#FAF8F5) with brand safety orange (#FF5500) accents
+ * - Left column: Ultra-clean vertical tab navigation with animated progress indicator line
+ * - Right column: Unified Single Card with generator unit image on top and specifications table below
+ * - Staggered transitions on tab switch / scroll scrub
+ * - Full English / Hindi / Marathi localization
+ */
+export function ServicesWeOfferClient({
+  verticals,
+  activeIndex,
+  scrollYProgress,
+  onVerticalClick,
+}: ServicesWeOfferClientProps) {
+  const { t } = useLanguage();
+  const activeVertical = verticals[activeIndex] || verticals[0];
+
+  // Dynamic vertical progress fill tracking scroll progress
+  const lineProgress = useTransform(
+    scrollYProgress || ({ get: () => 0 } as unknown as MotionValue<number>),
+    [0, 1],
+    ["0%", "100%"]
+  );
+
+  return (
+    <div className="w-full relative flex flex-col select-none">
+      {/* 
+        ========================================================================
+        MOBILE NAVIGATION TAB BAR (< lg screens)
+        ========================================================================
+      */}
+      <div className="lg:hidden w-full mb-6">
+        <div className="flex items-center justify-between px-1 mb-2 text-xs text-[#7A756D]">
+          <span className="text-[#FF5500] font-bold tracking-wider font-mono">
+            0{activeIndex + 1} / 0{verticals.length}
+          </span>
+          <span className="text-[#7A756D] text-[11px]">
+            {t("services.mobileHint") || "Tap tab or scroll to switch"}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2">
+          {verticals.map((vertical, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <button
+                key={vertical.id}
+                onClick={() => onVerticalClick(index)}
+                aria-label={`Select ${vertical.title}`}
+                className={cn(
+                  "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shrink-0 flex items-center gap-2 border",
+                  isActive
+                    ? "bg-[#FF5500] text-white border-[#FF5500] shadow-md shadow-[#FF5500]/25"
+                    : "bg-white text-[#625D55] border-[#E8E2D9] hover:text-[#1F1F1E] hover:bg-white/80"
+                )}
+              >
+                <span className="font-mono text-[10px] opacity-75">{vertical.index}</span>
+                <span>{vertical.tabLabel}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 
+        ========================================================================
+        MASTER SPLIT STAGE
+        - Left: Clean Vertical Navigation with animated progress track
+        - Right: Unified Single Card in Table Format (Image + Specifications)
+        ========================================================================
+      */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+        {/* 
+          LEFT COLUMN: CLEAN VERTICAL NAVIGATION (Joint Talent style)
+        */}
+        <div className="lg:col-span-5 relative flex flex-col justify-center">
+          {/* Vertical progress track on desktop */}
+          <div className="hidden lg:block absolute left-0 top-3 bottom-3 w-[2px] bg-[#E8E2D9] rounded-full overflow-hidden">
+            <motion.div
+              style={{
+                height: scrollYProgress
+                  ? lineProgress
+                  : `${((activeIndex + 1) / verticals.length) * 100}%`,
+              }}
+              className="w-full bg-[#FF5500] shadow-[0_0_10px_rgba(255,85,0,0.4)]"
+            />
+          </div>
+
+          <div className="lg:pl-8 flex flex-col gap-8 lg:gap-12">
+            {verticals.map((vertical, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <button
+                  key={vertical.id}
+                  onClick={() => onVerticalClick(index)}
+                  className={cn(
+                    "text-left transition-all duration-300 cursor-pointer select-none",
+                    isActive ? "opacity-100" : "opacity-30 hover:opacity-60"
+                  )}
+                >
+                  <h3
+                    className={cn(
+                      "font-sans font-black tracking-tight leading-[1.15] transition-all duration-300",
+                      isActive
+                        ? "text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] text-[#1F1F1E]"
+                        : "text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] text-[#625D55]"
+                    )}
+                  >
+                    {vertical.title}
+                  </h3>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 
+          RIGHT COLUMN: UNIFIED SINGLE CARD IN TABLE FORMAT
+          (Generator Image on Top + Specifications Table Below)
+        */}
+        <div className="lg:col-span-7 relative w-full flex flex-col justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeVertical.id}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="w-full rounded-2xl sm:rounded-3xl bg-white border border-[#E8E2D9] shadow-sm overflow-hidden flex flex-col"
+            >
+              {/* 
+                1. UPPER SECTION: CLEAN GENERATOR IMAGE SHOWCASE
+                (Zero badge clutter, gentle levitation & soft ground contact shadow)
+              */}
+              <div className="relative w-full h-[220px] sm:h-[260px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-6 overflow-hidden">
+                {/* Subtle warm ambient volumetric warmth */}
+                <div className="absolute w-[260px] sm:w-[360px] h-[160px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
+
+                {/* Floating generator image with continuous levitation */}
+                <motion.div
+                  animate={{ y: [-4, 4, -4] }}
+                  transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
+                  className="relative z-10 w-[82%] sm:w-[72%] h-[150px] sm:h-[190px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
+                >
+                  <Image
+                    src={activeVertical.unitImage}
+                    alt={activeVertical.title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 80vw, 45vw"
+                    className="object-contain"
+                  />
+                </motion.div>
+
+                {/* Contact drop shadow */}
+                <motion.div
+                  animate={{
+                    scaleX: [1, 0.92, 1],
+                    opacity: [0.32, 0.2, 0.32],
+                  }}
+                  transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
+                  className="absolute bottom-4 sm:bottom-5 w-1/2 h-4 bg-black/20 blur-md rounded-full pointer-events-none"
+                />
+              </div>
+
+              {/* 
+                2. LOWER SECTION: SPECIFICATIONS TABLE FORMAT
+                (Clean structured table rows integrated directly inside the card)
+              */}
+              <div className="w-full border-t border-[#E8E2D9] divide-y divide-[#E8E2D9] bg-white">
+                {activeVertical.specs.map((spec, specIdx) => (
+                  <div
+                    key={spec.label}
+                    className="flex items-center justify-between px-5 sm:px-7 py-3 sm:py-3.5 hover:bg-[#FAF8F5]/70 transition-colors"
+                  >
+                    {/* Parameter Label with Brand Font Index & Indicator Beacon */}
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-xs font-bold text-[#FF5500]">
+                        0{specIdx + 1}
+                      </span>
+                      <span className="size-1.5 rounded-full bg-[#FF5500]" />
+                      <span className="font-sans text-xs sm:text-sm font-bold text-[#1F1F1E]">
+                        {spec.label}
+                      </span>
+                    </div>
+
+                    {/* Verified Precision Rating */}
+                    <span className="font-sans text-xs sm:text-sm font-semibold text-[#403C36] text-right">
+                      {spec.value}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+}

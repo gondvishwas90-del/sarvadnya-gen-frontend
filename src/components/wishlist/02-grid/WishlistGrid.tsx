@@ -1,0 +1,46 @@
+"use client";
+
+import React from "react";
+import { AnimatePresence } from "framer-motion";
+import { WishlistCard, WishlistItem } from "./WishlistCard";
+import { WishlistEmpty } from "../03-empty-state";
+import { useLanguage } from "@/lib/LanguageContext";
+
+interface WishlistGridProps {
+  items: WishlistItem[];
+  onRemove: (id: string) => void;
+  onClearAll: () => void;
+}
+
+export function WishlistGrid({ items, onRemove, onClearAll }: WishlistGridProps) {
+  const { t } = useLanguage();
+
+  if (items.length === 0) {
+    return <WishlistEmpty />;
+  }
+
+  return (
+    <section className="px-4 sm:px-6 md:px-10 lg:px-[60px] max-w-[1440px] mx-auto pb-16 sm:pb-24">
+      <div className="flex justify-between items-center mb-8">
+        <p className="text-sm text-[#403C36] font-sans">
+          {t("cart.grid.showing", "Showing")} <span className="text-[#111315] font-semibold">{items.length}</span>{" "}
+          {t("cart.grid.shortlisted_models", "shortlisted generator models")}
+        </p>
+        <button
+          onClick={onClearAll}
+          className="text-xs text-[#524E48] hover:text-red-600 transition-colors uppercase tracking-wider font-semibold cursor-pointer"
+        >
+          {t("cart.grid.clear_all", "Clear All Items")}
+        </button>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+        <AnimatePresence>
+          {items.map((item) => (
+            <WishlistCard key={item.id} item={item} onRemove={onRemove} />
+          ))}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,406 @@
+"use client";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useAuth } from "@/lib/AuthContext";
+import {
+  Smartphone,
+  Mail,
+  Building2,
+  User,
+  Lock,
+  MapPin,
+  Briefcase,
+  ArrowRight,
+  Info,
+} from "lucide-react";
+import Link from "next/link";
+import { useLanguage } from "@/lib/LanguageContext";
+
+const BUSINESS_TYPES = [
+  "Construction",
+  "Events & Weddings",
+  "Manufacturing",
+  "Agriculture",
+  "Hospital",
+  "Telecom",
+  "Other",
+];
+
+/**
+ * Signup Client Component (Bright Free-Space Pill Layout matching LoginClient)
+ *
+ * Preserves full 2-step personal + business profile signup data cleanly in open
+ * space without any enclosing card box.
+ */
+export function SignupClient() {
+  const { signInWithGoogle, signUpWithEmail, loading } = useAuth();
+  const { t } = useLanguage();
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+    city: "",
+    company: "",
+    industry: "",
+    gst: "",
+    altPhone: "",
+    address: "",
+  });
+
+  const [passwordStrength, setPasswordStrength] = useState(0);
+
+  const updateFormData = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "password") {
+      let strength = 0;
+      if (value.length > 8) strength++;
+      if (/[A-Z]/.test(value)) strength++;
+      if (/[0-9]/.test(value)) strength++;
+      setPasswordStrength(strength);
+    }
+  };
+
+  const handleNext = () => {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.password
+    ) {
+      setError(t("auth.signup.err_basic", "Fill in all basic details."));
+      return;
+    }
+    setError(null);
+    setCurrentStep(2);
+  };
+
+  const handleEmailSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+    try {
+      await signUpWithEmail(formData.email, formData.password, formData.name);
+      setSuccess(t("auth.signup.success", "Account created! Check email."));
+    } catch (err) {
+      const msg =
+        err instanceof Error ? err.message : "Failed to create account.";
+      setError(msg);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setIsLoading(true);
+    try {
+      await signInWithGoogle();
+    } catch {
+      setError("Google sign-in failed.");
+      setIsLoading(false);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full"
+    >
+      {/* Progress & Subheading */}
+      <div className="flex items-center justify-between gap-4 mb-4">
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#111315] tracking-tight">
+            {currentStep === 1 ? t("auth.signup.title_step1", "Get Started") : t("auth.signup.title_step2", "Business Profile")}
+          </h2>
+          <p className="text-[#403C36] text-xs sm:text-sm mt-0.5">
+            {currentStep === 1
+              ? t("auth.signup.subtitle_step1", "Create your personal secure account")
+              : t("auth.signup.subtitle_step2", "Add details for generator management")}
+          </p>
+        </div>
+
+        <div className="flex flex-col items-end gap-1.5 shrink-0">
+          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#FF5500]">
+            {t("auth.signup.step_counter", "Step")} {currentStep} / 2
+          </span>
+          <div className="flex gap-1">
+            <div
+              className={`h-1 w-6 rounded-full ${currentStep >= 1 ? "bg-[#FF5500]" : "bg-[#111315]/15"
+                }`}
+            />
+            <div
+              className={`h-1 w-6 rounded-full ${currentStep >= 2 ? "bg-[#FF5500]" : "bg-[#111315]/15"
+                }`}
+            />
+          </div>
+        </div>
+      </div>
+
+      {(error || success) && (
+        <div
+          className={`mb-3.5 px-4 py-2 rounded-full text-xs font-semibold text-center ${error
+            ? "bg-red-50/90 text-red-700 border border-red-200"
+            : "bg-emerald-50/90 text-emerald-700 border border-emerald-200"
+            }`}
+        >
+          {error || success}
+        </div>
+      )}
+
+      <form onSubmit={handleEmailSignUp} className="space-y-3">
+        <AnimatePresence mode="wait">
+          {currentStep === 1 ? (
+            <motion.div
+              key="s1"
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 10 }}
+              className="space-y-3"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <IconInput
+                  name="name"
+                  placeholder={t("auth.signup.name_placeholder", "Full Name")}
+                  icon={<User size={15} />}
+                  value={formData.name}
+                  onChange={updateFormData}
+                />
+                <IconInput
+                  name="email"
+                  type="email"
+                  placeholder={t("auth.login.email_placeholder", "Email")}
+                  icon={<Mail size={15} />}
+                  value={formData.email}
+                  onChange={updateFormData}
+                />
+                <IconInput
+                  name="phone"
+                  type="tel"
+                  placeholder={t("auth.signup.phone_placeholder", "Mobile")}
+                  icon={<Smartphone size={15} />}
+                  value={formData.phone}
+                  onChange={updateFormData}
+                />
+                <IconInput
+                  name="city"
+                  placeholder={t("auth.signup.city_placeholder", "Location")}
+                  icon={<MapPin size={15} />}
+                  value={formData.city}
+                  onChange={updateFormData}
+                />
+                <IconInput
+                  name="password"
+                  type="password"
+                  placeholder={t("auth.login.password_placeholder", "Password")}
+                  icon={<Lock size={15} />}
+                  value={formData.password}
+                  onChange={updateFormData}
+                />
+                <IconInput
+                  name="confirmPassword"
+                  type="password"
+                  placeholder={t("auth.signup.confirm_pass_placeholder", "Confirm")}
+                  icon={<Lock size={15} />}
+                  value={formData.confirmPassword}
+                  onChange={updateFormData}
+                />
+              </div>
+
+              {/* Password Strength Hairline */}
+              <div className="flex gap-1.5 h-1 px-2">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className={`flex-1 rounded-full transition-colors ${i < passwordStrength ? "bg-[#FF5500]" : "bg-[#111315]/10"
+                      }`}
+                  />
+                ))}
+              </div>
+
+              {/* Primary Next Step CTA */}
+              <button
+                type="button"
+                onClick={handleNext}
+                className="w-full flex items-center justify-center gap-2 bg-[#FF5500] hover:bg-[#E04B00] text-white font-bold py-3.5 rounded-full text-sm transition-colors shadow-[0_12px_28px_rgba(255,85,0,0.28)] active:scale-[0.99] cursor-pointer"
+              >
+                <span>{t("auth.signup.next_business", "Continue to Step 2")}</span>
+                <ArrowRight size={16} />
+              </button>
+
+              {/* Bright Google Pill Button */}
+              <button
+                type="button"
+                onClick={handleGoogleSignIn}
+                className="w-full flex items-center justify-center gap-3 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold py-3 rounded-full text-sm transition-colors shadow-[0_10px_24px_rgba(37,99,235,0.28)] active:scale-[0.99] cursor-pointer"
+              >
+                <span className="size-6 rounded-full bg-white flex items-center justify-center shrink-0">
+                  <svg className="size-4" viewBox="0 0 24 24">
+                    <path
+                      fill="#4285F4"
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                    />
+                    <path
+                      fill="#EA4335"
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                    />
+                  </svg>
+                </span>
+                <span>{t("auth.login.google_btn", "Signup with Google")}</span>
+              </button>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="s2"
+              initial={{ opacity: 0, x: 10 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -10 }}
+              className="space-y-3"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <IconInput
+                  name="company"
+                  placeholder={t("auth.signup.company_placeholder", "Company")}
+                  icon={<Building2 size={15} />}
+                  value={formData.company}
+                  onChange={updateFormData}
+                />
+                <div className="relative group">
+                  <Briefcase
+                    size={15}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[#111315]/75 group-focus-within:text-[#FF5500] pointer-events-none"
+                  />
+                  <select
+                    name="industry"
+                    value={formData.industry}
+                    onChange={updateFormData}
+                    className="w-full bg-transparent border border-[#111315]/35 hover:border-[#111315]/60 focus:border-[#FF5500] text-[#111315] font-medium pl-10 pr-4 py-2.5 rounded-full text-sm outline-none appearance-none transition-colors"
+                  >
+                    <option value="" disabled>
+                      {t("auth.signup.industry_placeholder", "Industry")}
+                    </option>
+                    {BUSINESS_TYPES.map((bt) => (
+                      <option key={bt} value={bt.toLowerCase()}>
+                        {bt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <IconInput
+                  name="gst"
+                  placeholder={t("auth.signup.gst_placeholder", "GST Number")}
+                  icon={<Info size={15} />}
+                  value={formData.gst}
+                  onChange={updateFormData}
+                />
+                <IconInput
+                  name="altPhone"
+                  placeholder={t("auth.signup.alt_phone_placeholder", "Alt Mobile")}
+                  icon={<Smartphone size={15} />}
+                  value={formData.altPhone}
+                  onChange={updateFormData}
+                />
+              </div>
+
+              <textarea
+                name="address"
+                placeholder={t("auth.signup.address_placeholder", "Delivery Address")}
+                value={formData.address}
+                onChange={updateFormData}
+                className="w-full bg-transparent border border-[#111315]/35 hover:border-[#111315]/60 focus:border-[#FF5500] text-[#111315] font-medium px-4 py-2.5 rounded-2xl text-sm h-20 outline-none resize-none placeholder:text-[#111315]/65 transition-colors"
+              />
+
+              <div className="flex gap-3 pt-1">
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(1)}
+                  className="flex-1 bg-transparent border border-[#111315]/35 hover:border-[#111315] text-[#111315] font-bold py-3.5 rounded-full text-sm transition-colors cursor-pointer"
+                >
+                  Back
+                </button>
+                <button
+                  type="submit"
+                  disabled={isLoading || loading}
+                  className="flex-[2] flex items-center justify-center gap-2 bg-[#FF5500] hover:bg-[#E04B00] text-white font-bold py-3.5 rounded-full text-sm transition-colors shadow-[0_12px_28px_rgba(255,85,0,0.28)] disabled:opacity-50 cursor-pointer"
+                >
+                  {isLoading ? t("auth.signup.creating_account", "Signing up...") : t("auth.signup.create_account", "Complete Signup")}
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </form>
+
+      <div className="mt-4 text-center lg:text-left px-1">
+        <p className="text-[#403C36] text-[13px] font-medium">
+          {t("auth.signup.already_account", "Member?")}{" "}
+          <Link
+            href="/login"
+            className="text-[#FF5500] font-bold hover:underline"
+          >
+            {t("auth.signup.sign_in_link", "Login here")}
+          </Link>
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+interface IconInputProps {
+  name: string;
+  type?: string;
+  placeholder: string;
+  icon: React.ReactNode;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+}
+
+function IconInput({
+  name,
+  type = "text",
+  placeholder,
+  icon,
+  value,
+  onChange,
+  required = false,
+}: IconInputProps) {
+  return (
+    <div className="relative group">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#111315]/75 group-focus-within:text-[#FF5500] transition-colors pointer-events-none">
+        {icon}
+      </div>
+      <input
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
+        className="w-full bg-transparent border border-[#111315]/35 hover:border-[#111315]/60 focus:border-[#FF5500] focus:ring-2 focus:ring-[#FF5500]/20 text-[#111315] font-medium pl-10 pr-4 py-2.5 rounded-full text-sm outline-none transition-all placeholder:text-[#111315]/65"
+      />
+    </div>
+  );
+}

@@ -1,0 +1,35 @@
+import { Metadata } from "next";
+import {
+  ForgeHero,
+  ForgeContactChannels,
+  ForgeSpecificationForm,
+  ForgeProcessCards,
+  MapSection,
+} from "@/components/contact";
+
+export const metadata: Metadata = {
+  title: "Contact & Power Consultation | Sarvadnya Generators Nashik",
+  description:
+    "Direct fleet dispatch desk and tailored power rental consultation for weddings, events, and industrial manufacturing across Nashik and Maharashtra.",
+};
+
+export default function ContactPage() {
+  return (
+    <main className="relative min-h-screen bg-[#FAF8F5] text-[#111315] overflow-x-hidden">
+      {/* 1. Hero: Every deployment starts with a conversation (Bright Luxury Theme) */}
+      <ForgeHero />
+
+      {/* 2. Direct Channels: Phone • Email • Concierge & Logistics • Visit Us */}
+      <ForgeContactChannels />
+
+      {/* 3. Interactive Specification: Define Your Specification Form */}
+      <ForgeSpecificationForm />
+
+      {/* 4. Process: A considered process built around you (3 Cards) */}
+      <ForgeProcessCards />
+
+      {/* 5. Interactive Location Map: Nashik Central Depot */}
+      <MapSection />
+    </main>
+  );
+}
