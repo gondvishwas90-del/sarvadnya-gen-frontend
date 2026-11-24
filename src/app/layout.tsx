@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={manrope.variable}>
       <body
-        className={`${manrope.className} antialiased bg-[#FAF8F5] text-[#1F1F1E] overflow-x-clip selection:bg-[#FF5500]/20 selection:text-[#1F1F1E]`}
+        className={`${manrope.className} antialiased bg-[#FAF8F5] text-[#1F1F1E] selection:bg-[#FF5500]/20 selection:text-[#1F1F1E]`}
       >
         <AuthProvider>
           <LanguageProvider>
@@ -46,7 +46,7 @@ export default function RootLayout({
               <GlobalLoader />
               <FullscreenProvider>
                 <Header />
-                <main className="overflow-x-clip min-h-screen">{children}</main>
+                <main className="min-h-screen">{children}</main>
                 <FooterClient>
                   <Footer />
                 </FooterClient>

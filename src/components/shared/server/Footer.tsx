@@ -41,7 +41,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#FAF8F5] text-[#111315] relative overflow-x-clip border-t border-[#E8E2D9] select-none flex flex-col">
+    <footer className="w-full bg-[#FAF8F5] text-[#111315] relative border-t border-[#E8E2D9] select-none flex flex-col">
       {/* Driving 3D Generator Truck & Roadway Stage */}
       <GeneratorTruckTrack>
         {/* Responsive vertical padding: pt-9 on mobile for single-screen fit, pt-20 lg:pt-24 on desktop */}

@@ -95,13 +95,13 @@ export function Community() {
           
           {/* Section Header: Clean title */}
           <div className="text-center max-w-3xl mx-auto flex flex-col items-center mb-6 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.12]">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.28] pt-1.5 pb-1">
               {t("about.promise.title1", "The Sarvadnya")}{" "}
               <span className="text-[#FF5500]">
                 {t("about.promise.title2", "Promise")}
               </span>
             </h2>
-            <p className="text-sm sm:text-base text-[#524E48] font-['Outfit',sans-serif] leading-relaxed mt-2 sm:mt-3">
+            <p className="text-xs sm:text-base text-[#524E48] font-['Outfit',sans-serif] leading-relaxed mt-1.5 sm:mt-3">
               {t(
                 "about.promise.desc",
                 "We deliver uninterrupted power with rapid dispatch, meticulously maintained generator sets, and dedicated 24/7 technical engineers on site."
@@ -109,12 +109,43 @@ export function Community() {
             </p>
           </div>
 
+          {/* Mobile 2x2 Clean Compact Grid (< lg) */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden w-full max-w-lg mx-auto">
+            {promises.map((item) => (
+              <div
+                key={`mob-promise-${item.num}`}
+                className="bg-[#FAF8F5] border border-[#E8E2D9] rounded-2xl p-3 flex flex-col justify-between shadow-2xs overflow-hidden"
+              >
+                <div>
+                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-2 bg-[#111315]">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute top-1.5 left-1.5 size-6 rounded-md bg-[#FF5500] text-white flex items-center justify-center font-['Poppins',sans-serif] text-xs font-bold shadow-xs">
+                      {item.num}
+                    </div>
+                  </div>
+                  <h3 className="text-xs sm:text-sm font-extrabold text-[#111315] font-['Poppins',sans-serif] leading-tight line-clamp-1">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="text-[10px] sm:text-xs text-[#524E48] font-['Outfit',sans-serif] leading-relaxed mt-1 line-clamp-2">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
           {/* 
+            Desktop Pinned Cube Layout (lg+)
             The Cube Exact Architectural Split:
             Left: 2x2 Square Grid (gap-0) where Top-Left and Bottom-Right corners touch.
             Right: Symmetrical square architectural image.
           */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-items-center">
+          <div className="hidden lg:grid w-full lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-items-center">
             
             {/* LEFT COLUMN: 2x2 Grid with gap-0 (Col 6) */}
             <div className="lg:col-span-6 w-full flex justify-center">

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="relative min-h-screen bg-[#FAF8F5] overflow-x-hidden">
+    <main className="relative min-h-screen bg-[#FAF8F5]">
       {/* 1. Services Hero */}
       <ServicesHero />
 

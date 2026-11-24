@@ -223,7 +223,12 @@ export function QuestionMark3D() {
     container.addEventListener("mousemove", handleMouseMove);
 
     // RENDER LOOP (Static pose with gentle mouse tilt damping)
+    let isVisible = true;
     const animate = () => {
+      if (!isVisible) {
+        animationFrameId = 0;
+        return;
+      }
       animationFrameId = requestAnimationFrame(animate);
 
       // Smooth damping interpolation toward mouse target
@@ -235,6 +240,18 @@ export function QuestionMark3D() {
 
       renderer.render(scene, camera);
     };
+
+    // INTERSECTION OBSERVER (Pauses 3D WebGL render loop when off-screen to free mobile GPU)
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry?.isIntersecting ?? false;
+        if (isVisible && !animationFrameId) {
+          animationFrameId = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    visibilityObserver.observe(container);
 
     animate();
 
@@ -257,6 +274,7 @@ export function QuestionMark3D() {
     // CLEANUP
     return () => {
       cancelAnimationFrame(animationFrameId);
+      visibilityObserver.disconnect();
       resizeObserver.disconnect();
       container.removeEventListener("mousemove", handleMouseMove);
       if (container.contains(renderer.domElement)) {

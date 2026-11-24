@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen overflow-x-clip bg-[#FAF8F5]">
+    <div className="min-h-screen bg-[#FAF8F5]">
       {/* 
         The Cube Architecture Pattern:
         Stage 1: Pinned Hero Stage (sticky top-0 z-0)

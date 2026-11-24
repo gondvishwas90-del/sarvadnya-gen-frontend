@@ -54,206 +54,159 @@ export function ForgeContactChannels() {
     <section className="relative w-full bg-[#FAF8F5] border-b border-[#E8E2D9] text-[#111315] z-20 overflow-hidden">
       <div className="w-full max-w-[1600px] mx-auto">
         
-        {/* Mobile Horizontal Snap-Swipe Carousel (< md) */}
-        <div className="block md:hidden w-full py-6 px-4">
-          <div
-            ref={carouselRef}
-            onScroll={handleScroll}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar touch-pan-x -mx-4 px-4 pb-4 pt-1 scroll-smooth"
-          >
-            {/* Card 1: Phone */}
-            <div className="w-[84vw] max-w-[320px] shrink-0 snap-center p-6 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
-                    {t("contact.channel.phone.badge", "Phone")}
-                  </span>
-                  <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
-                    <Phone className="size-4" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5 my-2">
-                  <a
-                    href="tel:+916262629944"
-                    className="font-serif text-lg text-[#111315] font-semibold tracking-tight inline-flex items-center gap-1.5"
-                  >
-                    <span>+91 62626 29944</span>
-                    <ArrowUpRight className="size-3.5 text-[#FF5500]" />
-                  </a>
-                  <span className="text-[11px] font-mono text-[#8C8275]">
-                    {t("contact.channel.phone.role1", "Tanmay Avhad (Lead Dispatch)")}
-                  </span>
-
-                  <a
-                    href="tel:+919823197881"
-                    className="font-serif text-base text-[#524E48] font-medium tracking-tight pt-2 inline-flex items-center gap-1.5"
-                  >
-                    <span>+91 98231 97881</span>
-                    <ArrowUpRight className="size-3.5 text-[#FF5500]" />
-                  </a>
-                  <span className="text-[11px] font-mono text-[#8C8275]">
-                    {t("contact.channel.phone.role2", "Gopal Avhad (Technical Operations)")}
-                  </span>
+        {/* Mobile Vertical Stacked Cards (< md) */}
+        <div className="flex flex-col gap-4 md:hidden w-full py-6 px-4">
+          {/* Card 1: Phone */}
+          <div className="w-full p-5 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
+                  {t("contact.channel.phone.badge", "Phone")}
+                </span>
+                <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
+                  <Phone className="size-4" />
                 </div>
               </div>
 
-              <p className="text-[11px] text-[#625D55] mt-4 pt-3 border-t border-[#E8E2D9] font-sans">
-                {t("contact.channel.phone.timing", "Mon — Sat: 9:00 AM — 7:00 PM")} • <strong className="text-[#FF5500]">{t("contact.channel.phone.247", "24/7 Dispatch")}</strong>
-              </p>
-            </div>
+              <div className="flex flex-col gap-1.5 my-2">
+                <a
+                  href="tel:+916262629944"
+                  className="font-serif text-lg text-[#111315] font-semibold tracking-tight inline-flex items-center gap-1.5"
+                >
+                  <span>+91 62626 29944</span>
+                  <ArrowUpRight className="size-3.5 text-[#FF5500]" />
+                </a>
+                <span className="text-[11px] font-mono text-[#8C8275]">
+                  {t("contact.channel.phone.role1", "Tanmay Avhad (Lead Dispatch)")}
+                </span>
 
-            {/* Card 2: Email */}
-            <div className="w-[84vw] max-w-[320px] shrink-0 snap-center p-6 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
-                    {t("contact.channel.email.badge", "Email")}
-                  </span>
-                  <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
-                    <Mail className="size-4" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5 my-2">
-                  <a
-                    href="mailto:info@sarvadnyagenerators.com"
-                    className="font-serif text-base text-[#111315] font-semibold tracking-tight truncate inline-flex items-center gap-1.5"
-                  >
-                    <span className="truncate">info@sarvadnyagenerators.com</span>
-                    <ArrowUpRight className="size-3.5 text-[#FF5500] shrink-0" />
-                  </a>
-
-                  <div className="flex flex-col text-[11px] text-[#625D55] gap-1 pt-2 font-sans">
-                    <span className="truncate">Support: support@sarvadnyagenerators.com</span>
-                    <span className="truncate">Sales: sales@sarvadnyagenerators.com</span>
-                  </div>
-                </div>
+                <a
+                  href="tel:+919823197881"
+                  className="font-serif text-base text-[#524E48] font-medium tracking-tight pt-2 inline-flex items-center gap-1.5"
+                >
+                  <span>+91 98231 97881</span>
+                  <ArrowUpRight className="size-3.5 text-[#FF5500]" />
+                </a>
+                <span className="text-[11px] font-mono text-[#8C8275]">
+                  {t("contact.channel.phone.role2", "Gopal Avhad (Technical Operations)")}
+                </span>
               </div>
-
-              <p className="text-[11px] text-[#625D55] mt-4 pt-3 border-t border-[#E8E2D9] font-sans">
-                {t("contact.channel.email.timing", "Response within 1–2 hours for rental inquiries.")}
-              </p>
             </div>
 
-            {/* Card 3: Concierge / Logistics */}
-            <div className="w-[84vw] max-w-[320px] shrink-0 snap-center p-6 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
-                    {t("contact.channel.logistics.badge", "Logistics")}
-                  </span>
-                  <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
-                    <Truck className="size-4" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5 my-2">
-                  <h3 className="font-serif text-base text-[#111315] font-semibold tracking-tight">
-                    {t("contact.channel.logistics.title", "Statewide Mobilization")}
-                  </h3>
-                  <p className="text-xs text-[#625D55] leading-relaxed font-sans">
-                    {t("contact.channel.logistics.desc", "Heavy hydraulic fleet transport, professional loading, and on-site electrical distribution.")}
-                  </p>
-
-                  <div className="pt-2">
-                    <a
-                      href="https://wa.me/916262629944"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#FF5500] font-bold"
-                    >
-                      <MessageSquare className="size-3.5 shrink-0" />
-                      <span>{t("contact.channel.logistics.whatsapp", "WhatsApp Quick Dispatch")}</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-[11px] text-[#625D55] mt-4 pt-3 border-t border-[#E8E2D9] font-sans">
-                {t("contact.channel.logistics.sla", "Guaranteed < 60 minute emergency response in Nashik.")}
-              </p>
-            </div>
-
-            {/* Card 4: Visit Us */}
-            <div className="w-[84vw] max-w-[320px] shrink-0 snap-center p-6 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
-                    {t("contact.channel.visit.badge", "Visit Us")}
-                  </span>
-                  <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
-                    <MapPin className="size-4" />
-                  </div>
-                </div>
-
-                <div className="flex flex-col gap-1.5 my-2">
-                  <h3 className="font-serif text-base text-[#111315] font-semibold tracking-tight">
-                    {t("contact.channel.visit.title", "Nashik Central Depot")}
-                  </h3>
-                  <p className="text-xs text-[#625D55] leading-relaxed font-sans">
-                    {t("contact.channel.visit.address", "Wadala - Pathardi Rd, behind Sudarshan Lawns, Indira Nagar, Nashik 422009")}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider bg-[#FAF8F5] border border-[#E8E2D9] text-[#524E48] font-bold">
-                      {t("contact.channel.visit.midc", "MIDC Ambad")}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider bg-[#FAF8F5] border border-[#E8E2D9] text-[#524E48] font-bold">
-                      {t("contact.channel.visit.satpur", "Satpur")}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider bg-[#FAF8F5] border border-[#E8E2D9] text-[#524E48] font-bold">
-                      {t("contact.channel.visit.sinnar", "Sinnar")}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-[11px] text-[#625D55] mt-4 pt-3 border-t border-[#E8E2D9] font-sans">
-                {t("contact.channel.visit.timing", "Inspections & consultations by appointment.")}
-              </p>
-            </div>
+            <p className="text-[11px] text-[#625D55] mt-3 pt-3 border-t border-[#E8E2D9] font-sans">
+              {t("contact.channel.phone.timing", "Mon — Sat: 9:00 AM — 7:00 PM")} • <strong className="text-[#FF5500]">{t("contact.channel.phone.247", "24/7 Dispatch")}</strong>
+            </p>
           </div>
 
-          {/* Carousel Indicators & Controls */}
-          <div className="flex items-center justify-between pt-2 px-1">
-            <div className="flex items-center gap-1.5">
-              {[0, 1, 2, 3].map((i) => (
-                <button
-                  key={`channel-dot-${i}`}
-                  type="button"
-                  onClick={() => scrollToIndex(i)}
-                  aria-label={`Go to channel ${i + 1}`}
-                  className={cn(
-                    "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                    activeIndex === i
-                      ? "w-6 bg-[#FF5500]"
-                      : "w-1.5 bg-[#DDD6CA] hover:bg-[#B8B0A2]"
-                  )}
-                />
-              ))}
+          {/* Card 2: Email */}
+          <div className="w-full p-5 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
+                  {t("contact.channel.email.badge", "Email")}
+                </span>
+                <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
+                  <Mail className="size-4" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 my-2">
+                <a
+                  href="mailto:info@sarvadnyagenerators.com"
+                  className="font-serif text-base text-[#111315] font-semibold tracking-tight truncate inline-flex items-center gap-1.5"
+                >
+                  <span className="truncate">info@sarvadnyagenerators.com</span>
+                  <ArrowUpRight className="size-3.5 text-[#FF5500] shrink-0" />
+                </a>
+
+                <div className="flex flex-col text-[11px] text-[#625D55] gap-1 pt-1 font-sans">
+                  <span className="truncate">Support: support@sarvadnyagenerators.com</span>
+                  <span className="truncate">Sales: sales@sarvadnyagenerators.com</span>
+                </div>
+              </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
-                disabled={activeIndex === 0}
-                className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-                aria-label="Previous channel"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToIndex(Math.min(3, activeIndex + 1))}
-                disabled={activeIndex === 3}
-                className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-                aria-label="Next channel"
-              >
-                <ChevronRight size={16} />
-              </button>
+            <p className="text-[11px] text-[#625D55] mt-3 pt-3 border-t border-[#E8E2D9] font-sans">
+              {t("contact.channel.email.timing", "Response within 1–2 hours for rental inquiries.")}
+            </p>
+          </div>
+
+          {/* Card 3: Concierge / Logistics */}
+          <div className="w-full p-5 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
+                  {t("contact.channel.logistics.badge", "Logistics")}
+                </span>
+                <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
+                  <Truck className="size-4" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 my-2">
+                <h3 className="font-serif text-base text-[#111315] font-semibold tracking-tight">
+                  {t("contact.channel.logistics.title", "Statewide Mobilization")}
+                </h3>
+                <p className="text-xs text-[#625D55] leading-relaxed font-sans">
+                  {t("contact.channel.logistics.desc", "Heavy hydraulic fleet transport, professional loading, and on-site electrical distribution.")}
+                </p>
+
+                <div className="pt-2">
+                  <a
+                    href="https://wa.me/916262629944"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-[#FF5500] font-bold"
+                  >
+                    <MessageSquare className="size-3.5 shrink-0" />
+                    <span>{t("contact.channel.logistics.whatsapp", "WhatsApp Quick Dispatch")}</span>
+                  </a>
+                </div>
+              </div>
             </div>
+
+            <p className="text-[11px] text-[#625D55] mt-3 pt-3 border-t border-[#E8E2D9] font-sans">
+              {t("contact.channel.logistics.sla", "Guaranteed < 60 minute emergency response in Nashik.")}
+            </p>
+          </div>
+
+          {/* Card 4: Visit Us */}
+          <div className="w-full p-5 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#FF5500] font-bold">
+                  {t("contact.channel.visit.badge", "Visit Us")}
+                </span>
+                <div className="size-8 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shrink-0">
+                  <MapPin className="size-4" />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5 my-2">
+                <h3 className="font-serif text-base text-[#111315] font-semibold tracking-tight">
+                  {t("contact.channel.visit.title", "Nashik Central Depot")}
+                </h3>
+                <p className="text-xs text-[#625D55] leading-relaxed font-sans">
+                  {t("contact.channel.visit.address", "Wadala - Pathardi Rd, behind Sudarshan Lawns, Indira Nagar, Nashik 422009")}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider bg-[#FAF8F5] border border-[#E8E2D9] text-[#524E48] font-bold">
+                    {t("contact.channel.visit.midc", "MIDC Ambad")}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider bg-[#FAF8F5] border border-[#E8E2D9] text-[#524E48] font-bold">
+                    {t("contact.channel.visit.satpur", "Satpur")}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider bg-[#FAF8F5] border border-[#E8E2D9] text-[#524E48] font-bold">
+                    {t("contact.channel.visit.sinnar", "Sinnar")}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[11px] text-[#625D55] mt-3 pt-3 border-t border-[#E8E2D9] font-sans">
+              {t("contact.channel.visit.timing", "Inspections & consultations by appointment.")}
+            </p>
           </div>
         </div>
 

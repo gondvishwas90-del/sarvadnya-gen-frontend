@@ -23,8 +23,14 @@ export function TrustedByClient({ partners }: { partners: Partner[] }) {
 
     let rafId: number;
     let lastTime = performance.now();
+    let isVisible = true;
 
     const step = (now: number) => {
+      if (!isVisible) {
+        rafId = 0;
+        return;
+      }
+
       const delta = (now - lastTime) / 1000;
       lastTime = now;
 
@@ -39,9 +45,22 @@ export function TrustedByClient({ partners }: { partners: Partner[] }) {
       rafId = requestAnimationFrame(step);
     };
 
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry?.isIntersecting ?? false;
+        if (isVisible && !rafId) {
+          lastTime = performance.now();
+          rafId = requestAnimationFrame(step);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    visibilityObserver.observe(el);
+
     rafId = requestAnimationFrame(step);
     return () => {
       cancelAnimationFrame(rafId);
+      visibilityObserver.disconnect();
       if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     };
   }, []);
@@ -115,7 +134,7 @@ export function TrustedByClient({ partners }: { partners: Partner[] }) {
           ref={scrollRef}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x py-1"
+          className="flex gap-3 overflow-x-auto no-scrollbar scroll-smooth touch-pan-x touch-pan-y py-1"
           style={{
             WebkitOverflowScrolling: "touch",
           }}

@@ -169,8 +169,8 @@ export function ServicesWeOffer() {
       ref={trackRef}
       className="relative w-full h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-4 sm:px-6 lg:px-10 xl:px-14 overflow-hidden z-10">
-        <div className="max-w-7xl mx-auto w-full flex flex-col gap-5 sm:gap-6 lg:gap-8">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-start pt-14 pb-4 sm:justify-center sm:pt-0 px-4 sm:px-6 lg:px-10 xl:px-14 overflow-hidden z-10">
+        <div className="max-w-7xl mx-auto w-full flex flex-col gap-3 sm:gap-6 lg:gap-8">
           <SectionHeading
             title={
               <span className="block lg:whitespace-nowrap">
@@ -179,7 +179,7 @@ export function ServicesWeOffer() {
             }
             description={t("services.desc")}
             align="left"
-            className="mb-1 max-w-5xl"
+            className="mb-0 sm:mb-1 max-w-5xl"
           />
 
           <ServicesWeOfferClient

@@ -509,143 +509,136 @@ function MobileCompareView({
         </div>
       </div>
 
-      {/* SWIPE CARD CAROUSEL (Horizontal Touch Snap for All Selected Units) */}
-      <div className="w-full flex flex-col">
-        <div className="flex gap-3.5 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-3 pt-1 px-0.5">
-          {selectedGenerators.map((gen, idx) => {
-            const [num, unit = "kVA"] = gen.kva.split(" ");
-            return (
-              <div
-                key={`mobile-carousel-card-${gen.id}`}
-                className="w-[84vw] max-w-[325px] shrink-0 snap-center rounded-2xl bg-white border border-[#E8E2D9] border-t-[3px] border-t-[#FF5500] p-4 flex flex-col justify-between shadow-[0_6px_20px_rgba(31,31,30,0.04)]"
-              >
-                <div>
-                  {/* Top Meta */}
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#FF5500]">
-                      {t("generators.compare.unit", "Unit")} 0{idx + 1} • {gen.type}
-                    </span>
-                    {selectedGenerators.length > 1 && (
-                      <button
-                        type="button"
-                        onClick={() => onRemove(gen.id)}
-                        className="size-6 rounded-full flex items-center justify-center text-[#8C8275] hover:bg-red-50 hover:text-red-600 cursor-pointer"
-                        aria-label={`Remove ${gen.kva}`}
-                      >
-                        <X className="w-3.5 h-3.5" />
-                      </button>
-                    )}
-                  </div>
-
-                  {/* Hero kVA */}
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="font-sans font-black text-3xl text-[#1F1F1E] tracking-tight">
-                      {num}
-                    </span>
-                    <span className="font-mono text-sm font-extrabold text-[#FF5500]">
-                      {unit}
-                    </span>
-                  </div>
-
-                  <p className="font-sans font-bold text-sm text-[#1F1F1E]">
-                    {gen.brand}
-                  </p>
-                  <p className="font-sans text-xs text-[#625D55] line-clamp-1 mb-2.5">
-                    {gen.bestFor}
-                  </p>
-
-                  {/* Price Bar */}
-                  <div className="flex items-baseline gap-1 pb-3 mb-3 border-b border-[#E8E2D9]/80">
-                    <span className="font-sans font-extrabold text-xl text-[#FF5500]">
-                      {gen.pricePerDay}
-                    </span>
-                    <span className="font-mono text-xs text-[#7A756D]">
-                      {t("generators.card.perDay", "/ day")}
-                    </span>
-                  </div>
-
-                  {/* Full Spec List */}
-                  <div className="space-y-2 mb-4">
-                    {COMPARISON_FEATURES.map((feature) => {
-                      const Icon = feature.icon;
-                      const val = gen[feature.key as keyof CompareGenerator];
-                      const hasDiff = featureHasDifference(
-                        feature.key as keyof CompareGenerator
-                      );
-                      const isHighlighted = highlightDifferences && hasDiff;
-
-                      return (
-                        <div
-                          key={`carousel-spec-${feature.key}`}
-                          className={cn(
-                            "flex items-center justify-between py-2 px-2.5 rounded-xl border text-xs transition-colors",
-                            isHighlighted
-                              ? "bg-[#FFF4ED] border-[#FF5500]/40"
-                              : "bg-[#FAF8F5] border-[#E8E2D9]/80"
-                          )}
-                        >
-                          <div className="flex items-center gap-2 text-[#625D55]">
-                            <Icon className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
-                            <span className="font-sans font-medium">
-                              {t(feature.labelKey, feature.label)}
-                            </span>
-                          </div>
-                          <div>{renderSpecValueMobile(val, isHighlighted, t)}</div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Card Actions */}
-                <div className="flex items-center gap-2 pt-2.5 border-t border-[#E8E2D9]/80">
-                  <button
-                    type="button"
-                    onClick={() => setPickerTarget(gen.id)}
-                    className="flex-1 h-9 px-3 rounded-xl bg-[#FAF8F5] hover:bg-[#EFEAE1] border border-[#E8E2D9] text-[#1F1F1E] font-sans font-semibold text-xs flex items-center justify-between cursor-pointer"
-                  >
-                    <span>{t("generators.compare.change", "Change")}</span>
-                    <ChevronDown className="w-3.5 h-3.5 text-[#625D55]" />
-                  </button>
-
-                  <Link
-                    href={`/book?kVA=${encodeURIComponent(gen.kva)}`}
-                    className="h-9 px-4 rounded-xl bg-[#1F1F1E] hover:bg-[#FF5500] text-white font-sans font-bold text-xs inline-flex items-center gap-1.5 transition-colors shrink-0"
-                  >
-                    <span>{t("generators.compare.book", "Book")}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
-
-          {/* Empty Add Card if fewer than 3 */}
-          {selectedGenerators.length < Math.min(3, generators.length) && (
-            <button
-              type="button"
-              onClick={() => setPickerTarget("add")}
-              className="w-[84vw] max-w-[325px] shrink-0 snap-center min-h-[380px] rounded-2xl border-2 border-dashed border-[#D6CFC4] hover:border-[#FF5500] bg-white/50 p-5 flex flex-col items-center justify-center gap-3 text-center transition-colors cursor-pointer"
+      {/* VERTICAL COMPARISON CARDS (Full vertical scroll on mobile) */}
+      <div className="w-full flex flex-col gap-4">
+        {selectedGenerators.map((gen, idx) => {
+          const [num, unit = "kVA"] = gen.kva.split(" ");
+          return (
+            <div
+              key={`mobile-vertical-card-${gen.id}`}
+              className="w-full rounded-2xl bg-white border border-[#E8E2D9] border-t-[3px] border-t-[#FF5500] p-4 sm:p-5 flex flex-col justify-between shadow-[0_6px_20px_rgba(31,31,30,0.04)]"
             >
-              <div className="size-12 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500]">
-                <Plus className="w-6 h-6" />
-              </div>
               <div>
-                <span className="block font-sans font-bold text-sm text-[#1F1F1E]">
-                  Add Generator
-                </span>
-                <span className="block font-mono text-[10px] uppercase text-[#7A756D] mt-0.5">
-                  Compare up to 3 units
-                </span>
-              </div>
-            </button>
-          )}
-        </div>
+                {/* Top Meta */}
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#FF5500]">
+                    {t("generators.compare.unit", "Unit")} 0{idx + 1} • {gen.type}
+                  </span>
+                  {selectedGenerators.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => onRemove(gen.id)}
+                      className="size-6 rounded-full flex items-center justify-center text-[#8C8275] hover:bg-red-50 hover:text-red-600 cursor-pointer"
+                      aria-label={`Remove ${gen.kva}`}
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
 
-        {/* Swipe Hint */}
-        <p className="text-center font-mono text-[11px] text-[#7A756D] mt-2">
-          ← Swipe cards to compare specifications →
-        </p>
+                {/* Hero kVA */}
+                <div className="flex items-baseline gap-1 mb-1">
+                  <span className="font-sans font-black text-3xl text-[#1F1F1E] tracking-tight">
+                    {num}
+                  </span>
+                  <span className="font-mono text-sm font-extrabold text-[#FF5500]">
+                    {unit}
+                  </span>
+                </div>
+
+                <p className="font-sans font-bold text-sm text-[#1F1F1E]">
+                  {gen.brand}
+                </p>
+                <p className="font-sans text-xs text-[#625D55] line-clamp-1 mb-2.5">
+                  {gen.bestFor}
+                </p>
+
+                {/* Price Bar */}
+                <div className="flex items-baseline gap-1 pb-3 mb-3 border-b border-[#E8E2D9]/80">
+                  <span className="font-sans font-extrabold text-xl text-[#FF5500]">
+                    {gen.pricePerDay}
+                  </span>
+                  <span className="font-mono text-xs text-[#7A756D]">
+                    {t("generators.card.perDay", "/ day")}
+                  </span>
+                </div>
+
+                {/* Full Spec List */}
+                <div className="space-y-2 mb-4">
+                  {COMPARISON_FEATURES.map((feature) => {
+                    const Icon = feature.icon;
+                    const val = gen[feature.key as keyof CompareGenerator];
+                    const hasDiff = featureHasDifference(
+                      feature.key as keyof CompareGenerator
+                    );
+                    const isHighlighted = highlightDifferences && hasDiff;
+
+                    return (
+                      <div
+                        key={`carousel-spec-${feature.key}`}
+                        className={cn(
+                          "flex items-center justify-between py-2 px-2.5 rounded-xl border text-xs transition-colors",
+                          isHighlighted
+                            ? "bg-[#FFF4ED] border-[#FF5500]/40"
+                            : "bg-[#FAF8F5] border-[#E8E2D9]/80"
+                        )}
+                      >
+                        <div className="flex items-center gap-2 text-[#625D55]">
+                          <Icon className="w-3.5 h-3.5 text-[#FF5500] shrink-0" />
+                          <span className="font-sans font-medium">
+                            {t(feature.labelKey, feature.label)}
+                          </span>
+                        </div>
+                        <div>{renderSpecValueMobile(val, isHighlighted, t)}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Card Actions */}
+              <div className="flex items-center gap-2 pt-2.5 border-t border-[#E8E2D9]/80">
+                <button
+                  type="button"
+                  onClick={() => setPickerTarget(gen.id)}
+                  className="flex-1 h-9 px-3 rounded-xl bg-[#FAF8F5] hover:bg-[#EFEAE1] border border-[#E8E2D9] text-[#1F1F1E] font-sans font-semibold text-xs flex items-center justify-between cursor-pointer"
+                >
+                  <span>{t("generators.compare.change", "Change")}</span>
+                  <ChevronDown className="w-3.5 h-3.5 text-[#625D55]" />
+                </button>
+
+                <Link
+                  href={`/book?kVA=${encodeURIComponent(gen.kva)}`}
+                  className="h-9 px-4 rounded-xl bg-[#1F1F1E] hover:bg-[#FF5500] text-white font-sans font-bold text-xs inline-flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <span>{t("generators.compare.book", "Book")}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Empty Add Card if fewer than 3 */}
+        {selectedGenerators.length < Math.min(3, generators.length) && (
+          <button
+            type="button"
+            onClick={() => setPickerTarget("add")}
+            className="w-full py-6 rounded-2xl border-2 border-dashed border-[#D6CFC4] hover:border-[#FF5500] bg-white/50 p-4 flex flex-col items-center justify-center gap-2 text-center transition-colors cursor-pointer"
+          >
+            <div className="size-10 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500]">
+              <Plus className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="block font-sans font-bold text-sm text-[#1F1F1E]">
+                Add Generator
+              </span>
+              <span className="block font-mono text-[10px] uppercase text-[#7A756D] mt-0.5">
+                Compare up to 3 units
+              </span>
+            </div>
+          </button>
+        )}
       </div>
 
       {/* Mobile Generator Picker Bottom Sheet Modal (Portalled to document.body to prevent any stacking context or footer overlap) */}

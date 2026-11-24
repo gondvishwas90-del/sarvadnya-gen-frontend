@@ -192,104 +192,59 @@ export function BlogGrid() {
 
   return (
     <div className="w-full">
-      {/* Mobile Horizontal Snap-Swipe Rail (< md) */}
-      <div className="block md:hidden w-full">
-        <div
-          ref={carouselRef}
-          onScroll={handleScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar touch-pan-x -mx-4 px-4 pb-4 pt-1 scroll-smooth"
-        >
-          {visiblePosts.map((post) => (
-            <article
-              key={`mobile-${post.slug}`}
-              className="w-[84vw] max-w-[340px] shrink-0 snap-center flex flex-col h-full"
+      {/* Mobile Vertical One-by-One Cards (< md) */}
+      <div className="flex flex-col gap-6 md:hidden w-full">
+        {visiblePosts.map((post) => (
+          <motion.article
+            key={`mobile-${post.slug}`}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full flex flex-col"
+          >
+            <Link
+              href={`/blog/${post.slug}`}
+              className="group bg-white border border-[#E8E2D9] active:border-[#FF5500] rounded-2xl overflow-hidden shadow-xs flex flex-col"
             >
-              <Link
-                href={`/blog/${post.slug}`}
-                className="group bg-white border border-[#E8E2D9] active:border-[#FF5500] rounded-3xl overflow-hidden shadow-[0_12px_36px_-14px_rgba(17,19,21,0.06)] flex flex-col h-full"
-              >
-                {/* Card Media */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFEAE1] border-b border-[#E8E2D9]">
-                  <Image
-                    src={post.image}
-                    alt={t(post.title, post.title)}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-3.5 right-3.5 size-8 rounded-full bg-white text-[#111315] flex items-center justify-center shadow-md">
-                    <ArrowUpRight size={16} />
-                  </div>
+              {/* Card Media */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#EFEAE1] border-b border-[#E8E2D9]">
+                <Image
+                  src={post.image}
+                  alt={t(post.title, post.title)}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-3.5 right-3.5 size-8 rounded-full bg-white text-[#111315] flex items-center justify-center shadow-md">
+                  <ArrowUpRight size={16} />
+                </div>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-4 sm:p-5 flex flex-col gap-3 bg-white">
+                <div className="flex items-center gap-3 text-[11px] font-mono font-semibold text-[#2D2A26]">
+                  <span className="inline-flex items-center gap-1">
+                    <Calendar size={12} className="text-[#FF5500]" />
+                    {formatBlogDate(post.date, language)}
+                  </span>
                 </div>
 
-                {/* Card Content */}
-                <div className="p-5 flex-1 flex flex-col justify-between gap-4 bg-white">
-                  <div className="space-y-2.5">
-                    <div className="flex items-center gap-3 text-[11px] font-mono font-semibold text-[#2D2A26]">
-                      <span className="inline-flex items-center gap-1">
-                        <Calendar size={12} className="text-[#FF5500]" />
-                        {formatBlogDate(post.date, language)}
-                      </span>
-                    </div>
+                <h3 className="text-base font-extrabold text-[#111315] leading-snug line-clamp-2">
+                  {t(post.title, post.title)}
+                </h3>
 
-                    <h3 className="text-lg font-extrabold text-[#111315] leading-snug line-clamp-2">
-                      {t(post.title, post.title)}
-                    </h3>
+                <p className="text-xs text-[#524E48] leading-relaxed line-clamp-2">
+                  {t(post.excerpt, post.excerpt)}
+                </p>
 
-                    <p className="text-xs text-[#524E48] leading-relaxed line-clamp-2">
-                      {t(post.excerpt, post.excerpt)}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-[#ECE6DC] flex items-center justify-between text-xs font-bold text-[#FF5500]">
-                    <span>{t("blog.grid.readArticle", "Read Article")}</span>
-                    <ArrowRight size={14} />
-                  </div>
+                <div className="pt-3 border-t border-[#ECE6DC] flex items-center justify-between text-xs font-bold text-[#FF5500]">
+                  <span>{t("blog.grid.readArticle", "Read Article")}</span>
+                  <ArrowRight size={14} />
                 </div>
-              </Link>
-            </article>
-          ))}
-        </div>
-
-        {/* Mobile Carousel Indicators & Pagination Controls */}
-        <div className="flex items-center justify-between pt-3 px-1">
-          <div className="flex items-center gap-1.5">
-            {visiblePosts.map((_, i) => (
-              <button
-                key={`dot-${i}`}
-                type="button"
-                onClick={() => scrollToIndex(i)}
-                aria-label={`Go to article ${i + 1}`}
-                className={cn(
-                  "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                  activeIndex === i
-                    ? "w-6 bg-[#FF5500]"
-                    : "w-1.5 bg-[#DDD6CA] hover:bg-[#B8B0A2]"
-                )}
-              />
-            ))}
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
-              disabled={activeIndex === 0}
-              className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-              aria-label={t("blog.grid.prev", "Previous article")}
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollToIndex(Math.min(visiblePosts.length - 1, activeIndex + 1))}
-              disabled={activeIndex === visiblePosts.length - 1}
-              className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-              aria-label={t("blog.grid.next", "Next article")}
-            >
-              <ChevronRight size={16} />
-            </button>
-          </div>
-        </div>
+              </div>
+            </Link>
+          </motion.article>
+        ))}
       </div>
 
       {/* Desktop Multi-Column Grid (md and above) with Staggered Scroll Reveal */}

@@ -114,85 +114,38 @@ export function ForgeProcessCards() {
           </motion.h2>
         </div>
 
-        {/* Mobile Horizontal Snap-Swipe Carousel (< md) */}
-        <div className="block md:hidden w-full">
-          <div
-            ref={carouselRef}
-            onScroll={handleScroll}
-            className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar touch-pan-x -mx-4 px-4 pb-4 pt-1 scroll-smooth"
-          >
-            {PROCESS_STEPS.map((step) => (
-              <div
-                key={`mobile-step-${step.number}`}
-                className="w-[84vw] max-w-[340px] shrink-0 snap-center flex flex-col justify-between p-6 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs relative overflow-hidden"
-              >
-                {/* Ghost Watermark Numeral */}
-                <span className="absolute -right-2 -top-4 font-sans font-black text-6xl text-[#1F1F1E]/[0.04] pointer-events-none select-none">
-                  {step.number}
-                </span>
+        {/* Mobile Vertical Stacked Cards (< md) */}
+        <div className="flex flex-col gap-4 md:hidden w-full">
+          {PROCESS_STEPS.map((step) => (
+            <div
+              key={`mobile-step-${step.number}`}
+              className="w-full flex flex-col justify-between p-5 rounded-2xl bg-white border border-[#E8E2D9] shadow-xs relative overflow-hidden"
+            >
+              {/* Ghost Watermark Numeral */}
+              <span className="absolute -right-2 -top-4 font-sans font-black text-6xl text-[#1F1F1E]/[0.04] pointer-events-none select-none">
+                {step.number}
+              </span>
 
-                <div>
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <span className="size-9 rounded-xl bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center font-sans font-extrabold text-xs text-[#FF5500] shadow-2xs">
-                      {step.number}
-                    </span>
-                    <div className="size-7 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shadow-2xs">
-                      <ArrowUpRight className="size-3.5" />
-                    </div>
+              <div>
+                <div className="flex items-center justify-between gap-3 mb-3">
+                  <span className="size-8 rounded-xl bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center font-sans font-extrabold text-xs text-[#FF5500] shadow-2xs">
+                    {step.number}
+                  </span>
+                  <div className="size-7 rounded-full bg-[#FAF8F5] border border-[#E8E2D9] flex items-center justify-center text-[#FF5500] shadow-2xs">
+                    <ArrowUpRight className="size-3.5" />
                   </div>
-
-                  <h3 className="font-serif text-lg text-[#111315] font-semibold tracking-tight leading-snug mb-2.5">
-                    {t(STEP_KEYS[step.number]?.title || step.title, step.title)}
-                  </h3>
-
-                  <p className="font-sans text-xs text-[#625D55] leading-relaxed">
-                    {t(STEP_KEYS[step.number]?.desc || step.description, step.description)}
-                  </p>
                 </div>
+
+                <h3 className="font-serif text-base sm:text-lg text-[#111315] font-semibold tracking-tight leading-snug mb-2">
+                  {t(STEP_KEYS[step.number]?.title || step.title, step.title)}
+                </h3>
+
+                <p className="font-sans text-xs text-[#625D55] leading-relaxed">
+                  {t(STEP_KEYS[step.number]?.desc || step.description, step.description)}
+                </p>
               </div>
-            ))}
-          </div>
-
-          {/* Carousel Indicators & Controls */}
-          <div className="flex items-center justify-between pt-3 px-1">
-            <div className="flex items-center gap-1.5">
-              {PROCESS_STEPS.map((_, i) => (
-                <button
-                  key={`step-dot-${i}`}
-                  type="button"
-                  onClick={() => scrollToIndex(i)}
-                  aria-label={`Go to step ${i + 1}`}
-                  className={cn(
-                    "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                    activeIndex === i
-                      ? "w-6 bg-[#FF5500]"
-                      : "w-1.5 bg-[#DDD6CA] hover:bg-[#B8B0A2]"
-                  )}
-                />
-              ))}
             </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
-                disabled={activeIndex === 0}
-                className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-                aria-label="Previous step"
-              >
-                <ChevronLeft size={16} />
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollToIndex(Math.min(PROCESS_STEPS.length - 1, activeIndex + 1))}
-                disabled={activeIndex === PROCESS_STEPS.length - 1}
-                className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-                aria-label="Next step"
-              >
-                <ChevronRight size={16} />
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Desktop 3 Process Cards Grid (Executive Luxury Architectural Stage) */}

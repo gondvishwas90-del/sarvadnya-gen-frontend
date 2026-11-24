@@ -49,13 +49,13 @@ export function WishlistRecommendations() {
           </Link>
         </div>
 
-        {/* Horizontal Card Row: Desktop 3-Col Horizontal Cards / Mobile Smooth Horizontal Scroll */}
-        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {/* Recommendations Grid: Desktop 3-Col / Mobile Clean Vertical Stack */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {recommendations.map((rec) => (
             <Link
               key={rec.kva}
               href={`/generators?search=${rec.kva.replace(/[^0-9]/g, "")}`}
-              className="p-5 sm:p-6 rounded-3xl bg-white border border-[#E8E2D9] hover:border-[#FF5500] hover:shadow-[0_14px_36px_-12px_rgba(255,85,0,0.12)] transition-all group flex flex-row items-center gap-4 sm:gap-5 min-w-[290px] sm:min-w-[320px] md:min-w-0 snap-center shrink-0 md:shrink"
+              className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-[#E8E2D9] hover:border-[#FF5500] hover:shadow-[0_14px_36px_-12px_rgba(255,85,0,0.12)] transition-all group flex flex-row items-center gap-4 sm:gap-5 w-full"
             >
               {/* Left Side: Bold kVA Capacity Badge */}
               <div className="shrink-0 w-20 sm:w-24 h-20 sm:h-24 rounded-2xl bg-[#FFF5EE] border border-[#FF5500]/25 flex flex-col items-center justify-center text-center p-2 group-hover:bg-[#FF5500] group-hover:border-[#FF5500] transition-all shadow-2xs">

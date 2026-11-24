@@ -67,7 +67,7 @@ export function GeneratorHero() {
   };
 
   return (
-    <section className="relative w-full flex items-center pt-24 sm:pt-28 lg:pt-28 pb-10 lg:pb-14 overflow-x-clip bg-transparent">
+    <section className="relative w-full flex items-center pt-24 sm:pt-28 lg:pt-28 pb-10 lg:pb-14 bg-transparent">
       {/* Subtle Warm Ambient Glow */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 right-0 w-[420px] h-[420px] bg-[#FF5500]/[0.05] blur-[130px] rounded-full translate-x-1/3" />

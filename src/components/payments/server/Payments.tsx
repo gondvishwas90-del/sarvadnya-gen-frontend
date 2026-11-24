@@ -7,7 +7,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 export function Payments() {
   const { t } = useLanguage();
   return (
-    <section className="w-full min-h-screen bg-[#FAF8F5] text-[#111315] pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 md:px-10 lg:px-[60px] relative overflow-x-clip">
+    <section className="w-full min-h-screen bg-[#FAF8F5] text-[#111315] pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 md:px-10 lg:px-[60px] relative">
       {/* Subtle Warm Ambient Glow */}
       <div
         aria-hidden="true"

@@ -3,6 +3,7 @@ import {
   GeneratorHero,
   GeneratorGallery,
   GeneratorCompare,
+  GeneratorCTA,
 } from "@/components/generators";
 import { FloatingGlow } from "@/components/shared/client";
 
@@ -27,6 +28,9 @@ export default function GeneratorsPage() {
 
         {/* 3. Compare Section */}
         <GeneratorCompare />
+
+        {/* 4. Consistent Fleet Dispatch CTA */}
+        <GeneratorCTA />
       </div>
     </div>
   );

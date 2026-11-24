@@ -208,20 +208,41 @@ export function PowerLinesClient({
       return { width: rect.width, height: rect.height };
     };
 
-    const { width, height } = setupCanvas();
+    let { width, height } = setupCanvas();
+    let isVisible = true;
 
     animate(ctx, width, height);
 
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry?.isIntersecting ?? false;
+        if (isVisible) {
+          cancelAnimationFrame(animationRef.current);
+          const { width: w, height: h } = setupCanvas();
+          animate(ctx, w, h);
+        } else {
+          cancelAnimationFrame(animationRef.current);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    visibilityObserver.observe(container);
+
     const resizeObserver = new ResizeObserver(() => {
       cancelAnimationFrame(animationRef.current);
-      const { width: w, height: h } = setupCanvas();
-      animate(ctx, w, h);
+      const dims = setupCanvas();
+      width = dims.width;
+      height = dims.height;
+      if (isVisible) {
+        animate(ctx, width, height);
+      }
     });
 
     resizeObserver.observe(container);
 
     return () => {
       cancelAnimationFrame(animationRef.current);
+      visibilityObserver.disconnect();
       resizeObserver.disconnect();
     };
   }, [animate]);

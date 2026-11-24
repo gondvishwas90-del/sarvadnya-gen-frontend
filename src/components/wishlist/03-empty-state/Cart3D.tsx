@@ -903,7 +903,12 @@ export function Cart3D() {
 
       const clock = new THREE.Clock();
 
+      let isVisible = true;
       const animate = () => {
+        if (!isVisible) {
+          animationFrameId = 0;
+          return;
+        }
         animationFrameId = requestAnimationFrame(animate);
         const dt = Math.min(clock.getDelta(), 0.045);
         const t = clock.elapsedTime;
@@ -1019,10 +1024,22 @@ export function Cart3D() {
         renderer?.render(scene, camera);
       };
 
+      const visibilityObserver = new IntersectionObserver(
+        ([entry]) => {
+          isVisible = entry?.isIntersecting ?? false;
+          if (isVisible && !animationFrameId) {
+            animationFrameId = requestAnimationFrame(animate);
+          }
+        },
+        { threshold: 0.05 }
+      );
+      visibilityObserver.observe(container);
+
       animate();
 
       return () => {
         cancelAnimationFrame(animationFrameId);
+        visibilityObserver.disconnect();
         cleanupJumpOverlay?.();
         resizeObserver.disconnect();
         dom.removeEventListener("pointerdown", onPointerDown);

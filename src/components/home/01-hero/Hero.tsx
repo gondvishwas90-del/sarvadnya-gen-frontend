@@ -143,7 +143,9 @@ export function Hero() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [incomingIdx, setIncomingIdx] = useState<number | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
   const transitionRef = useRef(false);
+  const heroRef = useRef<HTMLElement>(null);
 
   // Trigger smooth slide from left
   const triggerSlideTo = useCallback((nextIdx: number) => {
@@ -152,16 +154,30 @@ export function Hero() {
     setIncomingIdx(nextIdx);
   }, []);
 
-  // Auto-advance loop every 3.5 seconds
+  // Pause off-screen to free mobile GPU and CPU cycles while scrolling
   useEffect(() => {
-    if (isPaused || incomingIdx !== null) return;
+    const el = heroRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry?.isIntersecting ?? false);
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-advance loop every 3.5 seconds (only when visible)
+  useEffect(() => {
+    if (isPaused || incomingIdx !== null || !isHeroVisible) return;
     const timer = setInterval(() => {
       const nextIdx = (currentIdx + 1) % SLIDES.length;
       triggerSlideTo(nextIdx);
     }, 3500);
 
     return () => clearInterval(timer);
-  }, [currentIdx, incomingIdx, isPaused, triggerSlideTo]);
+  }, [currentIdx, incomingIdx, isPaused, isHeroVisible, triggerSlideTo]);
 
   // Handle onAnimationComplete: seamlessly lock to the new slide
   const handleTransitionComplete = () => {
@@ -182,6 +198,7 @@ export function Hero() {
 
   return (
     <section
+      ref={heroRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       className="relative w-full h-[92vh] sm:h-[95vh] lg:h-screen min-h-[640px] sm:min-h-[700px] lg:min-h-[740px] overflow-hidden bg-[#FAF8F5] border-b border-[#E8E2D9] select-none"

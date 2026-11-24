@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
@@ -36,23 +36,39 @@ const CYCLE_INTERVAL = 3000; // Exact 3 seconds auto-cycle
 export function TechnologyClient({ zones }: TechnologyClientProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const techRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
 
   const currentZone = zones[activeIndex] || zones[0];
 
-  // Auto-cycle through service zones every 3 seconds
   useEffect(() => {
-    if (isPaused || zones.length <= 1) return;
+    const el = techRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry?.isIntersecting ?? false);
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-cycle through service zones every 3 seconds (only when visible)
+  useEffect(() => {
+    if (isPaused || !isVisible || zones.length <= 1) return;
 
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % zones.length);
     }, CYCLE_INTERVAL);
 
     return () => clearInterval(timer);
-  }, [isPaused, zones.length]);
+  }, [isPaused, isVisible, zones.length]);
 
   return (
     <div
+      ref={techRef}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center select-none"

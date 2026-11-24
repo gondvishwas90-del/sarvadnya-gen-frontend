@@ -23,7 +23,7 @@ export function Booking({ initialKvaRaw = null }: BookingProps) {
     }));
 
   return (
-    <div className="relative min-h-screen bg-[#FAF8F5] text-[#111315] overflow-x-clip">
+    <div className="relative min-h-screen bg-[#FAF8F5] text-[#111315]">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-24 right-0 w-[480px] h-[480px] rounded-full bg-[#FF5500]/[0.05] blur-[140px]"

@@ -69,51 +69,18 @@ export function ServicesWeOfferClient({
         MOBILE NAVIGATION TAB BAR (< lg screens)
         ========================================================================
       */}
-      <div className="lg:hidden w-full mb-6">
-        <div className="flex items-center justify-between px-1 mb-2 text-xs text-[#7A756D]">
-          <span className="text-[#FF5500] font-bold tracking-wider font-mono">
-            0{activeIndex + 1} / 0{verticals.length}
-          </span>
-          <span className="text-[#7A756D] text-[11px]">
-            {t("services.mobileHint") || "Tap tab or scroll to switch"}
-          </span>
-        </div>
-
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-2">
-          {verticals.map((vertical, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <button
-                key={vertical.id}
-                onClick={() => onVerticalClick(index)}
-                aria-label={`Select ${vertical.title}`}
-                className={cn(
-                  "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all shrink-0 flex items-center gap-2 border",
-                  isActive
-                    ? "bg-[#FF5500] text-white border-[#FF5500] shadow-md shadow-[#FF5500]/25"
-                    : "bg-white text-[#625D55] border-[#E8E2D9] hover:text-[#1F1F1E] hover:bg-white/80"
-                )}
-              >
-                <span className="font-mono text-[10px] opacity-75">{vertical.index}</span>
-                <span>{vertical.tabLabel}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
       {/* 
         ========================================================================
         MASTER SPLIT STAGE
-        - Left: Clean Vertical Navigation with animated progress track
+        - Left: Clean Vertical Navigation with animated progress track (Desktop lg+)
         - Right: Unified Single Card in Table Format (Image + Specifications)
         ========================================================================
       */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-14 items-center">
         {/* 
           LEFT COLUMN: CLEAN VERTICAL NAVIGATION (Joint Talent style)
         */}
-        <div className="lg:col-span-5 relative flex flex-col justify-center">
+        <div className="hidden lg:flex lg:col-span-5 relative flex-col justify-center">
           {/* Vertical progress track on desktop */}
           <div className="hidden lg:block absolute left-0 top-3 bottom-3 w-[2px] bg-[#E8E2D9] rounded-full overflow-hidden">
             <motion.div
@@ -159,28 +126,43 @@ export function ServicesWeOfferClient({
           (Generator Image on Top + Specifications Table Below)
         */}
         <div className="lg:col-span-7 relative w-full flex flex-col justify-center">
+          {/* Mobile Active Service Indicator */}
+          <div className="lg:hidden flex items-center justify-between pb-2 px-1">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-xs font-bold text-[#FF5500]">
+                {activeVertical.index}
+              </span>
+              <h3 className="font-sans font-extrabold text-base text-[#1F1F1E]">
+                {activeVertical.title}
+              </h3>
+            </div>
+            <span className="text-[11px] font-mono font-bold text-[#FF5500] uppercase tracking-wider">
+              {activeVertical.capacity}
+            </span>
+          </div>
+
           <AnimatePresence mode="wait">
             <motion.div
               key={activeVertical.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="w-full rounded-2xl sm:rounded-3xl bg-white border border-[#E8E2D9] shadow-sm overflow-hidden flex flex-col"
             >
               {/* 
                 1. UPPER SECTION: CLEAN GENERATOR IMAGE SHOWCASE
                 (Zero badge clutter, gentle levitation & soft ground contact shadow)
               */}
-              <div className="relative w-full h-[220px] sm:h-[260px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-6 overflow-hidden">
+              <div className="relative w-full h-[130px] sm:h-[180px] lg:h-[260px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-3 sm:p-6 overflow-hidden">
                 {/* Subtle warm ambient volumetric warmth */}
-                <div className="absolute w-[260px] sm:w-[360px] h-[160px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
+                <div className="absolute w-[220px] sm:w-[360px] h-[120px] sm:h-[160px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
 
                 {/* Floating generator image with continuous levitation */}
                 <motion.div
-                  animate={{ y: [-4, 4, -4] }}
+                  animate={{ y: [-3, 3, -3] }}
                   transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-                  className="relative z-10 w-[82%] sm:w-[72%] h-[150px] sm:h-[190px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
+                  className="relative z-10 w-[72%] sm:w-[72%] h-[100px] sm:h-[140px] lg:h-[190px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
                 >
                   <Image
                     src={activeVertical.unitImage}
@@ -199,7 +181,7 @@ export function ServicesWeOfferClient({
                     opacity: [0.32, 0.2, 0.32],
                   }}
                   transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-                  className="absolute bottom-4 sm:bottom-5 w-1/2 h-4 bg-black/20 blur-md rounded-full pointer-events-none"
+                  className="absolute bottom-2 sm:bottom-5 w-1/2 h-3 sm:h-4 bg-black/20 blur-md rounded-full pointer-events-none"
                 />
               </div>
 
@@ -211,21 +193,21 @@ export function ServicesWeOfferClient({
                 {activeVertical.specs.map((spec, specIdx) => (
                   <div
                     key={spec.label}
-                    className="flex items-center justify-between px-5 sm:px-7 py-3 sm:py-3.5 hover:bg-[#FAF8F5]/70 transition-colors"
+                    className="flex items-center justify-between px-3.5 sm:px-7 py-2 sm:py-3.5 hover:bg-[#FAF8F5]/70 transition-colors"
                   >
                     {/* Parameter Label with Brand Font Index & Indicator Beacon */}
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-xs font-bold text-[#FF5500]">
+                    <div className="flex items-center gap-2 sm:gap-3">
+                      <span className="font-mono text-[11px] sm:text-xs font-bold text-[#FF5500]">
                         0{specIdx + 1}
                       </span>
-                      <span className="size-1.5 rounded-full bg-[#FF5500]" />
-                      <span className="font-sans text-xs sm:text-sm font-bold text-[#1F1F1E]">
+                      <span className="size-1 sm:size-1.5 rounded-full bg-[#FF5500]" />
+                      <span className="font-sans text-[11px] sm:text-xs md:text-sm font-bold text-[#1F1F1E]">
                         {spec.label}
                       </span>
                     </div>
 
                     {/* Verified Precision Rating */}
-                    <span className="font-sans text-xs sm:text-sm font-semibold text-[#403C36] text-right">
+                    <span className="font-sans text-[11px] sm:text-xs md:text-sm font-semibold text-[#403C36] text-right">
                       {spec.value}
                     </span>
                   </div>

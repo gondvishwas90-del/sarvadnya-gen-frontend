@@ -283,7 +283,12 @@ export function LocationPin3D() {
     // 9. CONTINUOUS 360-DEGREE ROTATION ANIMATION LOOP
     const clock = new THREE.Clock();
 
+    let isVisible = true;
     const animate = () => {
+      if (!isVisible) {
+        animationFrameId = 0;
+        return;
+      }
       animationFrameId = requestAnimationFrame(animate);
 
       const elapsedTime = clock.getElapsedTime();
@@ -307,6 +312,18 @@ export function LocationPin3D() {
       renderer.render(scene, camera);
     };
 
+    // INTERSECTION OBSERVER (Pauses 3D WebGL render loop when off-screen to free mobile GPU)
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry?.isIntersecting ?? false;
+        if (isVisible && !animationFrameId) {
+          animationFrameId = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    visibilityObserver.observe(container);
+
     animate();
 
     // 10. RESPONSIVE RESIZE OBSERVER
@@ -328,6 +345,7 @@ export function LocationPin3D() {
     // CLEANUP
     return () => {
       cancelAnimationFrame(animationFrameId);
+      visibilityObserver.disconnect();
       resizeObserver.disconnect();
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);

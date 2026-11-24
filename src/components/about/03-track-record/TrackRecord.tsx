@@ -103,77 +103,30 @@ export function TrackRecord() {
 
           {/* RIGHT COLUMN: 2x2 Bento Metric Grid (Col 7) */}
           <div className="lg:col-span-7">
-            {/* Mobile View: Horizontal Touch-Snap Carousel (< sm) */}
-            <div className="block sm:hidden w-full">
-              <div
-                ref={carouselRef}
-                onScroll={handleScroll}
-                className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar touch-pan-x -mx-4 px-4 pb-4 pt-1 scroll-smooth"
-              >
-                {stats.map((stat, idx) => (
-                  <motion.div
-                    key={`mobile-stat-${idx}`}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: idx * 0.08 }}
-                    className="w-[80vw] max-w-[300px] shrink-0 snap-center bg-white rounded-2xl p-6 border border-[#E8E2D9] shadow-xs flex flex-col justify-between"
-                  >
-                    <div>
-                      <span className="text-4xl font-extrabold text-[#111315] tracking-tight font-['Poppins',sans-serif] block text-[#FF5500]">
-                        {stat.value}
-                      </span>
-                      <h3 className="text-base font-bold text-[#111315] mt-3 font-['Poppins',sans-serif]">
-                        {stat.label}
-                      </h3>
-                    </div>
-                    <p className="text-xs text-[#625D55] font-['Outfit',sans-serif] mt-2 leading-relaxed">
-                      {stat.desc}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Mobile Dot Indicators & Arrow Navigation */}
-              <div className="flex items-center justify-between pt-3 px-1">
-                <div className="flex items-center gap-1.5">
-                  {stats.map((_, i) => (
-                    <button
-                      key={`dot-${i}`}
-                      type="button"
-                      onClick={() => scrollToIndex(i)}
-                      aria-label={`Go to metric ${i + 1}`}
-                      className={cn(
-                        "h-1.5 rounded-full transition-all duration-300 cursor-pointer",
-                        activeIndex === i
-                          ? "w-6 bg-[#FF5500]"
-                          : "w-1.5 bg-[#DDD6CA] hover:bg-[#B8B0A2]"
-                      )}
-                    />
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => scrollToIndex(Math.max(0, activeIndex - 1))}
-                    disabled={activeIndex === 0}
-                    className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-                    aria-label="Previous metric"
-                  >
-                    <ChevronLeft size={16} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => scrollToIndex(Math.min(stats.length - 1, activeIndex + 1))}
-                    disabled={activeIndex === stats.length - 1}
-                    className="p-1.5 rounded-full border border-[#E8E2D9] bg-white text-[#111315] disabled:opacity-30 disabled:cursor-not-allowed hover:bg-[#FAF8F5] transition-colors cursor-pointer"
-                    aria-label="Next metric"
-                  >
-                    <ChevronRight size={16} />
-                  </button>
-                </div>
-              </div>
+            {/* Mobile View: 2 Cards Paired Grid with Animated Reveal (< sm) */}
+            <div className="grid grid-cols-2 gap-3 sm:hidden w-full">
+              {stats.map((stat, idx) => (
+                <motion.div
+                  key={`mobile-stat-${idx}`}
+                  initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-20px" }}
+                  transition={{ duration: 0.5, delay: Math.floor(idx / 2) * 0.15 + (idx % 2) * 0.08 }}
+                  className="bg-white rounded-2xl p-4 border border-[#E8E2D9] shadow-2xs flex flex-col justify-between"
+                >
+                  <div>
+                    <span className="text-2xl sm:text-3xl font-extrabold tracking-tight font-['Poppins',sans-serif] block text-[#FF5500]">
+                      {stat.value}
+                    </span>
+                    <h3 className="text-xs sm:text-sm font-bold text-[#111315] mt-1.5 font-['Poppins',sans-serif] leading-tight">
+                      {stat.label}
+                    </h3>
+                  </div>
+                  <p className="text-[10px] text-[#625D55] font-['Outfit',sans-serif] mt-1.5 leading-relaxed line-clamp-2">
+                    {stat.desc}
+                  </p>
+                </motion.div>
+              ))}
             </div>
 
             {/* Desktop 2-Column Bento Grid (sm and above) */}

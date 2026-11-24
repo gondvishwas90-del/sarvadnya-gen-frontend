@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-[#FAF8F5] text-[#111315] pb-20 relative overflow-x-clip">
+    <main className="min-h-screen bg-[#FAF8F5] text-[#111315] pb-20 relative">
       {/* 1. Full-Width Featured Blog Hero */}
       <BlogHero />
 

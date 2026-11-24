@@ -484,9 +484,9 @@ export default function GeneratorGallery() {
           </p>
 
           {/* Intelligent Multi-Tab Filters */}
-          <div className="flex flex-col gap-4 sm:gap-8 mb-8 sm:mb-12">
-            {/* Top Level Groups */}
-            <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-[#EFECE6] rounded-2xl w-full sm:w-fit border border-[#E8E2D9] overflow-x-auto no-scrollbar touch-pan-x">
+          <div className="flex flex-col gap-3.5 sm:gap-8 mb-8 sm:mb-12">
+            {/* Top Level Groups: Wrapped on mobile with zero horizontal scroll */}
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 p-1.5 bg-[#EFECE6] rounded-2xl w-full sm:w-fit border border-[#E8E2D9]">
               {FILTER_GROUPS.map((group) => (
                 <button
                   key={group.id}
@@ -497,7 +497,7 @@ export default function GeneratorGallery() {
                     setActiveSubFilter("all");
                   }}
                   className={cn(
-                    "shrink-0 px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-['Poppins',sans-serif] text-xs sm:text-sm font-bold transition-all text-center whitespace-nowrap",
+                    "flex-1 sm:flex-initial px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-['Poppins',sans-serif] text-xs sm:text-sm font-bold transition-all text-center whitespace-nowrap",
                     activeGroup === group.id
                       ? "bg-[#FF5500] text-white shadow-[0_4px_14px_rgba(255,85,0,0.25)]"
                       : "text-[#625D55] hover:text-[#111315] hover:bg-white/60"
@@ -508,10 +508,10 @@ export default function GeneratorGallery() {
               ))}
             </div>
 
-            {/* Sub-Filters */}
-            <div className="flex items-center gap-2 sm:gap-3 w-full overflow-hidden">
-              <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5500] shrink-0" />
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar touch-pan-x py-1 w-full">
+            {/* Sub-Filters: Wrapped onto multiple lines on mobile without horizontal scrolling */}
+            <div className="flex items-start sm:items-center gap-2 sm:gap-3 w-full">
+              <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5500] shrink-0 mt-1 sm:mt-0" />
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 py-1 w-full">
                 {(activeGroup === "power" ? POWER_FILTERS : 
                   activeGroup === "usage" ? USAGE_FILTERS : 
                   TYPE_FILTERS).map((filter) => (
@@ -523,7 +523,7 @@ export default function GeneratorGallery() {
                       setActiveSubFilter(filter.id);
                     }}
                     className={cn(
-                      "shrink-0 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-['Outfit',sans-serif] text-xs sm:text-sm font-medium transition-all border whitespace-nowrap",
+                      "px-3 sm:px-5 py-1.5 sm:py-2.5 rounded-full font-['Outfit',sans-serif] text-xs sm:text-sm font-medium transition-all border whitespace-nowrap",
                       activeSubFilter === filter.id
                         ? "bg-[#FF5500]/10 border-[#FF5500] text-[#FF5500] font-semibold"
                         : "bg-white border-[#E8E2D9] text-[#625D55] hover:border-[#FF5500]/40 hover:text-[#111315]"

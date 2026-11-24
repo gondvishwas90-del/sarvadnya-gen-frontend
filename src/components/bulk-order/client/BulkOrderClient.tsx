@@ -2283,7 +2283,7 @@ export function BulkOrderClient() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] text-[#111315] relative overflow-x-clip pt-28 sm:pt-36 pb-20 px-4 sm:px-6 md:px-8">
+    <div className="min-h-screen bg-[#FAF8F5] text-[#111315] relative pt-28 sm:pt-36 pb-20 px-4 sm:px-6 md:px-8">
       {/* Subtle Bright Atmospheric Wash & Grid */}
       <div
         aria-hidden="true"
