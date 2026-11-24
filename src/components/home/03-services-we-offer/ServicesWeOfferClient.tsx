@@ -71,6 +71,54 @@ export function ServicesWeOfferClient({
       */}
       {/* 
         ========================================================================
+        MOBILE TOP VERTICAL LIST (< lg screens)
+        Exactly matching the Joint Talent style from the user's reference screenshot
+        ========================================================================
+      */}
+      <div className="lg:hidden w-full relative mb-3">
+        {/* Vertical progress track on mobile */}
+        <div className="absolute left-0 top-1 bottom-1 w-[2.5px] bg-[#E8E2D9] rounded-full overflow-hidden">
+          <motion.div
+            style={{
+              height: scrollYProgress
+                ? lineProgress
+                : `${((activeIndex + 1) / verticals.length) * 100}%`,
+            }}
+            className="w-full bg-[#FF5500] shadow-[0_0_8px_rgba(255,85,0,0.4)]"
+          />
+        </div>
+
+        {/* The 3 Titles on Mobile */}
+        <div className="pl-4 flex flex-col gap-1.5">
+          {verticals.map((vertical, index) => {
+            const isActive = activeIndex === index;
+            return (
+              <button
+                key={`mob-title-${vertical.id}`}
+                onClick={() => onVerticalClick(index)}
+                className={cn(
+                  "text-left transition-all duration-300 cursor-pointer select-none",
+                  isActive ? "opacity-100" : "opacity-35 hover:opacity-60"
+                )}
+              >
+                <h3
+                  className={cn(
+                    "font-sans tracking-tight transition-all duration-300",
+                    isActive
+                      ? "text-base font-extrabold text-[#111315]"
+                      : "text-sm font-semibold text-[#8C847A]"
+                  )}
+                >
+                  {vertical.title}
+                </h3>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* 
+        ========================================================================
         MASTER SPLIT STAGE
         - Left: Clean Vertical Navigation with animated progress track (Desktop lg+)
         - Right: Unified Single Card in Table Format (Image + Specifications)
@@ -126,21 +174,6 @@ export function ServicesWeOfferClient({
           (Generator Image on Top + Specifications Table Below)
         */}
         <div className="lg:col-span-7 relative w-full flex flex-col justify-center">
-          {/* Mobile Active Service Indicator */}
-          <div className="lg:hidden flex items-center justify-between pb-2 px-1">
-            <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-bold text-[#FF5500]">
-                {activeVertical.index}
-              </span>
-              <h3 className="font-sans font-extrabold text-base text-[#1F1F1E]">
-                {activeVertical.title}
-              </h3>
-            </div>
-            <span className="text-[11px] font-mono font-bold text-[#FF5500] uppercase tracking-wider">
-              {activeVertical.capacity}
-            </span>
-          </div>
-
           <AnimatePresence mode="wait">
             <motion.div
               key={activeVertical.id}

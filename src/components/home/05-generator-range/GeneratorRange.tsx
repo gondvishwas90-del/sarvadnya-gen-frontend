@@ -5,81 +5,9 @@ import {
 import { GENERATOR_IMAGES } from "@/constants";
 
 /**
- * Static generators data enriched with clear real-world application matching
+ * Static generators data: 125 kVA to 300 kVA spectrum (3 key capacity powerhouses)
  */
 const GENERATORS_DATA: GeneratorItem[] = [
-  {
-    id: "gen-5",
-    badge: "5 kVA",
-    series: "Entry Series",
-    title: "5 kVA Silent Generator",
-    description:
-      "Compact soundproof power unit designed for residential backup, small retail shops, and private functions requiring clean single-phase power with minimal space footprint.",
-    application: "Homes, Boutiques & Private Functions",
-    recommendedLoads: "Lighting rigs, sound gear, refrigeration & essential circuits",
-    icon: "Zap",
-    image: GENERATOR_IMAGES.entry_5kva,
-    specs: [
-      { label: "Rated Capacity", value: "5 kVA / 4 kW", icon: "Zap" },
-      { label: "Output Voltage", value: "230V Single Phase / 50 Hz", icon: "CircleDot" },
-      { label: "Fuel System", value: "Diesel / High Efficiency", icon: "Fuel" },
-      { label: "Acoustic Standard", value: "CPCB-II Silent (< 75 dBA)", icon: "Volume2" },
-    ],
-    features: [
-      { title: "Compact & Portable", description: "Easy to transport and position in tight spaces" },
-      { title: "Low Noise Operation", description: "Acoustic canopy suitable for residential neighborhoods" },
-      { title: "Fuel Efficient", description: "Optimized hourly fuel consumption under partial load" },
-      { title: "Turnkey Setup", description: "Supplied with safe distribution board and earthing" },
-    ],
-  },
-  {
-    id: "gen-30",
-    badge: "30 kVA",
-    series: "Mid-Range Series",
-    title: "30 kVA Silent Generator",
-    description:
-      "Workhorse unit for healthcare clinics, retail restaurants, and medium outdoor celebrations. Provides stable 3-phase voltage with integrated automatic safety cutoffs.",
-    application: "Clinics, Restaurants & Medium Gatherings",
-    recommendedLoads: "Commercial AC units, kitchen appliances & stage lighting",
-    icon: "Settings",
-    image: GENERATOR_IMAGES.midRange_30kva,
-    specs: [
-      { label: "Rated Capacity", value: "30 kVA / 24 kW", icon: "Zap" },
-      { label: "Output Voltage", value: "415V 3-Phase / 230V Single", icon: "CircleDot" },
-      { label: "Fuel System", value: "Heavy-Duty Diesel Engine", icon: "Fuel" },
-      { label: "Acoustic Standard", value: "CPCB-II Silent Enclosure", icon: "Volume2" },
-    ],
-    features: [
-      { title: "Auto Mains Failure", description: "Automatic changeover switchgear support" },
-      { title: "Digital Controller", description: "Real-time voltage, frequency, and load telemetry" },
-      { title: "Inrush Handling", description: "Copes with inductive motor starting surges" },
-      { title: "Continuous Tank", description: "Extended runtime fuel reservoir for uninterrupted shifts" },
-    ],
-  },
-  {
-    id: "gen-65",
-    badge: "65 kVA",
-    series: "Commercial Series",
-    title: "65 kVA Commercial Generator",
-    description:
-      "Purpose-built for banquet halls, multi-cuisine catering facilities, and commercial commercial complexes requiring dependable continuous power during wedding season or grid shutdowns.",
-    application: "Banquet Halls, Lawns & Commercial Offices",
-    recommendedLoads: "Multiple 2-ton tower ACs, large audio walls & cold storage",
-    icon: "Building2",
-    image: GENERATOR_IMAGES.commercial_65kva,
-    specs: [
-      { label: "Rated Capacity", value: "65 kVA / 52 kW", icon: "Zap" },
-      { label: "Output Voltage", value: "415V 3-Phase True Sine Wave", icon: "CircleDot" },
-      { label: "Fuel System", value: "Turbocharged Diesel Engine", icon: "Fuel" },
-      { label: "Acoustic Standard", value: "CPCB-II Acoustic Weatherproof Canopy", icon: "Volume2" },
-    ],
-    features: [
-      { title: "Heavy Commercial Duty", description: "Engineered for 12+ hour continuous high-load runs" },
-      { title: "Clean Sine Wave", description: "Zero harmonic distortion for delicate LED video walls" },
-      { title: "Load Balancing", description: "Even distribution across all three operational phases" },
-      { title: "Weatherproof Steel", description: "All-weather outdoor canopy with locked access panels" },
-    ],
-  },
   {
     id: "gen-125",
     badge: "125 kVA",

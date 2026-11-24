@@ -145,7 +145,7 @@ export const mr: Record<string, string> = {
     "fleet.badgeIndustrial": "हेवी ड्युटी",
     "fleet.badgeEvent": "इव्हेंट सायलेंट",
 
-    "range.eyebrow": "फ्लीट स्पेक्ट्रम • ५ ते ३०० kVA",
+    "range.eyebrow": "फ्लीट स्पेक्ट्रम • १२५ ते ३०० kVA",
     "range.title": "जनरेटर कलेक्शन",
     "range.desc": "तुमच्या गरजेनुसार योग्य क्षमतेचा जनरेटर निवडा. छोट्या घरांपासून ते मोठ्या कारखान्यांपर्यंत सर्व पर्याय उपलब्ध.",
     "range.bestFor": "यासाठी योग्य: ",

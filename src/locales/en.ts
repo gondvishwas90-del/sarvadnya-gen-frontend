@@ -145,7 +145,7 @@ export const en: Record<string, string> = {
     "fleet.badgeIndustrial": "HEAVY DUTY",
     "fleet.badgeEvent": "EVENT SILENT",
 
-    "range.eyebrow": "FLEET SPECTRUM • 5 TO 300 kVA",
+    "range.eyebrow": "FLEET SPECTRUM • 125 TO 300 kVA",
     "range.title": "Generator Fleet from 5 kVA to 300 kVA",
     "range.desc": "Choose the right capacity for your requirements. Available from residential backup to heavy industrial operations.",
     "range.bestFor": "Best For: ",

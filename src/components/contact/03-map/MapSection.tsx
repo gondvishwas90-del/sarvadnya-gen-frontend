@@ -20,7 +20,7 @@ export function MapSection() {
     <section
       id="map"
       aria-label="Sarvadnya Generators Location"
-      className="relative w-full bg-[#FAF8F5] text-[#111315] border-t border-[#E8E2D9] py-16 sm:py-24 px-4 sm:px-10 lg:px-20 z-20"
+      className="relative w-full bg-[#FAF8F5] text-[#111315] border-t border-[#E8E2D9] py-16 sm:py-24 px-4 sm:px-10 lg:px-20 z-20 overflow-hidden"
     >
       <div className="max-w-[1500px] mx-auto">
         {/* Top Editorial Location Header */}

@@ -177,7 +177,7 @@ export function ForgeSpecificationForm() {
   };
 
   return (
-    <section id="form" className="relative w-full bg-white text-[#111315] py-12 sm:py-28 px-3.5 sm:px-10 lg:px-20 z-20 border-b border-[#E8E2D9]">
+    <section id="form" className="relative w-full bg-white text-[#111315] py-12 sm:py-28 px-3.5 sm:px-10 lg:px-20 z-20 border-b border-[#E8E2D9] overflow-hidden">
       
       {/* Ambient Warm Glow */}
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-[#FF5500]/[0.03] blur-[150px] pointer-events-none" />

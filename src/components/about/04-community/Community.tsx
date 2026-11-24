@@ -109,47 +109,17 @@ export function Community() {
             </p>
           </div>
 
-          {/* Mobile 2x2 Clean Compact Grid (< lg) */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:hidden w-full max-w-lg mx-auto">
-            {promises.map((item) => (
-              <div
-                key={`mob-promise-${item.num}`}
-                className="bg-[#FAF8F5] border border-[#E8E2D9] rounded-2xl p-3 flex flex-col justify-between shadow-2xs overflow-hidden"
-              >
-                <div>
-                  <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-2 bg-[#111315]">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute top-1.5 left-1.5 size-6 rounded-md bg-[#FF5500] text-white flex items-center justify-center font-['Poppins',sans-serif] text-xs font-bold shadow-xs">
-                      {item.num}
-                    </div>
-                  </div>
-                  <h3 className="text-xs sm:text-sm font-extrabold text-[#111315] font-['Poppins',sans-serif] leading-tight line-clamp-1">
-                    {item.title}
-                  </h3>
-                </div>
-                <p className="text-[10px] sm:text-xs text-[#524E48] font-['Outfit',sans-serif] leading-relaxed mt-1 line-clamp-2">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
           {/* 
-            Desktop Pinned Cube Layout (lg+)
             The Cube Exact Architectural Split:
             Left: 2x2 Square Grid (gap-0) where Top-Left and Bottom-Right corners touch.
             Right: Symmetrical square architectural image.
+            (Preserved 100% on both phone and desktop as shown in user reference image)
           */}
-          <div className="hidden lg:grid w-full lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-items-center">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 lg:gap-12 items-center justify-items-center">
             
             {/* LEFT COLUMN: 2x2 Grid with gap-0 (Col 6) */}
             <div className="lg:col-span-6 w-full flex justify-center">
-              <div className="w-full max-w-[460px] sm:max-w-[500px] grid grid-cols-2 gap-0 aspect-square">
+              <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] grid grid-cols-2 gap-0 aspect-square">
                 
                 {/* Top-Left: Solid Vibrant Brand Square (Title at Bottom) */}
                 <AnimatePresence mode="wait">
@@ -159,9 +129,9 @@ export function Community() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="aspect-square bg-[#FF5500] rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-end text-white select-none shadow-lg shadow-[#FF5500]/15"
+                    className="aspect-square bg-[#FF5500] rounded-xl sm:rounded-2xl lg:rounded-3xl p-3.5 sm:p-6 lg:p-8 flex flex-col justify-end text-white select-none shadow-md sm:shadow-lg shadow-[#FF5500]/15"
                   >
-                    <h3 className="text-xl sm:text-2xl lg:text-[26px] font-extrabold text-white font-['Poppins',sans-serif] leading-tight">
+                    <h3 className="text-xs sm:text-xl lg:text-[26px] font-extrabold text-white font-['Poppins',sans-serif] leading-tight">
                       {current.title}
                     </h3>
                   </motion.div>
@@ -177,7 +147,7 @@ export function Community() {
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                     className="aspect-square flex items-center justify-center select-none"
                   >
-                    <span className="text-7xl sm:text-8xl lg:text-[104px] font-bold text-[#FF5500] font-['Poppins',sans-serif] leading-none">
+                    <span className="text-5xl sm:text-7xl lg:text-[104px] font-bold text-[#FF5500] font-['Poppins',sans-serif] leading-none">
                       {current.num}
                     </span>
                   </motion.div>
@@ -194,9 +164,9 @@ export function Community() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                    className="aspect-square rounded-2xl sm:rounded-3xl border border-[#E8E2D9] p-6 sm:p-7 flex flex-col justify-center bg-white/80 shadow-xs"
+                    className="aspect-square rounded-xl sm:rounded-2xl lg:rounded-3xl border border-[#E8E2D9] p-3 sm:p-6 lg:p-7 flex flex-col justify-center bg-white/80 shadow-xs"
                   >
-                    <p className="text-xs sm:text-sm text-[#403C36] font-['Outfit',sans-serif] leading-relaxed">
+                    <p className="text-[10px] sm:text-xs lg:text-sm text-[#403C36] font-['Outfit',sans-serif] leading-relaxed line-clamp-4">
                       {current.desc}
                     </p>
                   </motion.div>
@@ -207,7 +177,7 @@ export function Community() {
 
             {/* RIGHT COLUMN: Architectural Photography (Col 6) */}
             <div className="lg:col-span-6 w-full flex justify-center">
-              <div className="w-full max-w-[460px] sm:max-w-[500px] aspect-square relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-lg bg-[#111315]">
+              <div className="w-full max-w-[280px] sm:max-w-[420px] lg:max-w-[500px] h-[140px] sm:h-auto sm:aspect-square relative rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-md bg-[#111315]">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`img-${activeIndex}`}
@@ -223,8 +193,15 @@ export function Community() {
                       fill
                       priority
                       className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 420px, 500px"
                     />
+                    <div
+                      aria-hidden="true"
+                      className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"
+                    />
+                    <div className="absolute top-2.5 left-2.5 bg-black/60 backdrop-blur-xs border border-white/10 px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono text-white/90 uppercase tracking-wider">
+                      CPCB II CERTIFIED
+                    </div>
                   </motion.div>
                 </AnimatePresence>
               </div>

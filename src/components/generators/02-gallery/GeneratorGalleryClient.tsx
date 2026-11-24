@@ -483,32 +483,8 @@ export default function GeneratorGallery() {
             )}
           </p>
 
-          {/* Intelligent Multi-Tab Filters */}
-          <div className="flex flex-col gap-3.5 sm:gap-8 mb-8 sm:mb-12">
-            {/* Top Level Groups: Wrapped on mobile with zero horizontal scroll */}
-            <div className="flex flex-wrap sm:flex-nowrap items-center gap-1.5 sm:gap-2 p-1.5 bg-[#EFECE6] rounded-2xl w-full sm:w-fit border border-[#E8E2D9]">
-              {FILTER_GROUPS.map((group) => (
-                <button
-                  key={group.id}
-                  type="button"
-                  onClick={() => {
-                    setHeroFilter(null);
-                    setActiveGroup(group.id as FilterGroup);
-                    setActiveSubFilter("all");
-                  }}
-                  className={cn(
-                    "flex-1 sm:flex-initial px-3 sm:px-6 py-2 sm:py-3 rounded-xl font-['Poppins',sans-serif] text-xs sm:text-sm font-bold transition-all text-center whitespace-nowrap",
-                    activeGroup === group.id
-                      ? "bg-[#FF5500] text-white shadow-[0_4px_14px_rgba(255,85,0,0.25)]"
-                      : "text-[#625D55] hover:text-[#111315] hover:bg-white/60"
-                  )}
-                >
-                  {t(group.label, group.label)}
-                </button>
-              ))}
-            </div>
-
-            {/* Sub-Filters: Wrapped onto multiple lines on mobile without horizontal scrolling */}
+          {/* Clean Capacity Filter Chips */}
+          <div className="flex flex-col gap-3.5 mb-8 sm:mb-12">
             <div className="flex items-start sm:items-center gap-2 sm:gap-3 w-full">
               <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF5500] shrink-0 mt-1 sm:mt-0" />
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 py-1 w-full">

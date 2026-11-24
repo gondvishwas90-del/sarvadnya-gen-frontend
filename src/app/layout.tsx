@@ -46,7 +46,7 @@ export default function RootLayout({
               <GlobalLoader />
               <FullscreenProvider>
                 <Header />
-                <main className="min-h-screen">{children}</main>
+                <main className="min-h-screen overflow-x-clip">{children}</main>
                 <FooterClient>
                   <Footer />
                 </FooterClient>

@@ -58,7 +58,7 @@ export function GeneratorRangeClient({ generators }: GeneratorRangeClientProps) 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[500vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
+      className="relative w-full h-[300vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
     >
       {/* Sticky Full-Viewport Stage */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#FAF8F5]">
