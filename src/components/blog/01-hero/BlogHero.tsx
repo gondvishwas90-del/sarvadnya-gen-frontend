@@ -3,71 +3,160 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 /**
  * BlogHero Component
  *
- * Full-bleed panoramic featured story stage with integrated high-contrast typography.
+ * Ultra-Premium Architectural Aperture Expand Hero (Apple / Lusion Style):
+ * - Background Image starts as a floating centered aperture frame and expands outwards to edge-to-edge full bleed
+ * - Counter-scale physics on the photograph creates a fixed-in-space 3D camera lens effect
+ * - Pure minimal luxury: Headline, excerpt narrative, and bespoke CTA without pill badges or telemetry clutter
+ * - Masked kinetic curtain typography reveals for Devanagari & English with generous matra clearance
+ * - Crystal-clear uncompressed 16:9 architectural photograph
  */
 export function BlogHero() {
   const { t } = useLanguage();
+
   const featuredPost = {
     slug: "choosing-right-generator-wedding",
     title:
       "The Ultimate Guide to Choosing the Right Generator for Your Wedding",
     excerpt:
       "Don't let power outages dim your big day. Learn how to calculate your kVA needs, manage acoustic levels, and ensure seamless entertainment.",
-    image: "/images/blog/blog-main.png",
+    image: "/images/blog/blog_hero_event.jpg",
   };
 
   return (
-    <section className="relative w-full min-h-[540px] sm:min-h-[580px] lg:min-h-[620px] flex items-end overflow-hidden group pt-24 sm:pt-28 bg-[#18181B]">
-      {/* Full-Bleed Background Visual */}
-      <Image
-        src={featuredPost.image}
-        alt={featuredPost.title}
-        fill
-        priority
-        className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+    <section className="relative w-full min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] xl:min-h-[760px] h-[82vh] max-h-[880px] flex items-end overflow-hidden group bg-[#0D0E10]">
+      {/* Background Ambience / Deep Obsidian Canvas */}
+      <div 
+        aria-hidden="true" 
+        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_40%,rgba(255,85,0,0.06),transparent_70%)] pointer-events-none" 
       />
 
-      {/* Directional Contrast Scrim for Crisp Legibility */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-[#111315]/95 via-[#111315]/55 to-[#111315]/25"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-[#111315]/80 via-[#111315]/30 to-transparent"
-      />
+      {/* 1. ARCHITECTURAL APERTURE CONTAINER */}
+      <motion.div
+        initial={{
+          clipPath: "inset(12% 14% 12% 14% round 28px)",
+          opacity: 0.85,
+        }}
+        animate={{
+          clipPath: "inset(0% 0% 0% 0% round 0px)",
+          opacity: 1,
+        }}
+        transition={{
+          duration: 1.4,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="absolute inset-0 w-full h-full overflow-hidden will-change-[clip-path]"
+      >
+        {/* Counter-Scaling Image Layer */}
+        <motion.div
+          initial={{ scale: 1.24 }}
+          animate={{ scale: 1.04 }}
+          transition={{
+            duration: 1.5,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="relative w-full h-full"
+        >
+          <Image
+            src={featuredPost.image}
+            alt={featuredPost.title}
+            fill
+            priority
+            unoptimized
+            className="object-cover object-center filter contrast-[1.04] brightness-[0.92] transition-transform duration-1000 group-hover:scale-[1.06]"
+          />
 
-      {/* Overlaid Editorial Copy */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-10 sm:pb-14 lg:pb-16">
-        <div className="max-w-3xl space-y-5">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-[56px] font-extrabold text-white leading-[1.08] tracking-tight">
-            {t("blog.hero.title", featuredPost.title)}
-          </h1>
+          {/* Directional Contrast Scrims */}
+          {/* Vertical Horizon Gradients */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-[#0D0E10] via-[#0D0E10]/60 to-[#0D0E10]/20 pointer-events-none"
+          />
+          {/* Horizontal Editorial Readability Scrim */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-r from-[#0D0E10]/90 via-[#0D0E10]/40 to-transparent pointer-events-none"
+          />
+          {/* Subtle Top Scrim for Global Nav Separation */}
+          <div
+            aria-hidden="true"
+            className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0D0E10]/80 to-transparent pointer-events-none"
+          />
+        </motion.div>
+      </motion.div>
 
-          <p className="text-white/95 text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl">
-            {t("blog.hero.excerpt", featuredPost.excerpt)}
-          </p>
+      {/* 2. OVERLAID EDITORIAL TYPOGRAPHY & INTERACTION */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-12 sm:pb-16 lg:pb-20">
+        <div className="max-w-3xl space-y-4 sm:space-y-6">
 
-          <div className="pt-2">
+          {/* Masked Kinetic Headline */}
+          <div className="overflow-hidden pt-3 sm:pt-4 pb-2 px-1">
+            <motion.h1
+              initial={{ y: "115%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.85, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-[62px] font-extrabold text-white leading-[1.18] sm:leading-[1.12] tracking-tight font-['Poppins',sans-serif] pt-1 pb-1"
+            >
+              {t("blog.hero.title", featuredPost.title)}
+            </motion.h1>
+          </div>
+
+          {/* Masked Excerpt */}
+          <div className="overflow-hidden pt-1 pb-1">
+            <motion.p
+              initial={{ y: 35, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.75, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white/85 font-['Outfit',sans-serif] text-base sm:text-lg lg:text-xl leading-relaxed max-w-2xl font-normal"
+            >
+              {t("blog.hero.excerpt", featuredPost.excerpt)}
+            </motion.p>
+          </div>
+
+          {/* Action Row: CTA Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
+            className="pt-2 sm:pt-4"
+          >
             <Link
               href={`/blog/${featuredPost.slug}`}
-              className="inline-flex items-center gap-2.5 px-7 py-4 bg-white text-[#111315] hover:bg-[#FF5500] hover:text-white font-bold text-sm sm:text-base rounded-xl transition-colors shadow-lg group/btn"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#111315] hover:bg-[#FF5500] hover:text-white font-bold text-sm sm:text-base rounded-xl transition-all duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_30px_rgba(255,85,0,0.4)] group/btn"
             >
               <span>{t("blog.hero.cta", "Read Full Guide")}</span>
               <ArrowRight
                 size={18}
-                className="group-hover/btn:translate-x-1 transition-transform"
+                className="group-hover/btn:translate-x-1.5 transition-transform duration-300 text-[#FF5500] group-hover/btn:text-white"
               />
             </Link>
-          </div>
+          </motion.div>
+
         </div>
       </div>
+
+      {/* Minimal Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.0 }}
+        className="absolute bottom-8 right-6 sm:right-12 z-20 hidden md:flex items-center gap-3 text-white/50 text-xs uppercase tracking-[0.2em] font-medium font-['Outfit',sans-serif] pointer-events-none"
+      >
+        <span>Scroll to read</span>
+        <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="w-1 h-1.5 rounded-full bg-[#FF5500]"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }

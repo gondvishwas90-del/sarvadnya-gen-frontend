@@ -22,48 +22,44 @@ export function FoundingStory() {
         
         {/* Left Column: Narrative & Bespoke Pull-Quote (Col 7) */}
         <div className="lg:col-span-7 flex flex-col gap-6 sm:gap-8">
-          {/* Masked Line Kinetic Headline (The Cube Reference 1) */}
-          <div className="pt-4 pb-2 overflow-visible">
+          {/* Kinetic Headline with generous matra clearance */}
+          <div className="pt-2 pb-1">
             <motion.h2
-              initial={{ y: "100%", opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.32] sm:leading-[1.35] pt-1.5 pb-1 inline-block"
+              transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.34] sm:leading-[1.38] pt-1.5 pb-1 inline-block"
             >
               {t("about.story.title", "A Journey of Reliability")}
             </motion.h2>
           </div>
 
           <div className="flex flex-col gap-5 sm:gap-6 text-[#3A3630] font-['Outfit',sans-serif] text-base sm:text-lg leading-[1.8] font-normal">
-            <div className="overflow-hidden">
-              <motion.p
-                initial={{ y: 35, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {t("about.story.p1", "Sarvadnya Generators was founded in 2009 with a clear mission: to provide dependable and affordable power backup solutions for businesses, events, construction sites, and industrial operations across Nashik and nearby regions.")}
-              </motion.p>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {t("about.story.p1", "Sarvadnya Generators was founded in 2009 with a clear mission: to provide dependable and affordable power backup solutions for businesses, events, construction sites, and industrial operations across Nashik and nearby regions.")}
+            </motion.p>
 
-            <div className="overflow-hidden">
-              <motion.p
-                initial={{ y: 35, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.75, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-              >
-                {t("about.story.p2", "What started with a small fleet of just one diesel generator has now grown into a trusted generator rental company. We are known for our reliability, quick service, and customer-focused support, ensuring that our clients never face power interruptions.")}
-              </motion.p>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {t("about.story.p2", "What started with a small fleet of just one diesel generator has now grown into a trusted generator rental company. We are known for our reliability, quick service, and customer-focused support, ensuring that our clients never face power interruptions.")}
+            </motion.p>
 
             {/* Bespoke Luxury Pull-Quote with Growing Spine Accent */}
             <motion.div
-              initial={{ opacity: 0, x: -18 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.75, delay: 0.28, ease: [0.16, 1, 0.3, 1] }}
               className="relative pl-6 sm:pl-8 py-3 border-l-2 border-[#FF5500] mt-3"
             >
               <span className="text-4xl sm:text-5xl text-[#FF5500] font-serif leading-none block select-none mb-1 opacity-80" aria-hidden="true">&ldquo;</span>
@@ -76,10 +72,10 @@ export function FoundingStory() {
 
         {/* Right Column: Museum-Grade Visual Plinth with Layered Depth Reveal (Col 5) */}
         <motion.div
-          initial={{ opacity: 0, y: 48, scale: 0.94 }}
+          initial={{ opacity: 0, y: 35, scale: 0.96 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.9, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.85, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="lg:col-span-5 relative"
         >
           <div className="relative h-[360px] sm:h-[480px] lg:h-[540px] rounded-3xl overflow-hidden border border-[#E8E2D9] shadow-[0_24px_60px_-15px_rgba(17,19,21,0.12)] bg-[#FAF8F5] group">
@@ -95,10 +91,10 @@ export function FoundingStory() {
 
             {/* Atelier Frosted Glass Floating Badge with Pop Reveal */}
             <motion.div
-              initial={{ opacity: 0, y: 20, scale: 0.92 }}
+              initial={{ opacity: 0, y: 16, scale: 0.94 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.65, delay: 0.42, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 px-6 py-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#E8E2D9] shadow-2xl z-10 flex items-center gap-4 sm:gap-5"
             >
               <div className="text-[#FF5500] text-3xl sm:text-4xl font-extrabold font-['Poppins',sans-serif] tracking-tight leading-none">

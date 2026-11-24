@@ -538,6 +538,42 @@ export const en: Record<string, string> = {
     "generators.hero.enterCity": "Enter City",
     "generators.hero.findGenerators": "Find Available Generators",
 
+    // Generator Hero Concept 1 Sequential Kinetic Slider
+    "generators.hero.s1.tab": "01 Industrial",
+    "generators.hero.s1.tag": "01 / 04 • CPCB-IV+ HEAVY PRIME FLEET",
+    "generators.hero.s1.title1": "Industrial Heavy Prime.",
+    "generators.hero.s1.title2": "Zero Production Halt.",
+    "generators.hero.s1.desc": "Heavy-duty 125 to 250 kVA synchronized diesel generators engineered for continuous 24/7 manufacturing shifts, high inductive motor loads, and automated power backup across Maharashtra.",
+    "generators.hero.s1.stat": "250 kVA",
+    "generators.hero.s1.sub": "Synchronized Prime Power",
+
+    "generators.hero.s2.tab": "02 Banquets",
+    "generators.hero.s2.tag": "02 / 04 • ACOUSTIC ULTRA-SILENT SERIES",
+    "generators.hero.s2.title1": "Luxury Celebrations.",
+    "generators.hero.s2.title2": "Pure Acoustic Silence.",
+    "generators.hero.s2.desc": "5 to 62.5 kVA silent canopy generators delivering true sine-wave clean power for grand wedding lawns, German AC domes, luxury banquets, and stage LED walls with zero audible drone.",
+    "generators.hero.s2.stat": "< 65 dBA",
+    "generators.hero.s2.sub": "Ultra-Quiet Acoustic Rating",
+
+    "generators.hero.s3.tab": "03 Healthcare",
+    "generators.hero.s3.tag": "03 / 04 • MEDICAL GRADE UPTIME",
+    "generators.hero.s3.title1": "Hospital Lifeline Power.",
+    "generators.hero.s3.title2": "Sub-Second AMF Transfer.",
+    "generators.hero.s3.desc": "Hospital-grade soundproof DG sets protecting ICUs, emergency operation theatres, and oxygen plants with automated AMF mains-failure synchronizers and active standby readiness.",
+    "generators.hero.s3.stat": "< 10s",
+    "generators.hero.s3.sub": "Automatic Mains Transfer",
+
+    "generators.hero.s4.tab": "04 Dispatch",
+    "generators.hero.s4.tag": "04 / 04 • 24/7 LOGISTICS READINESS",
+    "generators.hero.s4.title1": "On-Wheels Rapid Fleet.",
+    "generators.hero.s4.title2": "60-Min Emergency Mobilization.",
+    "generators.hero.s4.desc": "Trailer-mounted mobile generator units with integrated fuel logistics and on-site electrical engineers, ready for rapid emergency deployment across all 36 districts of Maharashtra.",
+    "generators.hero.s4.stat": "< 60m",
+    "generators.hero.s4.sub": "Rapid Highway Mobilization",
+
+    "generators.hero.quickFilter": "Quick Filter ▾",
+    "generators.hero.closeFilter": "Close Filter",
+
     // Generator Page - Gallery
     "generators.gallery.title1": "Browse All",
     "generators.gallery.title2": "Generators",

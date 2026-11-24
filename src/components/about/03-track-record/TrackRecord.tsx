@@ -1,23 +1,19 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 
 /**
  * TrackRecord Component
  *
- * Ultra-Premium Operational Impact Section with The Cube Metric Grid Stagger:
- * - Desktop: Symmetric 4-column luxury metric architecture with sequential pop reveals
- * - Mobile: Fluid horizontal touch-snap carousel with dot pagination
- * - 100% design preserved with elevated motion physics
+ * Ultra-Premium Operational Impact Section with Kinetic Masked Typography & Bento Metric Stagger:
+ * - Desktop: Symmetric 2x2 luxury metric bento architecture with kinetic numeral reveals
+ * - Mobile: High-density 2-column paired cards with staggered pop reveals
+ * - Reliable scroll reveal (viewport once: true) with generous clearance for Devanagari matras
  */
 export function TrackRecord() {
   const { t } = useLanguage();
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const stats = [
     {
@@ -42,63 +38,40 @@ export function TrackRecord() {
     },
   ];
 
-  const handleScroll = () => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const card = el.firstElementChild as HTMLElement;
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    const index = Math.round(el.scrollLeft / cardWidth);
-    setActiveIndex(Math.min(Math.max(index, 0), stats.length - 1));
-  };
-
-  const scrollToIndex = (index: number) => {
-    const el = carouselRef.current;
-    if (!el) return;
-    const card = el.firstElementChild as HTMLElement;
-    if (!card) return;
-    const cardWidth = card.offsetWidth + 16;
-    el.scrollTo({
-      left: index * cardWidth,
-      behavior: "smooth",
-    });
-    setActiveIndex(index);
-  };
-
   return (
     <section className="w-full py-16 sm:py-28 lg:py-32 px-4 sm:px-6 lg:px-12 bg-[#FAF8F5] border-b border-[#E8E2D9] relative z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* Asymmetric 2-Column Architectural Layout (The Cube Reference 2: Heading Left, 2-Column Metrics Right) */}
+        {/* Asymmetric 2-Column Architectural Layout (Heading Left, 2x2 Bento Metrics Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* LEFT COLUMN: Heading & Narrative Context (Col 5) */}
           <div className="lg:col-span-5 flex flex-col justify-center h-full lg:sticky lg:top-36 space-y-4 sm:space-y-6">
-            <div className="pt-4 pb-2 overflow-visible">
+            <div className="pt-2 pb-1">
               <motion.h2
-                initial={{ opacity: 0, y: 32 }}
+                initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.32] sm:leading-[1.35] pt-1.5 pb-1 block"
               >
                 {t("about.track.title1", "Driven by Reliability,")}{" "}
                 <br className="hidden lg:inline" />
                 <span className="text-[#FF5500] block mt-1 sm:mt-2">{t("about.track.title2", "Measured by Results.")}</span>
               </motion.h2>
+            </div>
 
+            <div>
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[#625D55] font-['Outfit',sans-serif] text-sm sm:text-base leading-relaxed mt-4 sm:mt-5 max-w-md"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[#625D55] font-['Outfit',sans-serif] text-sm sm:text-base leading-relaxed max-w-md"
               >
                 {t("about.track.intro", "Real-world fleet performance telemetry and guaranteed uptime metrics powering industrial manufacturing corridors, healthcare lifelines, and high-stakes events across Maharashtra.")}
               </motion.p>
             </div>
-
-
           </div>
 
           {/* RIGHT COLUMN: 2x2 Bento Metric Grid (Col 7) */}
@@ -108,10 +81,10 @@ export function TrackRecord() {
               {stats.map((stat, idx) => (
                 <motion.div
                   key={`mobile-stat-${idx}`}
-                  initial={{ opacity: 0, y: 24, scale: 0.96 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-20px" }}
-                  transition={{ duration: 0.5, delay: Math.floor(idx / 2) * 0.15 + (idx % 2) * 0.08 }}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.55, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                   className="bg-white rounded-2xl p-4 border border-[#E8E2D9] shadow-2xs flex flex-col justify-between"
                 >
                   <div>
@@ -134,12 +107,12 @@ export function TrackRecord() {
               {stats.map((stat, idx) => (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 45, scale: 0.94 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  initial={{ opacity: 0, y: 32 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{
-                    duration: 0.7,
-                    delay: idx * 0.12,
+                    duration: 0.65,
+                    delay: idx * 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
                   whileHover={{
@@ -155,22 +128,10 @@ export function TrackRecord() {
                   />
 
                   <div>
-                    {/* Monumental Numeral Pop-In */}
-                    <div className="overflow-hidden">
-                      <motion.span
-                        initial={{ y: "75%", opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.6,
-                          delay: idx * 0.12 + 0.1,
-                          ease: [0.16, 1, 0.3, 1],
-                        }}
-                        className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111315] tracking-tight font-['Poppins',sans-serif] block group-hover:text-[#FF5500] transition-colors leading-none"
-                      >
-                        {stat.value}
-                      </motion.span>
-                    </div>
+                    {/* Monumental Numeral Display - 100% visible, crisp color transition on card hover */}
+                    <span className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111315] tracking-tight font-['Poppins',sans-serif] block group-hover:text-[#FF5500] transition-colors leading-none">
+                      {stat.value}
+                    </span>
 
                     <h3 className="text-base sm:text-lg font-bold text-[#111315] mt-4 sm:mt-5 font-['Poppins',sans-serif]">
                       {stat.label}

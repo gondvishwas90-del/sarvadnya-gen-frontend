@@ -29,7 +29,7 @@ export default function AboutPage() {
         Monolithic solid z-10 stacking context with shadow that smoothly 
         slides up over the hero like a grand architectural curtain.
       */}
-      <div className="relative z-10 bg-[#FAF8F5] shadow-[0_-24px_60px_rgba(17,19,21,0.08)]">
+      <div className="relative z-10 bg-[#FAF8F5] shadow-[0_-24px_60px_rgba(17,19,21,0.14)] border-t border-[#E8E2D9]">
         <FoundingStory />
         <TrackRecord />
         <Community />

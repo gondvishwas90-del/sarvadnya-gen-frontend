@@ -548,6 +548,42 @@ export const hi: Record<string, string> = {
     "generators.hero.enterCity": "शहर का नाम लिखें",
     "generators.hero.findGenerators": "उपलब्ध जेनरेटर देखें",
 
+    // Generator Hero Concept 1 Sequential Kinetic Slider
+    "generators.hero.s1.tab": "01 औद्योगिक",
+    "generators.hero.s1.tag": "01 / 04 • CPCB-IV+ हेवी प्राइम फ्लीट",
+    "generators.hero.s1.title1": "औद्योगिक हेवी प्राइम पावर।",
+    "generators.hero.s1.title2": "उत्पादन में शून्य रुकावट।",
+    "generators.hero.s1.desc": "125 से 250 kVA सिंक्रोनाइज़्ड साइलेंट जनरेटर, 24/7 निरंतर फैक्ट्रियों और भारी मशीनों के लिए महाराष्ट्र भर में उपलब्ध।",
+    "generators.hero.s1.stat": "250 kVA",
+    "generators.hero.s1.sub": "सिंक्रोनाइज़्ड प्राइम पावर",
+
+    "generators.hero.s2.tab": "02 उत्सव व शादियां",
+    "generators.hero.s2.tag": "02 / 04 • अल्ट्रा-साइलेंट सीरीज",
+    "generators.hero.s2.title1": "भव्य विवाह व उत्सव।",
+    "generators.hero.s2.title2": "बिना किसी आवाज की शांति।",
+    "generators.hero.s2.desc": "5 से 62.5 kVA सुपर-साइलेंट जनरेटर, वेडिंग लॉन, जर्मन एसी डोम और स्टेज लाइटिंग के लिए बिना आवाज और कंपकंपी के।",
+    "generators.hero.s2.stat": "< 65 dBA",
+    "generators.hero.s2.sub": "सुपर-साइलेंट साउंडप्रूफ",
+
+    "generators.hero.s3.tab": "03 अस्पताल व हेल्थकेयर",
+    "generators.hero.s3.tag": "03 / 04 • मेडिकल ग्रेड बैकअप",
+    "generators.hero.s3.title1": "हॉस्पिटल लाइफलाइन पावर।",
+    "generators.hero.s3.title2": "तुरंत ऑटोमैटिक AMF स्विच।",
+    "generators.hero.s3.desc": "आईसीयू, ऑपरेशन थिएटर और ऑक्सीजन प्लांट के लिए ऑटोमैटिक स्विचिंग के साथ 100% भरोसेमंद बैकअप।",
+    "generators.hero.s3.stat": "< 10 से.",
+    "generators.hero.s3.sub": "ऑटोमैटिक मेन्स ट्रांसफर",
+
+    "generators.hero.s4.tab": "04 त्वरित रवानगी",
+    "generators.hero.s4.tag": "04 / 04 • 24/7 तुरंत सर्विस",
+    "generators.hero.s4.title1": "मोबाइल ट्रेलर जनरेटर।",
+    "generators.hero.s4.title2": "60 मिनट में साइट पर हाजिर।",
+    "generators.hero.s4.desc": "ट्रेलर और ट्रक पर लगे मोबाइल जनरेटर्स, कुशल मैकेनिकों के साथ पूरे महाराष्ट्र में तत्काल रवाना होने के लिए तैयार।",
+    "generators.hero.s4.stat": "< 60 मि.",
+    "generators.hero.s4.sub": "तुरंत ऑन-साइट रवानगी",
+
+    "generators.hero.quickFilter": "क्विक फिल्टर ▾",
+    "generators.hero.closeFilter": "फिल्टर बंद करें",
+
     // Generator Page - Gallery
     "generators.gallery.title1": "सभी उपलब्ध",
     "generators.gallery.title2": "जेनरेटर",

@@ -1,161 +1,170 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import { 
-  PhoneCall, 
-  ArrowRight 
-} from "lucide-react";
-import { FloatingGlow } from "@/components/shared/client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { PhoneCall, ArrowRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
+
+const SCENES = [
+  {
+    id: "engineering",
+    label: "Certified Engineering",
+    image: "/images/services/service_engineer_bg.jpg",
+    alt: "Certified Sarvadnya Generator Engineer Servicing Acoustic Canopy",
+  },
+  {
+    id: "fleet",
+    label: "Rapid Fleet Dispatch",
+    image: "/images/generators/truck_orange_generator.jpg",
+    alt: "Sarvadnya Mobile Generator Fleet Truck in Transit",
+  },
+];
+
+const SCENE_DURATION = 3000; // Strictly 3.0 seconds per scene change
 
 /**
  * ServicesHeroClient Component
  * 
- * Luxury architectural services hero:
- * - High-contrast typography & mission-critical messaging
- * - Bespoke 3D generator equipment showcase with grounded precision technical pedestal
- * - Zero unnecessary pill badges, zero AI-slop floating boxes
- * - Pure bright architectural luxury theme
+ * Fullscreen Cinematic Services Hero:
+ * - 100% Edge-to-Edge Fullscreen stage with auto-cycling crystal-clear 2.7K action photography
+ * - Auto-advances every 3 seconds with smooth 0.85s kinetic crossfade
+ * - Pure minimal luxury: Zero unwanted pill badges, zero top/bottom telemetry clutter
+ * - Masked kinetic curtain typography protecting Devanagari (Marathi & Hindi) matras from clipping
+ * - Dual direct dispatch action buttons
  */
 export function ServicesHeroClient() {
   const { t } = useLanguage();
-  return (
-    <section className="relative min-h-[85vh] flex items-center px-4 sm:px-6 md:px-10 lg:px-[60px] overflow-hidden bg-transparent pt-28 lg:pt-32 pb-16 lg:pb-24">
-      {/* Subtle Warm Amber-Orange Ambient Lighting */}
-      <FloatingGlow color="#FF5500" size="xl" className="-top-1/4 -left-1/4 opacity-[0.05]" />
-      <FloatingGlow color="#FFAA00" size="lg" className="top-1/3 -right-1/4 opacity-[0.05]" delay={2} />
+  const [activeScene, setActiveScene] = useState(0);
 
-      <div className="max-w-[1440px] w-full mx-auto relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Mission-Critical Power Statement (Col 7) */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            
-            {/* Main Luxury Headline */}
+  // Auto-advance scenes strictly every 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveScene((prev) => (prev + 1) % SCENES.length);
+    }, SCENE_DURATION);
+
+    return () => clearTimeout(timer);
+  }, [activeScene]);
+
+  const scrollToWorkflow = () => {
+    const el = document.getElementById("process-workflow") || document.getElementById("applications");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const currentScene = SCENES[activeScene] || SCENES[0];
+
+  return (
+    <section className="relative w-full h-screen min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] max-h-[960px] flex items-end overflow-hidden group bg-[#0D0E10] select-none">
+      
+      {/* ========================================================================
+          1. FULLSCREEN 100% EDGE-TO-EDGE CINEMATIC BACKGROUND
+          ======================================================================== */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence mode="popLayout">
+          <motion.div
+            key={currentScene.id}
+            initial={{ opacity: 0, scale: 1.06 }}
+            animate={{ opacity: 1, scale: 1.0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src={currentScene.image}
+              alt={currentScene.alt}
+              fill
+              priority
+              unoptimized
+              sizes="100vw"
+              className="object-cover object-center filter contrast-[1.05] brightness-[0.92] transition-transform duration-1000 group-hover:scale-[1.05]"
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Directional Cinematic Contrast Scrims */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-[#0D0E10] via-[#0D0E10]/60 to-transparent via-55% pointer-events-none"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-r from-[#0D0E10]/85 via-[#0D0E10]/35 to-transparent via-50% pointer-events-none"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0D0E10]/60 to-transparent pointer-events-none"
+        />
+      </div>
+
+      {/* ========================================================================
+          2. FOREGROUND EDITORIAL CONTENT (ZERO CLUTTER)
+          ======================================================================== */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-12 sm:pb-16 lg:pb-20">
+        <div className="max-w-3xl flex flex-col items-start text-left space-y-4 sm:space-y-6">
+
+          {/* Masked Kinetic Headline with Generous Matra Headroom */}
+          <div className="overflow-hidden pt-3 sm:pt-4 pb-2 px-1">
             <motion.h1
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-[#111315] tracking-tight leading-[1.22] sm:leading-[1.24] lg:leading-[1.22] mb-6 font-['Poppins',sans-serif] flex flex-col gap-1 sm:gap-2.5 pt-1.5 pb-1"
+              initial={{ y: "115%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-[64px] font-extrabold text-white tracking-tight leading-[1.18] sm:leading-[1.12] font-['Poppins',sans-serif] pt-1 pb-1"
             >
-              <span className="inline-block py-1">
+              <span className="block text-white">
                 {t("services.hero.title1", "Uninterrupted Power,")}
               </span>
-              <span className="inline-block py-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FF5500] via-[#FFAA00] to-[#E04400]">
+              <span className="block text-[#FF5500] mt-1 sm:mt-2">
                 {t("services.hero.title2", "Engineered for Zero Downtime")}
               </span>
             </motion.h1>
+          </div>
 
-            {/* Authoritative Subtitle Narrative */}
+          {/* Masked Subtitle Narrative */}
+          <div className="overflow-hidden pt-1 pb-1 max-w-2xl">
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="text-base sm:text-xl text-[#625D55] leading-relaxed max-w-2xl font-['Outfit',sans-serif] mb-8 sm:mb-10"
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.75, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white/85 text-base sm:text-lg lg:text-xl leading-relaxed font-['Outfit',sans-serif] font-normal"
             >
               {t(
                 "services.hero.subtitle",
                 "From continuous industrial manufacturing and critical healthcare facilities to grand weddings and high-profile festivals, Sarvadnya delivers 24/7 turnkey silent generator rentals, fuel logistics, and rapid 60-minute emergency dispatch across Nashik and Maharashtra."
               )}
             </motion.p>
-
-            {/* Primary Action Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 mb-10 sm:mb-12 w-full sm:w-auto"
-            >
-              <a
-                href="tel:+916262629944"
-                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-[#FF5500] text-white font-bold rounded-xl hover:bg-[#E04400] transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3 shadow-lg shadow-[#FF5500]/25 group text-sm sm:text-base w-full sm:w-auto text-center"
-              >
-                <PhoneCall className="w-4.5 h-4.5 sm:w-5 sm:h-5 shrink-0" />
-                <span>{t("services.hero.directDispatch", "Direct Dispatch: +91 62626 29944")}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
-              </a>
-
-              <Link
-                href="/generators"
-                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white text-[#111315] font-bold rounded-xl border border-[#E8E2D9] hover:bg-[#FAF8F5] hover:border-[#FF5500]/50 transition-all flex items-center justify-center gap-2 shadow-xs text-sm sm:text-base w-full sm:w-auto text-center"
-              >
-                {t("services.hero.exploreFleet", "Explore Fleet (5–250 kVA)")}
-              </Link>
-            </motion.div>
-
-            {/* High-Value Architectural Stat Metrics */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35 }}
-              className="grid grid-cols-3 gap-3 sm:gap-8 pt-6 sm:pt-8 border-t border-[#E8E2D9] w-full max-w-xl"
-            >
-              <div>
-                <div className="font-mono text-xl sm:text-3xl font-extrabold text-[#111315]">
-                  &lt; 60<span className="text-[#FF5500] text-sm sm:text-lg font-bold">m</span>
-                </div>
-                <div className="text-[11px] sm:text-xs text-[#71695F] font-medium font-['Outfit',sans-serif] mt-0.5">
-                  {t("services.hero.stat1.label", "Emergency Response")}
-                </div>
-              </div>
-
-              <div>
-                <div className="font-mono text-xl sm:text-3xl font-extrabold text-[#111315]">
-                  250<span className="text-[#FF5500] text-sm sm:text-lg font-bold">kVA</span>
-                </div>
-                <div className="text-[11px] sm:text-xs text-[#71695F] font-medium font-['Outfit',sans-serif] mt-0.5">
-                  {t("services.hero.stat2.label", "Max Silent Fleet Unit")}
-                </div>
-              </div>
-
-              <div>
-                <div className="font-mono text-xl sm:text-3xl font-extrabold text-[#111315]">
-                  99.98<span className="text-[#FF5500] text-sm sm:text-lg font-bold">%</span>
-                </div>
-                <div className="text-[11px] sm:text-xs text-[#71695F] font-medium font-['Outfit',sans-serif] mt-0.5">
-                  {t("services.hero.stat3.label", "Uptime Guarantee")}
-                </div>
-              </div>
-            </motion.div>
-
           </div>
 
-          {/* Right Column: 3D Equipment Visual Stage (Col 5) */}
+          {/* Action Buttons Row */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 relative flex flex-col items-center justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-2 sm:pt-4"
           >
-            {/* Equipment Display Stage */}
-            <div className="relative w-full aspect-4/3 max-w-[540px] flex items-center justify-center">
-              
-              {/* Soft Ambient Radial Floor Glow */}
-              <div className="absolute inset-0 bg-radial from-[#FF5500]/10 via-transparent to-transparent blur-3xl pointer-events-none" />
+            <a
+              href="tel:+916262629944"
+              className="px-8 py-4 bg-[#FF5500] hover:bg-[#E04400] text-white font-bold rounded-xl transition-all transform hover:scale-[1.02] active:scale-98 flex items-center gap-3 shadow-lg shadow-[#FF5500]/30 text-sm sm:text-base uppercase tracking-wider cursor-pointer group/btn"
+            >
+              <PhoneCall className="w-4.5 h-4.5 shrink-0" />
+              <span>{t("services.hero.directDispatch", "Direct Dispatch: +91 62626 29944")}</span>
+              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1.5 transition-transform duration-300 shrink-0" />
+            </a>
 
-              {/* Central 3D Industrial Silent Generator Asset */}
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10 w-full h-full flex items-center justify-center"
-              >
-                <img
-                  src="/images/generators/generator_39.png"
-                  alt="Sarvadnya Industrial Heavy-Duty Silent Generator"
-                  className="w-full h-full object-contain drop-shadow-[0_24px_48px_rgba(17,19,21,0.18)]"
-                />
-              </motion.div>
-
-              {/* Ground Shadow underneath the Generator */}
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-4/5 h-8 bg-[#111315]/15 blur-xl rounded-full pointer-events-none" />
-            </div>
-
+            <button
+              type="button"
+              onClick={scrollToWorkflow}
+              className="px-7 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-xl border border-white/20 hover:border-white/40 transition-all flex items-center gap-2.5 text-sm sm:text-base uppercase tracking-wider cursor-pointer group/btn"
+            >
+              <span>View Rental Process</span>
+              <ChevronDown className="w-4.5 h-4.5 text-white/70 group-hover/btn:text-white group-hover/btn:translate-y-0.5 transition-all" />
+            </button>
           </motion.div>
 
         </div>
       </div>
+
     </section>
   );
 }
