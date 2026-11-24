@@ -786,18 +786,44 @@ export const hi: Record<string, string> = {
     "services.workflow.stage4.deliverable": "100% लगातार बिजली की गारंटी",
 
     // Services Page - Success Stories
-    "services.stories.title": "हमारे काम की मिसाल",
-    "services.stories.subtitle": "ग्राहकों का सच्चा अनुभव और भरोसा",
-    "services.stories.quote":
-      "सर्वज्ञ जनरेटर्स के साथ काम करने से हमारी फैक्ट्री में बिजली जाने की समस्या हमेशा के लिए खत्म हो गई। 6 महीने में हमारा ब्रेकडाउन 60% घट गया और काम की रफ्तार बढ़ गई। इनकी टीम का टेक्निकल काम वाकई कमाल का है।",
-    "services.stories.author": "जेम्स मिचेल",
-    "services.stories.role": "मालिक, अल्पाइन पीक रिसॉर्ट",
-    "services.stories.stat1.title": "बिजली कटौती में कमी",
-    "services.stories.stat1.desc": "शुरुआती 6 महीनों में देखा गया सुधार",
-    "services.stories.stat2.title": "फैक्ट्रियों व साइटों पर सेवा",
-    "services.stories.stat2.desc": "पूरे महाराष्ट्र में व्यापारों को दी निर्बाध बिजली",
-    "services.stories.stat3.title": "ग्राहकों की रेटिंग",
-    "services.stories.stat3.desc": "500 से अधिक संतुष्ट ग्राहकों की समीक्षा",
+    "services.stories.tagline": "संतुष्ट ग्राहक और सिद्ध परिणाम",
+    "services.stories.title": "महाराष्ट्र के प्रमुख प्रोजेक्ट्स को मिली अटूट ऊर्जा",
+    "services.stories.subtitle": "जानिए कैसे प्रमुख उद्योग, बड़े अस्पताल और भव्य महोत्सव सर्वज्ञ के साथ 100% निर्बाध बिजली बनाए रखते हैं।",
+
+    // Story 1: Kirloskar Heavy Forge (Industrial)
+    "services.stories.s1.metric": "४५ दिनों में ०% बिजली रुकावट",
+    "services.stories.s1.quote": "सबस्टेशन मेंटनेंस के दौरान सर्वज्ञ ने दो घंटे के भीतर दो २५० kVA सिंक्रोनाइज़्ड डीजी सेट शुरू कर दिए। हमारी ऑटोमैटिक फोर्जिंग लाइनें बिना एक सेकंड रुके लगातार चलती रहीं।",
+    "services.stories.s1.author": "राजेश कुलकर्णी",
+    "services.stories.s1.role": "प्लांट ऑपरेशंस हेड, किर्लोस्कर हैवी फोर्ज MIDC",
+    "services.stories.s1.logo": "KIRLOSKAR FORGE",
+
+    // Story 2: Sahyadri Super Speciality Hospital (Healthcare)
+    "services.stories.s2.metric": "७२ घंटे लगातार निर्बाध बैकअप",
+    "services.stories.s2.quote": "आईसीयू और ऑपरेशन थिएटर में वोल्टेज का हल्का सा भी उतार-चढ़ाव बर्दाश्त नहीं किया जा सकता। सर्वज्ञ के CPCB-IV+ सायलेंट सेट्स बिना किसी कंपन या आवाज़ के शांत बिजली देते रहे।",
+    "services.stories.s2.author": "डॉ. सुनीता देशमुख",
+    "services.stories.s2.role": "मेडिकल सुपरिंटेंडेंट, सह्याद्री मल्टी-स्पेशियलिटी",
+    "services.stories.s2.logo": "SAHYADRI HEALTHCARE",
+
+    // Story 3: Royal Maratha Destination Weddings (Banquet / Events)
+    "services.stories.s3.metric": "५,०००+ मेहमानों का भव्य आयोजन",
+    "services.stories.s3.quote": "४ एकड़ के खुले लॉन में भारी लाइटिंग और जर्मन डोम एसी के लिए सर्वज्ञ का सायलेंट स्टेशन २५ फीट की दूरी पर चालू था, और किसी मेहमान को इंजन की भनक तक नहीं लगी।",
+    "services.stories.s3.author": "विक्रम पाटिल",
+    "services.stories.s3.role": "लीड इवेंट प्रोड्यूसर, रॉयल मराठा सेलिब्रेशन्स",
+    "services.stories.s3.logo": "ROYAL MARATHA",
+
+    // Story 4: Maharashtra Infra & Metro Rail (Infrastructure)
+    "services.stories.s4.metric": "< ४५ मिनट में त्वरित रवानगी",
+    "services.stories.s4.quote": "टनल बोरिंग के दौरान रात में मेन केबल कटने पर सर्वज्ञ ने ४५ मिनट के भीतर ट्रक-माउंटेड जनरेटर और केबल्स पहुंचाकर हमारा लाखों का कंक्रीट बैच खराब होने से बचा लिया।",
+    "services.stories.s4.author": "आनंद गायकवाड़",
+    "services.stories.s4.role": "चीफ प्रोजेक्ट इंजीनियर, महाराष्ट्र इंफ्रा कॉर्प",
+    "services.stories.s4.logo": "MAHA INFRA",
+
+    // Story 5: Sula Heritage Valley Resort (Hospitality & Tourism)
+    "services.stories.s5.metric": "₹३.२ लाख की ईंधन बचत",
+    "services.stories.s5.quote": "३ दिन के बड़े वाइन फेस्टिवल में सर्वज्ञ के कमिंस डीजी सेट्स ने २२% बेहतर माइलेज दिया, और उनके ऑन-साइट टेक्नीशियन ने बिना किसी रुकावट के पूरी फ्यूलिंग संभाली।",
+    "services.stories.s5.author": "समीर शिंदे",
+    "services.stories.s5.role": "जनरल मैनेजर, सुला हेरिटेज वैली",
+    "services.stories.s5.logo": "HERITAGE VALLEY",
 
     // Services Page - FAQs
     "services.faq.titlePart1": "अक्सर पूछे जाने वाले",

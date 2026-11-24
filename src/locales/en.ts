@@ -776,18 +776,44 @@ export const en: Record<string, string> = {
     "services.workflow.stage4.deliverable": "Guaranteed 100% Uptime",
 
     // Services Page - Success Stories
-    "services.stories.title": "Success Stories",
-    "services.stories.subtitle": "Real results from real clients",
-    "services.stories.quote":
-      "Working with Sarvadnya transformed our business operations. Within 6 months, we saw a 60% reduction in downtime and our facility's operational efficiency reached an all-time high. Their team's technical expertise is unmatched.",
-    "services.stories.author": "James Mitchell",
-    "services.stories.role": "Owner, Alpine Peak Resort",
-    "services.stories.stat1.title": "Downtime Reduction",
-    "services.stories.stat1.desc": "Average improvement in first 6 months",
-    "services.stories.stat2.title": "Industrial Units Served",
-    "services.stories.stat2.desc": "Powering businesses across Maharashtra",
-    "services.stories.stat3.title": "Client Rating",
-    "services.stories.stat3.desc": "Based on 500+ verified customer reviews",
+    "services.stories.tagline": "TESTIMONIALS & PROVEN RESULTS",
+    "services.stories.title": "Powering Maharashtra’s Flagship Operations",
+    "services.stories.subtitle": "How leading industries, healthcare networks, and flagship events maintain 100% operational continuity with Sarvadnya.",
+
+    // Story 1: Kirloskar Heavy Forge (Industrial)
+    "services.stories.s1.metric": "0% Downtime Across 45 Days",
+    "services.stories.s1.quote": "During our main substation overhaul, Sarvadnya synchronized two 250 kVA DG units in under 2 hours. Our automated forging lines ran continuously without losing a single batch.",
+    "services.stories.s1.author": "Rajesh Kulkarni",
+    "services.stories.s1.role": "Plant Operations Head, Kirloskar Heavy Forge MIDC",
+    "services.stories.s1.logo": "KIRLOSKAR FORGE",
+
+    // Story 2: Sahyadri Super Speciality Hospital (Healthcare)
+    "services.stories.s2.metric": "72 Hours Flawless Backup",
+    "services.stories.s2.quote": "ICUs, neonatal units, and surgical suites allow zero voltage fluctuation. Sarvadnya’s CPCB-IV+ silent units operated whisper-quiet without any vibration or disturbance to our patients.",
+    "services.stories.s2.author": "Dr. Sunita Deshmukh",
+    "services.stories.s2.role": "Medical Superintendent, Sahyadri Multi-Speciality",
+    "services.stories.s2.logo": "SAHYADRI HEALTHCARE",
+
+    // Story 3: Royal Maratha Destination Weddings (Banquet / Events)
+    "services.stories.s3.metric": "5,000+ Guests Powered in Silence",
+    "services.stories.s3.quote": "For our 4-acre lawn wedding with heavy truss lighting and air-conditioned German domes, Sarvadnya’s silent power station ran effortlessly 25 feet away without anyone noticing the engine.",
+    "services.stories.s3.author": "Vikram Patil",
+    "services.stories.s3.role": "Lead Event Producer, Royal Maratha Celebrations",
+    "services.stories.s3.logo": "ROYAL MARATHA",
+
+    // Story 4: Maharashtra Infra & Metro Rail (Infrastructure)
+    "services.stories.s4.metric": "< 45 Min Emergency Dispatch",
+    "services.stories.s4.quote": "When a grid feeder cable sheared during overnight tunnel boring, Sarvadnya delivered a truck-mounted mobile generator with pre-rigged cabling before our batching plant was compromised.",
+    "services.stories.s4.author": "Anand Gaikwad",
+    "services.stories.s4.role": "Chief Project Engineer, Maharashtra Infra Corp",
+    "services.stories.s4.logo": "MAHA INFRA",
+
+    // Story 5: Sula Heritage Valley Resort (Hospitality & Tourism)
+    "services.stories.s5.metric": "₹3.2 Lakhs Fuel Optimization",
+    "services.stories.s5.quote": "Sarvadnya’s electronic governor Cummins units delivered 22% better fuel efficiency across our 3-day festival, with their stationed technicians handling all fuel replenishments on-site.",
+    "services.stories.s5.author": "Sameer Shinde",
+    "services.stories.s5.role": "General Manager, Sula Heritage Valley",
+    "services.stories.s5.logo": "HERITAGE VALLEY",
 
     // Services Page - FAQs
     "services.faq.titlePart1": "Frequently Asked",
