@@ -67,7 +67,7 @@ export function TechnologyClient({ zones }: TechnologyClientProps) {
       <div className="lg:col-span-5 flex flex-col items-center justify-center relative w-full py-4 sm:py-6">
         
         {/* Ambient Warm Volumetric Aura */}
-        <div className="absolute w-60 sm:w-96 h-60 sm:h-96 bg-[#FF5500]/15 blur-2xl sm:blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute w-72 sm:w-96 h-72 sm:h-96 bg-[#FF5500]/15 blur-[100px] rounded-full pointer-events-none" />
 
         {/* 3D Pin & Floating Stage */}
         <div className="relative w-full max-w-[280px] sm:max-w-[400px] h-[280px] sm:h-[400px] flex flex-col items-center justify-center">

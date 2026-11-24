@@ -23,10 +23,8 @@ export function TrustedByClient({ partners }: { partners: Partner[] }) {
 
     let rafId: number;
     let lastTime = performance.now();
-    let isVisible = true;
 
     const step = (now: number) => {
-      if (!isVisible) return;
       const delta = (now - lastTime) / 1000;
       lastTime = now;
 
@@ -41,22 +39,9 @@ export function TrustedByClient({ partners }: { partners: Partner[] }) {
       rafId = requestAnimationFrame(step);
     };
 
-    const intersectionObserver = new IntersectionObserver(([entry]) => {
-      isVisible = entry.isIntersecting;
-      if (isVisible) {
-        lastTime = performance.now();
-        cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(step);
-      } else {
-        cancelAnimationFrame(rafId);
-      }
-    }, { threshold: 0.05 });
-    intersectionObserver.observe(el);
-
     rafId = requestAnimationFrame(step);
     return () => {
       cancelAnimationFrame(rafId);
-      intersectionObserver.disconnect();
       if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
     };
   }, []);

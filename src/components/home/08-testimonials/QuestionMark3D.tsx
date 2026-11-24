@@ -40,7 +40,7 @@ export function QuestionMark3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.25;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -223,9 +223,7 @@ export function QuestionMark3D() {
     container.addEventListener("mousemove", handleMouseMove);
 
     // RENDER LOOP (Static pose with gentle mouse tilt damping)
-    let isVisible = true;
     const animate = () => {
-      if (!isVisible) return;
       animationFrameId = requestAnimationFrame(animate);
 
       // Smooth damping interpolation toward mouse target
@@ -237,20 +235,6 @@ export function QuestionMark3D() {
 
       renderer.render(scene, camera);
     };
-
-    const intersectionObserver = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible) {
-          cancelAnimationFrame(animationFrameId);
-          animate();
-        } else {
-          cancelAnimationFrame(animationFrameId);
-        }
-      },
-      { threshold: 0.05 }
-    );
-    intersectionObserver.observe(container);
 
     animate();
 
@@ -264,7 +248,7 @@ export function QuestionMark3D() {
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     };
 
     const resizeObserver = new ResizeObserver(handleResize);
@@ -273,7 +257,6 @@ export function QuestionMark3D() {
     // CLEANUP
     return () => {
       cancelAnimationFrame(animationFrameId);
-      intersectionObserver.disconnect();
       resizeObserver.disconnect();
       container.removeEventListener("mousemove", handleMouseMove);
       if (container.contains(renderer.domElement)) {

@@ -56,9 +56,6 @@ export function Solutions() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // Only track scroll on desktop viewport to avoid mobile momentum hijacking
-    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
-
     // Smooth, calibrated step switching:
     // [0.00, 0.35) -> Step 01
     // [0.35, 0.70) -> Step 02
@@ -74,7 +71,7 @@ export function Solutions() {
 
   const handleStepClick = (index: number) => {
     setActiveStep(index);
-    if (!trackRef.current || (typeof window !== "undefined" && window.innerWidth < 1024)) return;
+    if (!trackRef.current) return;
     const rect = trackRef.current.getBoundingClientRect();
     const scrollTop = window.scrollY + rect.top;
     const scrollableDistance = trackRef.current.offsetHeight - window.innerHeight;
@@ -86,9 +83,9 @@ export function Solutions() {
   return (
     <section
       ref={trackRef}
-      className="relative w-full h-auto lg:h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
+      className="relative w-full h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
     >
-      <div className="relative lg:sticky top-0 h-auto lg:h-screen w-full flex flex-col justify-center py-12 lg:py-0 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto w-full flex flex-col gap-6 sm:gap-8 lg:gap-10">
           {/* Left-Aligned, Single-Line Desktop Header (No Eyebrow) */}
           <div className="max-w-4xl text-left">

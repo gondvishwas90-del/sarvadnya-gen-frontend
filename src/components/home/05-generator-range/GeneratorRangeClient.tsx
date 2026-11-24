@@ -47,7 +47,6 @@ export function GeneratorRangeClient({ generators }: GeneratorRangeClientProps) 
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
     const index = Math.min(total - 1, Math.max(0, Math.floor(latest * total)));
     setCurrentIndex(index);
   });
@@ -59,15 +58,15 @@ export function GeneratorRangeClient({ generators }: GeneratorRangeClientProps) 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-auto lg:h-[500vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
+      className="relative w-full h-[500vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
     >
-      {/* Sticky Full-Viewport Stage on Desktop, Natural Height on Mobile */}
-      <div className="relative lg:sticky top-0 h-auto lg:h-screen w-full flex flex-col justify-center py-12 lg:py-0 px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#FAF8F5]">
+      {/* Sticky Full-Viewport Stage */}
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-[#FAF8F5]">
         
         {/* Subtle Ambient Atmosphere */}
         <div
           aria-hidden="true"
-          className="absolute w-[300px] sm:w-[500px] h-[200px] sm:h-[350px] bg-[#FF5500]/[0.035] blur-2xl sm:blur-[140px] rounded-full pointer-events-none"
+          className="absolute w-[500px] h-[350px] bg-[#FF5500]/[0.035] blur-[140px] rounded-full pointer-events-none"
         />
 
         {/* Subtle Architectural Grid Accent */}

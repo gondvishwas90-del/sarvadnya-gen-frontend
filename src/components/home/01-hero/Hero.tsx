@@ -96,7 +96,7 @@ function SlideView({ slide }: { slide: SlideConfig }) {
 
         {/* Ambient Amber Warmth Glow */}
         <div
-          className={`absolute top-1/4 right-1/4 w-[320px] sm:w-[650px] h-[240px] sm:h-[450px] ${slide.amberAccent} blur-3xl sm:blur-[140px] rounded-full pointer-events-none`}
+          className={`absolute top-1/4 right-1/4 w-[650px] h-[450px] ${slide.amberAccent} blur-[140px] rounded-full pointer-events-none`}
         />
       </div>
 

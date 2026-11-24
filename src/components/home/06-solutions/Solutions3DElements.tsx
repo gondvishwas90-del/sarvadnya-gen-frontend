@@ -36,7 +36,7 @@ export function StepEquipmentVisual({ stepIndex, stepNumber }: StepVisualProps) 
       {/* Soft Warm Studio Aura */}
       <div
         aria-hidden="true"
-        className="absolute w-[220px] sm:w-[320px] h-[160px] sm:h-[220px] bg-[#FF5500]/[0.09] blur-2xl sm:blur-[85px] rounded-full pointer-events-none"
+        className="absolute w-[220px] sm:w-[320px] h-[160px] sm:h-[220px] bg-[#FF5500]/[0.09] blur-[60px] sm:blur-[85px] rounded-full pointer-events-none"
       />
 
       {/* Subtle Large Watermark Step Numeral (Brand Sans Font) */}

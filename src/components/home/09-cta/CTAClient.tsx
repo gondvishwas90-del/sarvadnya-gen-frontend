@@ -38,7 +38,7 @@ export function CTAClient({ data }: CTAClientProps) {
       {/* Soft Ambient Volumetric Amber Illumination */}
       <div 
         aria-hidden="true" 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[650px] h-[220px] sm:h-[400px] bg-[#FF5500]/[0.08] blur-2xl sm:blur-[130px] rounded-full pointer-events-none z-0" 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] sm:w-[650px] h-[300px] sm:h-[400px] bg-[#FF5500]/[0.08] blur-[130px] rounded-full pointer-events-none z-0" 
       />
 
       {/* 

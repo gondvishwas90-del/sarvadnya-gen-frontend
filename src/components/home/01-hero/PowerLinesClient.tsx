@@ -210,23 +210,9 @@ export function PowerLinesClient({
 
     const { width, height } = setupCanvas();
 
-    let isVisible = true;
-    const intersectionObserver = new IntersectionObserver(([entry]) => {
-      isVisible = entry.isIntersecting;
-      if (isVisible) {
-        cancelAnimationFrame(animationRef.current);
-        const { width: w, height: h } = setupCanvas();
-        animate(ctx, w, h);
-      } else {
-        cancelAnimationFrame(animationRef.current);
-      }
-    }, { threshold: 0.05 });
-    intersectionObserver.observe(container);
-
     animate(ctx, width, height);
 
     const resizeObserver = new ResizeObserver(() => {
-      if (!isVisible) return;
       cancelAnimationFrame(animationRef.current);
       const { width: w, height: h } = setupCanvas();
       animate(ctx, w, h);
@@ -236,7 +222,6 @@ export function PowerLinesClient({
 
     return () => {
       cancelAnimationFrame(animationRef.current);
-      intersectionObserver.disconnect();
       resizeObserver.disconnect();
     };
   }, [animate]);

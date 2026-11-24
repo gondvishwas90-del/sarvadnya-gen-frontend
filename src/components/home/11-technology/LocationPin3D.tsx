@@ -44,7 +44,7 @@ export function LocationPin3D() {
       powerPreference: "high-performance",
     });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.3;
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -307,28 +307,7 @@ export function LocationPin3D() {
       renderer.render(scene, camera);
     };
 
-    let isVisible = true;
-    const renderLoop = () => {
-      if (!isVisible) return;
-      animationFrameId = requestAnimationFrame(renderLoop);
-      animate();
-    };
-
-    const intersectionObserver = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-        if (isVisible) {
-          cancelAnimationFrame(animationFrameId);
-          renderLoop();
-        } else {
-          cancelAnimationFrame(animationFrameId);
-        }
-      },
-      { threshold: 0.05 }
-    );
-    intersectionObserver.observe(container);
-
-    renderLoop();
+    animate();
 
     // 10. RESPONSIVE RESIZE OBSERVER
     const handleResize = () => {
@@ -340,7 +319,7 @@ export function LocationPin3D() {
       camera.aspect = newWidth / newHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(newWidth, newHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     };
 
     const resizeObserver = new ResizeObserver(handleResize);
@@ -349,7 +328,6 @@ export function LocationPin3D() {
     // CLEANUP
     return () => {
       cancelAnimationFrame(animationFrameId);
-      intersectionObserver.disconnect();
       resizeObserver.disconnect();
       if (container.contains(renderer.domElement)) {
         container.removeChild(renderer.domElement);

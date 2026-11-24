@@ -139,9 +139,6 @@ export function ServicesWeOffer() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // Only track scroll on desktop viewport to avoid mobile momentum hijacking
-    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
-
     // Calibrated vertical switching:
     // [0.00, 0.35) -> Vertical 01
     // [0.35, 0.70) -> Vertical 02
@@ -157,7 +154,7 @@ export function ServicesWeOffer() {
 
   const handleVerticalClick = (index: number) => {
     setActiveIndex(index);
-    if (!trackRef.current || (typeof window !== "undefined" && window.innerWidth < 1024)) return;
+    if (!trackRef.current) return;
     const rect = trackRef.current.getBoundingClientRect();
     const scrollTop = window.scrollY + rect.top;
     const scrollableDistance = trackRef.current.offsetHeight - window.innerHeight;
@@ -170,9 +167,9 @@ export function ServicesWeOffer() {
     <section
       id="applications"
       ref={trackRef}
-      className="relative w-full h-auto lg:h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
+      className="relative w-full h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
     >
-      <div className="relative lg:sticky top-0 h-auto lg:h-screen w-full flex flex-col justify-center py-12 lg:py-0 px-4 sm:px-6 lg:px-10 xl:px-14 overflow-hidden z-10">
+      <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-4 sm:px-6 lg:px-10 xl:px-14 overflow-hidden z-10">
         <div className="max-w-7xl mx-auto w-full flex flex-col gap-5 sm:gap-6 lg:gap-8">
           <SectionHeading
             title={
