@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Header, Footer } from "@/components/shared";
-import { Chatbot, FooterClient, GlobalLoader, AgentationToolbar } from "@/components/shared/client";
+import { Chatbot, FooterClient, GlobalLoader, AgentationToolbar, ScrollToTop } from "@/components/shared/client";
 import { FullscreenProvider } from "@/lib/FullscreenContext";
 import { AuthProvider } from "@/lib/AuthContext";
 import { LanguageProvider } from "@/lib/LanguageContext";
@@ -43,6 +43,7 @@ export default function RootLayout({
         <AuthProvider>
           <LanguageProvider>
             <QuoteProvider>
+              <ScrollToTop />
               <GlobalLoader />
               <FullscreenProvider>
                 <Header />

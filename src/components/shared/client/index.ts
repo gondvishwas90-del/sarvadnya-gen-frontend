@@ -9,3 +9,4 @@ export { SuccessStoriesClient } from "@/components/shared/client/SuccessStoriesC
 export { FloatingGlow } from "@/components/shared/client/FloatingGlow";
 export { AgentationToolbar } from "@/components/shared/client/AgentationClient";
 export { GeneratorTruckTrack } from "@/components/shared/client/GeneratorTruckTrack";
+export { ScrollToTop } from "@/components/shared/client/ScrollToTop";

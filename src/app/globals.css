@@ -142,7 +142,6 @@ html {
   padding: 0;
   border: none;
   -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
 }
 
 body {
