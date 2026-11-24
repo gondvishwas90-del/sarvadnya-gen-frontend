@@ -141,7 +141,7 @@ export function ServicesWeOfferClient({
             />
           </div>
 
-          <div className="lg:pl-8 flex flex-col gap-8 lg:gap-12">
+          <div className="lg:pl-8 flex flex-col gap-8 lg:gap-11 xl:gap-13">
             {verticals.map((vertical, index) => {
               const isActive = activeIndex === index;
               return (
@@ -157,7 +157,7 @@ export function ServicesWeOfferClient({
                     className={cn(
                       "font-sans font-black tracking-tight leading-[1.15] transition-all duration-300",
                       isActive
-                        ? "text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] text-[#1F1F1E]"
+                        ? "text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] text-[#1F1F1E]"
                         : "text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] text-[#625D55]"
                     )}
                   >
@@ -187,15 +187,15 @@ export function ServicesWeOfferClient({
                 1. UPPER SECTION: CLEAN GENERATOR IMAGE SHOWCASE
                 (Zero badge clutter, gentle levitation & soft ground contact shadow)
               */}
-              <div className="relative w-full h-[130px] sm:h-[180px] lg:h-[260px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-3 sm:p-6 overflow-hidden">
+              <div className="relative w-full h-[130px] sm:h-[180px] lg:h-[295px] xl:h-[315px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-3 sm:p-6 overflow-hidden">
                 {/* Subtle warm ambient volumetric warmth */}
-                <div className="absolute w-[220px] sm:w-[360px] h-[120px] sm:h-[160px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
+                <div className="absolute w-[220px] sm:w-[360px] lg:w-[440px] h-[120px] sm:h-[160px] lg:h-[200px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
 
                 {/* Floating generator image with continuous levitation */}
                 <motion.div
                   animate={{ y: [-3, 3, -3] }}
                   transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-                  className="relative z-10 w-[72%] sm:w-[72%] h-[100px] sm:h-[140px] lg:h-[190px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
+                  className="relative z-10 w-[72%] sm:w-[72%] lg:w-[76%] h-[100px] sm:h-[140px] lg:h-[220px] xl:h-[240px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
                 >
                   <Image
                     src={activeVertical.unitImage}
@@ -214,7 +214,7 @@ export function ServicesWeOfferClient({
                     opacity: [0.32, 0.2, 0.32],
                   }}
                   transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-                  className="absolute bottom-2 sm:bottom-5 w-1/2 h-3 sm:h-4 bg-black/20 blur-md rounded-full pointer-events-none"
+                  className="absolute bottom-2 sm:bottom-4 lg:bottom-5 w-1/2 h-3 sm:h-4 lg:h-5 bg-black/20 blur-md rounded-full pointer-events-none"
                 />
               </div>
 
@@ -226,21 +226,21 @@ export function ServicesWeOfferClient({
                 {activeVertical.specs.map((spec, specIdx) => (
                   <div
                     key={spec.label}
-                    className="flex items-center justify-between px-3.5 sm:px-7 py-2 sm:py-3.5 hover:bg-[#FAF8F5]/70 transition-colors"
+                    className="flex items-center justify-between px-3.5 sm:px-7 lg:px-8 py-2 sm:py-3.5 lg:py-4 xl:py-4.5 hover:bg-[#FAF8F5]/70 transition-colors"
                   >
                     {/* Parameter Label with Brand Font Index & Indicator Beacon */}
                     <div className="flex items-center gap-2 sm:gap-3">
-                      <span className="font-mono text-[11px] sm:text-xs font-bold text-[#FF5500]">
+                      <span className="font-mono text-[11px] sm:text-xs lg:text-[13px] font-bold text-[#FF5500]">
                         0{specIdx + 1}
                       </span>
                       <span className="size-1 sm:size-1.5 rounded-full bg-[#FF5500]" />
-                      <span className="font-sans text-[11px] sm:text-xs md:text-sm font-bold text-[#1F1F1E]">
+                      <span className="font-sans text-[11px] sm:text-xs md:text-sm lg:text-[14px] xl:text-[15px] font-bold text-[#1F1F1E]">
                         {spec.label}
                       </span>
                     </div>
 
                     {/* Verified Precision Rating */}
-                    <span className="font-sans text-[11px] sm:text-xs md:text-sm font-semibold text-[#403C36] text-right">
+                    <span className="font-sans text-[11px] sm:text-xs md:text-sm lg:text-[14px] xl:text-[15px] font-semibold text-[#403C36] text-right">
                       {spec.value}
                     </span>
                   </div>
