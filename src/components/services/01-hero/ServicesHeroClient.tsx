@@ -38,10 +38,12 @@ export function ServicesHeroClient() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-[#111315] tracking-tight leading-[1.08] mb-6 font-['Poppins',sans-serif]"
+              className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-[#111315] tracking-tight leading-[1.22] sm:leading-[1.24] lg:leading-[1.22] mb-6 font-['Poppins',sans-serif] flex flex-col gap-1 sm:gap-2.5 pt-1.5 pb-1"
             >
-              {t("services.hero.title1", "Uninterrupted Power,")} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5500] via-[#FFAA00] to-[#E04400]">
+              <span className="inline-block py-1">
+                {t("services.hero.title1", "Uninterrupted Power,")}
+              </span>
+              <span className="inline-block py-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FF5500] via-[#FFAA00] to-[#E04400]">
                 {t("services.hero.title2", "Engineered for Zero Downtime")}
               </span>
             </motion.h1>

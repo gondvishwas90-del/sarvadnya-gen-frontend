@@ -72,12 +72,12 @@ export function ServicesWeOfferClient({
       {/* 
         ========================================================================
         MOBILE TOP VERTICAL LIST (< lg screens)
-        Exactly matching the Joint Talent style from the user's reference screenshot
+        Spacious, bold typography matching the reference
         ========================================================================
       */}
-      <div className="lg:hidden w-full relative mb-3">
+      <div className="lg:hidden w-full relative mb-4 sm:mb-5">
         {/* Vertical progress track on mobile */}
-        <div className="absolute left-0 top-1 bottom-1 w-[2.5px] bg-[#E8E2D9] rounded-full overflow-hidden">
+        <div className="absolute left-0 top-1 bottom-1 w-[3px] bg-[#E8E2D9] rounded-full overflow-hidden">
           <motion.div
             style={{
               height: scrollYProgress
@@ -89,7 +89,7 @@ export function ServicesWeOfferClient({
         </div>
 
         {/* The 3 Titles on Mobile */}
-        <div className="pl-4 flex flex-col gap-1.5">
+        <div className="pl-4 sm:pl-5 flex flex-col gap-2.5 sm:gap-3">
           {verticals.map((vertical, index) => {
             const isActive = activeIndex === index;
             return (
@@ -105,8 +105,8 @@ export function ServicesWeOfferClient({
                   className={cn(
                     "font-sans tracking-tight transition-all duration-300",
                     isActive
-                      ? "text-base font-extrabold text-[#111315]"
-                      : "text-sm font-semibold text-[#8C847A]"
+                      ? "text-lg sm:text-xl font-black text-[#111315]"
+                      : "text-base sm:text-lg font-bold text-[#8C847A]"
                   )}
                 >
                   {vertical.title}
@@ -185,17 +185,17 @@ export function ServicesWeOfferClient({
             >
               {/* 
                 1. UPPER SECTION: CLEAN GENERATOR IMAGE SHOWCASE
-                (Zero badge clutter, gentle levitation & soft ground contact shadow)
+                (Generous height, prominent generator visual & soft ground contact shadow)
               */}
-              <div className="relative w-full h-[130px] sm:h-[180px] lg:h-[295px] xl:h-[315px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-3 sm:p-6 overflow-hidden">
+              <div className="relative w-full h-[175px] sm:h-[220px] lg:h-[295px] xl:h-[315px] bg-gradient-to-b from-[#FAF8F5]/80 via-white to-white flex items-center justify-center p-3 sm:p-6 overflow-hidden">
                 {/* Subtle warm ambient volumetric warmth */}
-                <div className="absolute w-[220px] sm:w-[360px] lg:w-[440px] h-[120px] sm:h-[160px] lg:h-[200px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
+                <div className="absolute w-[240px] sm:w-[360px] lg:w-[440px] h-[140px] sm:h-[160px] lg:h-[200px] bg-[#FF5500]/[0.05] blur-[50px] rounded-full pointer-events-none" />
 
                 {/* Floating generator image with continuous levitation */}
                 <motion.div
                   animate={{ y: [-3, 3, -3] }}
                   transition={{ repeat: Infinity, duration: 4.2, ease: "easeInOut" }}
-                  className="relative z-10 w-[72%] sm:w-[72%] lg:w-[76%] h-[100px] sm:h-[140px] lg:h-[220px] xl:h-[240px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
+                  className="relative z-10 w-[78%] sm:w-[75%] lg:w-[76%] h-[140px] sm:h-[180px] lg:h-[220px] xl:h-[240px] flex items-center justify-center filter drop-shadow-[0_16px_22px_rgba(31,31,30,0.15)]"
                 >
                   <Image
                     src={activeVertical.unitImage}
@@ -220,27 +220,27 @@ export function ServicesWeOfferClient({
 
               {/* 
                 2. LOWER SECTION: SPECIFICATIONS TABLE FORMAT
-                (Clean structured table rows integrated directly inside the card)
+                (Clean structured table rows with comfortable breathing room)
               */}
               <div className="w-full border-t border-[#E8E2D9] divide-y divide-[#E8E2D9] bg-white">
                 {activeVertical.specs.map((spec, specIdx) => (
                   <div
                     key={spec.label}
-                    className="flex items-center justify-between px-3.5 sm:px-7 lg:px-8 py-2 sm:py-3.5 lg:py-4 xl:py-4.5 hover:bg-[#FAF8F5]/70 transition-colors"
+                    className="flex items-center justify-between px-4 sm:px-7 lg:px-8 py-3 sm:py-3.5 lg:py-4 xl:py-4.5 hover:bg-[#FAF8F5]/70 transition-colors"
                   >
                     {/* Parameter Label with Brand Font Index & Indicator Beacon */}
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <span className="font-mono text-[11px] sm:text-xs lg:text-[13px] font-bold text-[#FF5500]">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <span className="font-mono text-xs lg:text-[13px] font-bold text-[#FF5500]">
                         0{specIdx + 1}
                       </span>
                       <span className="size-1 sm:size-1.5 rounded-full bg-[#FF5500]" />
-                      <span className="font-sans text-[11px] sm:text-xs md:text-sm lg:text-[14px] xl:text-[15px] font-bold text-[#1F1F1E]">
+                      <span className="font-sans text-xs sm:text-sm lg:text-[14px] xl:text-[15px] font-bold text-[#1F1F1E]">
                         {spec.label}
                       </span>
                     </div>
 
                     {/* Verified Precision Rating */}
-                    <span className="font-sans text-[11px] sm:text-xs md:text-sm lg:text-[14px] xl:text-[15px] font-semibold text-[#403C36] text-right">
+                    <span className="font-sans text-xs sm:text-sm lg:text-[14px] xl:text-[15px] font-semibold text-[#403C36] text-right">
                       {spec.value}
                     </span>
                   </div>

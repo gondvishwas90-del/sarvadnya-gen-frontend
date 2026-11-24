@@ -145,6 +145,55 @@ export const en: Record<string, string> = {
     "fleet.badgeIndustrial": "HEAVY DUTY",
     "fleet.badgeEvent": "EVENT SILENT",
 
+    // The Sarvadnya Advantage: 4 Pillars of Operational Trust
+    "advantage.eyebrow": "THE SARVADNYA ADVANTAGE",
+    "advantage.title": "Engineered Operational Trust",
+    "advantage.desc": "Why Maharashtra’s premier manufacturing plants, hospital networks, and flagship cultural events rely on Sarvadnya for zero-blackout continuous power.",
+
+    "advantage.pillar1.number": "01",
+    "advantage.pillar1.stat": "< 60 Min",
+    "advantage.pillar1.statLabel": "Rapid Response",
+    "advantage.pillar1.tagline": "Rapid Emergency Dispatch",
+    "advantage.pillar1.title": "Rapid Transit Fleet & Instant Dispatch",
+    "advantage.pillar1.desc": "Strategically prepositioned logistics fleet across Chhatrapati Sambhajinagar and Pune ensures high-capacity mobile generators reach your industrial or event site within 60 minutes.",
+    "advantage.pillar1.standard": "GPS Monitored • Pre-Fueled • 24/7 Hot Standby",
+    "advantage.pillar1.f1": "Pre-rigged distribution switchgear ready for instant connection",
+    "advantage.pillar1.f2": "Guaranteed priority response route across MIDC industrial zones",
+    "advantage.pillar1.f3": "On-board heavy-duty trailing cables (up to 50m included)",
+
+    "advantage.pillar2.number": "02",
+    "advantage.pillar2.stat": "< 75 dBA",
+    "advantage.pillar2.statLabel": "Acoustic Silence",
+    "advantage.pillar2.tagline": "Hospital-Grade Acoustic Silence",
+    "advantage.pillar2.title": "CPCB-IV+ Silent Acoustic Canopies",
+    "advantage.pillar2.desc": "Engineered multi-chamber acoustic baffling and vibration dampening allow full continuous power output directly adjacent to hospital ICUs, luxury wedding lawns, and VIP corporate pavilions without disturbance.",
+    "advantage.pillar2.standard": "CPCB-IV+ Compliant • ISO 3744 Acoustic Test • Residential Safe",
+    "advantage.pillar2.f1": "High-density rockwool acoustic insulation lining",
+    "advantage.pillar2.f2": "Low-frequency residential grade exhaust silencers",
+    "advantage.pillar2.f3": "Whisper-quiet performance under 75 dBA at 1 meter",
+
+    "advantage.pillar3.number": "03",
+    "advantage.pillar3.stat": "24/7 Crew",
+    "advantage.pillar3.statLabel": "On-Site Support",
+    "advantage.pillar3.tagline": "Turnkey Fuel & Stationed Engineers",
+    "advantage.pillar3.title": "Certified Technicians & Continuous Refueling",
+    "advantage.pillar3.desc": "Every Sarvadnya rental includes stationed certified electrical technicians who continuously monitor load curves, frequency, and oil pressure, backed by scheduled turnkey diesel replenishment on-site.",
+    "advantage.pillar3.standard": "Licensed Wiremen • Turnkey Fuel Logistics • Zero Downtime",
+    "advantage.pillar3.f1": "Full-time dedicated operator stationed for your event duration",
+    "advantage.pillar3.f2": "Automatic proactive diesel refueling before tanks drop below 30%",
+    "advantage.pillar3.f3": "Continuous thermal scanning & load balance monitoring",
+
+    "advantage.pillar4.number": "04",
+    "advantage.pillar4.stat": "99.98%",
+    "advantage.pillar4.statLabel": "Uptime Guarantee",
+    "advantage.pillar4.tagline": "Dual DG N+1 Redundancy",
+    "advantage.pillar4.title": "Dual DG Automatic Synchronization",
+    "advantage.pillar4.desc": "For mission-critical healthcare facilities, data centers, and multi-acre concerts, we deploy parallel twin-DG setups with millisecond automatic AMF transfer panels to guarantee zero power interruption.",
+    "advantage.pillar4.standard": "N+1 Redundancy • Millisecond AMF Transfer • Zero Interruption",
+    "advantage.pillar4.f1": "Digital auto-synchronization busbar for seamless load sharing",
+    "advantage.pillar4.f2": "Instant sub-cycle failover if grid or prime unit drops",
+    "advantage.pillar4.f3": "100% prime continuous rating according to ISO 8528",
+
     "range.eyebrow": "FLEET SPECTRUM • 125 TO 300 kVA",
     "range.title": "Generator Fleet from 5 kVA to 300 kVA",
     "range.desc": "Choose the right capacity for your requirements. Available from residential backup to heavy industrial operations.",
@@ -409,21 +458,30 @@ export const en: Record<string, string> = {
     "about.promise.item4Desc":
       "In-house dedicated transportation trailers and mobile quick-response units ready for immediate deployment across 5 districts in Maharashtra.",
 
-    // About Page - Innovation & Fleet
+    // About Page - Innovation & Fleet (Kinetic Editorial Roster)
+    "about.innovation.eyebrow": "Authorized Tier-1 OEM Fleet Engineering",
     "about.innovation.title1": "Expanding Horizons for",
     "about.innovation.title2": "Sustainable Power",
     "about.innovation.desc":
       "Over the next five years, Sarvadnya Generators aims to expand fleet capacity across Maharashtra, introducing advanced fuel-efficient, CPCB-IV+ compliant silent systems and remaining the primary partner for industrial and flagship event power solutions.",
+    "about.innovation.viewUnits": "Explore Fleet Units",
+    "about.innovation.acousticStandard": "Acoustic Standard",
+    "about.innovation.compliance": "CPCB-IV+ Verified",
     "about.innovation.cumminsType": "Heavy Industrial Sets",
-    "about.innovation.cumminsTech": "Turbocharged • Electronic Governor",
+    "about.innovation.cumminsBestFor": "Manufacturing Plants & Large Infrastructure",
+    "about.innovation.cumminsTech": "Turbocharged • Dual Electronic Governor • High-Altitude Protection",
     "about.innovation.kirloskarType": "Prime Commercial Series",
-    "about.innovation.kirloskarTech": "Sound-Attenuated Canopy (<75 dBA)",
+    "about.innovation.kirloskarBestFor": "Luxury Banquets, Healthcare & Commercial Hubs",
+    "about.innovation.kirloskarTech": "Sound-Attenuated Weatherproof Canopy • AMF Auto-Start Ready",
     "about.innovation.hondaType": "Portable Ultra-Silent",
-    "about.innovation.hondaTech": "Clean Sine-Wave • Compact Event Power",
+    "about.innovation.hondaBestFor": "High-End Weddings, Acoustic Stage & LED Walls",
+    "about.innovation.hondaTech": "Clean True Sine-Wave • Eco-Throttle Fuel Economy • Low Vibration",
     "about.innovation.mahindraType": "Construction & Prime",
-    "about.innovation.mahindraTech": "High Fuel Economy • Rapid Cold-Start",
+    "about.innovation.mahindraBestFor": "Infrastructure Projects, Heavy Machinery & Events",
+    "about.innovation.mahindraTech": "CRDi Fuel Injection • Rapid Cold-Start • High Fuel Economy",
     "about.innovation.leylandType": "High-Torque Industrial",
-    "about.innovation.leylandTech": "Continuous Heavy Load Endurance",
+    "about.innovation.leylandBestFor": "Heavy Inductive Motor Loads, Quarries & Cold Storage",
+    "about.innovation.leylandTech": "High Inductive Load Start • Continuous Heavy-Duty Endurance",
 
     // About Page - Timeline
     "about.timeline.title": "Milestones of Excellence",
@@ -695,23 +753,27 @@ export const en: Record<string, string> = {
       "Comprehensive Annual Maintenance Contracts, automated fuel logistics, and 24/7 dedicated certified engineers on site.",
     "services.verticals.learnMore": "Learn More",
 
-    // Services Page - Process Workflow
-    "services.workflow.titlePart1": "Precision-Engineered",
-    "services.workflow.titlePart2": "Deployment Pipeline",
+    // Services Page - Process Workflow / How Rental Works
+    "services.workflow.titlePart1": "How Rental Works —",
+    "services.workflow.titlePart2": "Simple 4-Step Process",
     "services.workflow.subtitle":
-      "From initial site telemetry to active power assurance, every stage is executed with industrial-grade reliability and zero margin for downtime.",
-    "services.workflow.stage1.title": "Intelligent Power Audit",
+      "From initial power sizing to on-site delivery and 24/7 technical assurance, renting silent power is quick and seamless.",
+    "services.workflow.stage1.title": "Power Sizing & Load Audit",
     "services.workflow.stage1.desc":
-      "Certified electrical engineers analyze peak kVA draw, harmonic loads, and space constraints to eliminate power drop risks.",
-    "services.workflow.stage2.title": "Custom Fleet Matching",
+      "Our certified electrical engineers analyze your site load, peak kVA requirements, and venue space to recommend the exact right generator capacity.",
+    "services.workflow.stage1.deliverable": "Accurate Load Sizing",
+    "services.workflow.stage2.title": "Fleet Matching & Quote",
     "services.workflow.stage2.desc":
-      "Dedicated CPCB-IV+ compliant silent DG unit matched from our 5–250 kVA fleet, complete with automatic transfer switches.",
-    "services.workflow.stage3.title": "Rapid Heavy Deployment",
+      "Select from our 5–250 kVA silent DG fleet with clear all-inclusive pricing, AMF auto panels, and flexible rental tenure.",
+    "services.workflow.stage2.deliverable": "Clear All-Inclusive Pricing",
+    "services.workflow.stage3.title": "Rapid Delivery & Setup",
     "services.workflow.stage3.desc":
-      "Heavy hydraulic transport, specialized unloading, industrial cabling distribution, and certified on-site electrical commissioning.",
-    "services.workflow.stage4.title": "24/7 Turnkey Assurance",
+      "Prompt dispatch across Nashik and Maharashtra with specialized hydraulic cranes, weatherproof distribution panels, and heavy-duty cabling.",
+    "services.workflow.stage3.deliverable": "Turnkey On-Site Deployment",
+    "services.workflow.stage4.title": "24/7 Operation & Fuel Management",
     "services.workflow.stage4.desc":
-      "Dedicated on-site technical engineer, continuous live digital telemetry, and automated diesel fuel management.",
+      "Dedicated certified technician on-site, automated diesel fuel management, and continuous monitoring to guarantee 100% uninterrupted power.",
+    "services.workflow.stage4.deliverable": "Guaranteed 100% Uptime",
 
     // Services Page - Success Stories
     "services.stories.title": "Success Stories",

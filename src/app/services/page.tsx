@@ -23,11 +23,11 @@ export default function ServicesPage() {
       {/* 2. Specialized Power Service Verticals */}
       <ServiceVerticals />
 
-      {/* 3. Industrial Deployment Workflow */}
-      <ProcessWorkflow />
-
-      {/* 4. High Fidelity Success Stories */}
+      {/* 3. High Fidelity Success Stories */}
       <ServicesSuccessStories />
+
+      {/* 4. How Rental Works: Simple 4-Step Rental Process */}
+      <ProcessWorkflow />
 
       {/* 5. Frequently Asked Questions (Homepage 2-Column Style) */}
       <FAQSection />

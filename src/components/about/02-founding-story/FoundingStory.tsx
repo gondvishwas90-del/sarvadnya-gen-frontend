@@ -23,13 +23,13 @@ export function FoundingStory() {
         {/* Left Column: Narrative & Bespoke Pull-Quote (Col 7) */}
         <div className="lg:col-span-7 flex flex-col gap-6 sm:gap-8">
           {/* Masked Line Kinetic Headline (The Cube Reference 1) */}
-          <div className="overflow-hidden pt-3 sm:pt-4 pb-1">
+          <div className="pt-4 pb-2 overflow-visible">
             <motion.h2
               initial={{ y: "100%", opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.26] sm:leading-[1.3] pt-1.5 inline-block"
+              className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.32] sm:leading-[1.35] pt-1.5 pb-1 inline-block"
             >
               {t("about.story.title", "A Journey of Reliability")}
             </motion.h2>

@@ -149,6 +149,55 @@ export const hi: Record<string, string> = {
     "fleet.badgeIndustrial": "हैवी ड्यूटी",
     "fleet.badgeEvent": "सुपर साइलेंट",
 
+    // The Sarvadnya Advantage: 4 Pillars of Operational Trust
+    "advantage.eyebrow": "सर्वज्ञ एडवांटेज",
+    "advantage.title": "विश्वसनीय संचालन के ४ मुख्य स्तंभ",
+    "advantage.desc": "महाराष्ट्र के प्रमुख उद्योग, अस्पताल और भव्य सांस्कृतिक आयोजन निर्बाध और सुरक्षित बिजली के लिए सर्वज्ञ पर ही भरोसा क्यों करते हैं।",
+
+    "advantage.pillar1.number": "01",
+    "advantage.pillar1.stat": "< ६० मिनट",
+    "advantage.pillar1.statLabel": "त्वरित डिस्पैच",
+    "advantage.pillar1.tagline": "आपातकालीन त्वरित डिलीवरी",
+    "advantage.pillar1.title": "रेडी ट्रांजिट फ्लीट और तत्काल रवानगी",
+    "advantage.pillar1.desc": "छत्रपति संभाजीनगर और पुणे में तैनात विशेष फ्लीट सुनिश्चित करती है कि किसी भी आपात स्थिति में जनरेटर ६० मिनट के भीतर आपकी साइट पर पहुंच जाए।",
+    "advantage.pillar1.standard": "जीपीएस मॉनिटर्ड • फ्यूल लोडेड • २४/७ रेडी स्टैंडबाय",
+    "advantage.pillar1.f1": "त्वरित कनेक्शन के लिए तैयार डिस्ट्रीब्यूशन पैनल",
+    "advantage.pillar1.f2": "एमआईडीसी इंडस्ट्रियल जोन्स के लिए प्राथमिकता रूट",
+    "advantage.pillar1.f3": "ऑन-बोर्ड ५० मीटर तक के हेवी-ड्यूटी केबल्स",
+
+    "advantage.pillar2.number": "02",
+    "advantage.pillar2.stat": "< ७५ dBA",
+    "advantage.pillar2.statLabel": "अति शांत",
+    "advantage.pillar2.tagline": "अस्पताल-ग्रेड पूर्ण शांति",
+    "advantage.pillar2.title": "CPCB-IV+ सुपर साइलेंट कैनोपी",
+    "advantage.pillar2.desc": "विशेष मल्टी-चेंबर साउंडप्रूफिंग और वाइब्रेशन डैम्पनिंग के साथ, अस्पतालों, वीआईपी शादियों और कॉर्पोरेट आयोजनों में बिना किसी शोर के निर्बाध बिजली।",
+    "advantage.pillar2.standard": "CPCB-IV+ प्रमाणित • ISO 3744 टेस्ट • रिहायशी सुरक्षित",
+    "advantage.pillar2.f1": "उच्च घनत्व रॉकवूल इंसुलेशन लाइनिंग",
+    "advantage.pillar2.f2": "लो-फ्रीक्वेंसी रेजिडेंशियल एग्जॉस्ट मफलर",
+    "advantage.pillar2.f3": "१ मीटर की दूरी पर केवल ७५ dBA से कम की मंद ध्वनि",
+
+    "advantage.pillar3.number": "03",
+    "advantage.pillar3.stat": "२४/७ क्रू",
+    "advantage.pillar3.statLabel": "ऑन-साइट ऑपरेटर",
+    "advantage.pillar3.tagline": "टर्नकी फ्यूल व तैनात इंजीनियर्स",
+    "advantage.pillar3.title": "प्रमाणित तकनीशियन और निरंतर रिफ्यूलिंग",
+    "advantage.pillar3.desc": "हर किराए के साथ साइट पर प्रमाणित इलेक्ट्रिकल तकनीशियन तैनात रहते हैं, जो लोड और वोल्टेज की निगरानी करते हैं, साथ ही डीजल की निरंतर आपूर्ति सुनिश्चित की जाती है।",
+    "advantage.pillar3.standard": "प्रमाणित तकनीशियन • संपूर्ण फ्यूल लॉजिस्टिक्स • शून्य रुकावट",
+    "advantage.pillar3.f1": "कार्यक्रम या शिफ्ट के दौरान समर्पित ऑपरेटर की उपस्थिति",
+    "advantage.pillar3.f2": "टैंक ३०% से कम होने से पहले ऑटोमैटिक डीजल रिफिलिंग",
+    "advantage.pillar3.f3": "निरंतर थर्मल स्कैनिंग व लोड बैलेंस मॉनिटरिंग",
+
+    "advantage.pillar4.number": "04",
+    "advantage.pillar4.stat": "९९.९८%",
+    "advantage.pillar4.statLabel": "अपटाइम गारंटी",
+    "advantage.pillar4.tagline": "डबल डीजी N+1 रिडंडेंसी",
+    "advantage.pillar4.title": "डबल डीजी ऑटोमैटिक सिंक्रोनाइज़ेशन",
+    "advantage.pillar4.desc": "अस्पतालों और बड़े कॉन्सर्ट्स जैसे संवेदनशील स्थानों के लिए ट्विन-डीजी सेटअप और मिलीसेकंड AMF ऑटो-ट्रांसफर पैनल, ताकि एक पल के लिए भी बिजली न रुके।",
+    "advantage.pillar4.standard": "N+1 रिडंडेंसी • मिलीसेकंड AMF ट्रांसफर • शून्य ब्लैकआउट",
+    "advantage.pillar4.f1": "सहज लोड शेयरिंग के लिए डिजिटल ऑटो-सिंक्रोनाइज़ेशन",
+    "advantage.pillar4.f2": "ग्रिड फेल होने पर मिलीसेकंड में ऑटोमैटिक ट्रांसफर",
+    "advantage.pillar4.f3": "ISO 8528 मानकों के अनुसार १००% प्राइम रेटिंग",
+
     "range.eyebrow": "फ्लीट स्पेक्ट्रम • 125 से 300 kVA",
     "range.title": "5 kVA से 300 kVA तक का जनरेटर कलेक्शन",
     "range.desc": "अपनी ज़रूरत के हिसाब से सही क्षमता चुनें। घर और दुकान से लेकर बड़ी फैक्ट्रियों तक हर काम के लिए उपलब्ध।",
@@ -419,21 +468,30 @@ export const hi: Record<string, string> = {
     "about.promise.item4Desc":
       "खुद की ट्रांसपोर्ट गाड़ियों के साथ नासिक और आसपास के जिलों में तुरंत डिलीवरी के लिए तैयार।",
 
-    // About Page - Innovation & Fleet
+    // About Page - Innovation & Fleet (Kinetic Editorial Roster)
+    "about.innovation.eyebrow": "अधिकृत टीयर-1 ओईएम डीजी सेट फ्लीट",
     "about.innovation.title1": "भविष्य की तैयारी और",
     "about.innovation.title2": "आधुनिक तकनीक",
     "about.innovation.desc":
       "सर्वज्ञ जनरेटर्स कम डीज़ल खपत, नए CPCB सर्टिफाइड साइलेंट जनरेटर और आधुनिक तकनीकों के साथ पूरे महाराष्ट्र में अपनी फ्लीट का विस्तार कर रहा है, ताकि हर इवेंट और फैक्ट्री को बेहतरीन सर्विस मिले।",
+    "about.innovation.viewUnits": "फ्लीट देखें",
+    "about.innovation.acousticStandard": "ध्वनि नियंत्रण मानक",
+    "about.innovation.compliance": "CPCB-IV+ प्रमाणित",
     "about.innovation.cumminsType": "हैवी इंडस्ट्रियल सेट्स",
-    "about.innovation.cumminsTech": "टर्बोचार्ज्ड • इलेक्ट्रॉनिक गवर्नर",
+    "about.innovation.cumminsBestFor": "बड़ी फैक्ट्रियां और लगातार चलने वाले उद्योग",
+    "about.innovation.cumminsTech": "टर्बोचार्ज्ड • इलेक्ट्रॉनिक गवर्नर • हाई-एल्टीट्यूड प्रोटेक्शन",
     "about.innovation.kirloskarType": "प्राइम कमर्शियल सीरीज",
-    "about.innovation.kirloskarTech": "साउंडप्रूफ कैनोपी (<75 dBA)",
+    "about.innovation.kirloskarBestFor": "मैरिज लॉन, अस्पताल और कमर्शियल कॉम्प्लेक्स",
+    "about.innovation.kirloskarTech": "साउंडप्रूफ वेदरप्रूफ कैनोपी • AMF ऑटो-स्टार्ट सपोर्ट",
     "about.innovation.hondaType": "पोर्टेबल सुपर साइलेंट",
-    "about.innovation.hondaTech": "क्लीन साइन-वेव • छोटे आयोजनों के लिए",
+    "about.innovation.hondaBestFor": "शादियों के स्टेज, साउंड सिस्टम और एलईडी स्क्रीन",
+    "about.innovation.hondaTech": "क्लीन ट्रू साइन-वेव • इको-थ्रॉटल कम डीज़ल खपत • शून्य कंपन",
     "about.innovation.mahindraType": "कंस्ट्रक्शन और प्राइम",
-    "about.innovation.mahindraTech": "कम डीज़ल खपत • तुरंत स्टार्ट",
+    "about.innovation.mahindraBestFor": "कंस्ट्रक्शन साइट्स, भारी मशीनरी और इवेंट्स",
+    "about.innovation.mahindraTech": "CRDi फ्यूल इंजेक्शन • तुरंत कोल्ड-स्टार्ट • बेहतरीन माइलेज",
     "about.innovation.leylandType": "हाई-टॉर्क इंडस्ट्रियल",
-    "about.innovation.leylandTech": "लगातार भारी लोड संभालने की क्षमता",
+    "about.innovation.leylandBestFor": "भारी मोटर लोड, खदानें और 24/7 इंडस्ट्रियल कार्य",
+    "about.innovation.leylandTech": "लगातार भारी लोड संभालने की क्षमता • हाई थर्मल एंड्योरेंस",
 
     // About Page - Timeline
     "about.timeline.title": "सफलता के मील के पत्थर",
@@ -705,23 +763,27 @@ export const hi: Record<string, string> = {
       "सालाना मेंटेनेंस कॉन्ट्रैक्ट (AMC), डीज़ल डिलीवरी की सुविधा और साइट पर 24/7 ट्रेंड टेक्नीशियन की मौजूदगी।",
     "services.verticals.learnMore": "और जानें",
 
-    // Services Page - Process Workflow
-    "services.workflow.titlePart1": "कदम-दर-कदम",
-    "services.workflow.titlePart2": "काम करने का आसान तरीका",
+    // Services Page - Process Workflow / How Rental Works
+    "services.workflow.titlePart1": "किराया प्रक्रिया कैसे काम करती है —",
+    "services.workflow.titlePart2": "आसान 4 चरण",
     "services.workflow.subtitle":
-      "साइट के निरीक्षण से लेकर जनरेटर चालू होने तक, हर कदम पूरी ज़िम्मेदारी और बिना रुकावट बिजली के भरोसे के साथ पूरा किया जाता है।",
-    "services.workflow.stage1.title": "साइट और बिजली लोड की जांच",
+      "लोड की जांच से लेकर ऑन-साइट डिलीवरी और 24/7 ऑपरेटर सपोर्ट तक, जनरेटर किराए पर लेना बेहद आसान और पारदर्शी है।",
+    "services.workflow.stage1.title": "साइट और लोड की जांच",
     "services.workflow.stage1.desc":
-      "हमारे इंजीनियर आपकी साइट का लोड और जगह देखकर बिल्कुल सटीक kVA का जनरेटर तय करते हैं ताकि कोई ट्रिपिंग न हो।",
-    "services.workflow.stage2.title": "ज़रूरत अनुसार सही डीजी सेट",
+      "हमारे अनुभवी इंजीनियर आपकी साइट का लोड और जगह देखकर बिल्कुल सटीक kVA का जनरेटर तय करते हैं ताकि कोई ट्रिपिंग न हो।",
+    "services.workflow.stage1.deliverable": "सटीक लोड क्षमता चयन",
+    "services.workflow.stage2.title": "सही डीजी सेट और पारदर्शी कोटेशन",
     "services.workflow.stage2.desc":
-      "5kVA से 250kVA तक के हमारे बेड़े में से सही जनरेटर और ऑटो-चेंजओवर पैनल (AMF) तैयार किया जाता है।",
-    "services.workflow.stage3.title": "तुरंत ट्रांसपोर्ट और वायरिंग",
+      "5kVA से 250kVA तक के हमारे बेड़े में से सही जनरेटर, AMF ऑटो पैनल और स्पष्ट किराये की शर्तों के साथ तुरंत कोटेशन।",
+    "services.workflow.stage2.deliverable": "स्पष्ट व पारदर्शी दरें",
+    "services.workflow.stage3.title": "तेज़ डिलीवरी और वायरिंग",
     "services.workflow.stage3.desc":
-      "हाइड्रोलिक क्रेन से सुरक्षित अनलोडिंग, मजबूत इंडस्ट्रियल केबलिंग और इंजीनियर द्वारा टेस्टिंग के साथ जनरेटर चालू करना।",
+      "नासिक और पूरे महाराष्ट्र में सुरक्षित क्रेन अनलोडिंग, वाटरप्रूफ डिस्ट्रीब्यूशन पैनल और हैवी केबलिंग के साथ पूर्ण इंस्टॉलेशन।",
+    "services.workflow.stage3.deliverable": "तुरंत ऑन-साइट इंस्टॉलेशन",
     "services.workflow.stage4.title": "24/7 ऑपरेटर और डीज़ल सपोर्ट",
     "services.workflow.stage4.desc":
       "साइट पर मौजूद ट्रेंड ऑपरेटर, लगातार वोल्टेज-लोड की निगरानी और समय पर डीज़ल भरने का पूरा इंतज़ाम।",
+    "services.workflow.stage4.deliverable": "100% लगातार बिजली की गारंटी",
 
     // Services Page - Success Stories
     "services.stories.title": "हमारे काम की मिसाल",

@@ -74,13 +74,13 @@ export function TrackRecord() {
           
           {/* LEFT COLUMN: Heading & Narrative Context (Col 5) */}
           <div className="lg:col-span-5 flex flex-col justify-center h-full lg:sticky lg:top-36 space-y-4 sm:space-y-6">
-            <div className="overflow-hidden pt-3 sm:pt-4 pb-1">
+            <div className="pt-4 pb-2 overflow-visible">
               <motion.h2
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.26] sm:leading-[1.3] pt-1.5 block"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#111315] font-['Poppins',sans-serif] tracking-tight leading-[1.32] sm:leading-[1.35] pt-1.5 pb-1 block"
               >
                 {t("about.track.title1", "Driven by Reliability,")}{" "}
                 <br className="hidden lg:inline" />
