@@ -35,66 +35,66 @@ export function MarqueeClient() {
   const line2Duplicated = [...line2Items, ...line2Items, ...line2Items];
 
   return (
-    <section className="w-full py-1 sm:py-1.5 bg-[#FAF8F5] overflow-hidden select-none border-y border-[#E8E2D9]">
-      <div className="flex flex-col gap-0">
-        
-        {/* Track 1: Solid Typography (Slow, Calm & Readable, Scrolls Left) */}
-        <div className="flex overflow-hidden whitespace-nowrap py-0">
-          <motion.div
-            className="flex items-center gap-6 sm:gap-10 shrink-0 py-0"
-            animate={{ x: ["0%", "-33.333%"] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 48, // Relaxed speed for high readability
-                ease: "linear",
-              },
-            }}
-          >
-            {line1Duplicated.map((text, i) => (
-              <div key={i} className="flex items-center gap-6 sm:gap-10">
-                <span className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-[#1F1F1E] tracking-tight uppercase leading-none py-0 inline-block">
-                  {text}
-                </span>
-                <span className="size-2 sm:size-3 rounded-full bg-[#FF5500] shrink-0" />
-              </div>
-            ))}
-          </motion.div>
-        </div>
+        <section className="w-full py-3 sm:py-4 lg:py-5 bg-[#FAF8F5] overflow-hidden select-none border-y border-[#E8E2D9]">
+          <div className="flex flex-col gap-1.5 sm:gap-2.5">
 
-        {/* Track 2: Outline Architectural Typography (Scrolls Right) */}
-        <div className="flex overflow-hidden whitespace-nowrap py-0">
-          <motion.div
-            className="flex items-center gap-6 sm:gap-10 shrink-0 py-0"
-            animate={{ x: ["-33.333%", "0%"] }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 52, // Staggered speed creates visual rhythm
-                ease: "linear",
-              },
-            }}
-          >
-            {line2Duplicated.map((text, i) => (
-              <div key={i} className="flex items-center gap-6 sm:gap-10">
-                <span
-                  className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight uppercase leading-none py-0 inline-block"
-                  style={{
-                    WebkitTextStroke: "1.5px #A8A29E",
-                    color: "transparent",
+            {/* Track 1: Solid Typography (Slow, Calm & Readable, Scrolls Left) */}
+              <div className="flex overflow-hidden whitespace-nowrap py-1 sm:py-1.5">
+                <motion.div
+                  className="flex items-center gap-6 sm:gap-10 shrink-0"
+                  animate={{ x: ["0%", "-33.333%"] }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 48, // Relaxed speed for high readability
+                      ease: "linear",
+                    },
                   }}
                 >
-                  {text}
-                </span>
-                <span className="size-2 sm:size-3 rounded-full border-2 border-[#FF5500] shrink-0" />
+                  {line1Duplicated.map((text, i) => (
+                    <div key={i} className="flex items-center gap-6 sm:gap-10">
+                        <span className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-[#1F1F1E] tracking-tight uppercase leading-[1.35] sm:leading-[1.4] pt-2 pb-1 inline-block">
+                          {text}
+                        </span>
+                        <span className="size-2 sm:size-3 rounded-full bg-[#FF5500] shrink-0" />
+                    </div>
+                  ))}
+                </motion.div>
               </div>
-            ))}
-          </motion.div>
-        </div>
 
-      </div>
-    </section>
-  );
+              {/* Track 2: Outline Architectural Typography (Scrolls Right) */}
+                <div className="flex overflow-hidden whitespace-nowrap py-1 sm:py-1.5">
+                  <motion.div
+                    className="flex items-center gap-6 sm:gap-10 shrink-0"
+                    animate={{ x: ["-33.333%", "0%"] }}
+                    transition={{
+                      x: {
+                        repeat: Infinity,
+                        repeatType: "loop",
+                        duration: 52, // Staggered speed creates visual rhythm
+                        ease: "linear",
+                      },
+                    }}
+                  >
+                    {line2Duplicated.map((text, i) => (
+                      <div key={i} className="flex items-center gap-6 sm:gap-10">
+                        <span
+                          className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight uppercase leading-[1.35] sm:leading-[1.4] pt-2 pb-1 inline-block"
+                          style={{
+                            WebkitTextStroke: "1.5px #A8A29E",
+                            color: "transparent",
+                          }}
+                        >
+                          {text}
+                        </span>
+                        <span className="size-2 sm:size-3 rounded-full border-2 border-[#FF5500] shrink-0" />
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+
+              </div>
+            </section>
+            );
 }
