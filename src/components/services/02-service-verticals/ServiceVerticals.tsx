@@ -102,6 +102,8 @@ export function ServiceVerticals() {
   const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // 100% Scroll-Based Tracking
   const { scrollYProgress } = useScroll({
@@ -110,6 +112,7 @@ export function ServiceVerticals() {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (isProgrammaticScroll.current) return;
     const total = VERTICALS.length;
     const index = Math.min(total - 1, Math.max(0, Math.floor(latest * total)));
     setActiveIndex(index);
@@ -118,11 +121,22 @@ export function ServiceVerticals() {
   const handleItemClick = (index: number) => {
     setActiveIndex(index);
     if (!containerRef.current) return;
-    const scrollTarget =
-      containerRef.current.offsetTop +
-      (index / VERTICALS.length) * containerRef.current.offsetHeight +
-      15;
+    isProgrammaticScroll.current = true;
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
+    const rect = containerRef.current.getBoundingClientRect();
+    const scrollTop = window.scrollY + rect.top;
+    const scrollableDistance = containerRef.current.offsetHeight - window.innerHeight;
+    
+    // Land squarely in the center of the vertical's slice so scrolling starts cleanly from here
+    const targetFraction = (index + 0.5) / VERTICALS.length;
+    const scrollTarget = scrollTop + scrollableDistance * targetFraction;
+    
     window.scrollTo({ top: scrollTarget, behavior: "smooth" });
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 850);
   };
 
   const activeVertical = VERTICALS[activeIndex];
@@ -130,7 +144,7 @@ export function ServiceVerticals() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[280vh] bg-[#FAF8F5] border-b border-[#E8E2D9] z-10"
+      className="relative w-full h-[360vh] sm:h-[300vh] lg:h-[280vh] bg-[#FAF8F5] border-b border-[#E8E2D9] z-10"
     >
       {/* Sticky Full-Viewport Stage */}
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-4 sm:px-6 lg:px-12 xl:px-16 overflow-hidden bg-[#FAF8F5]">

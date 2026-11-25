@@ -101,12 +101,12 @@ export function SuccessStoriesClient() {
     setActiveIndex(targetIndex);
   };
 
-  // 3-second continuous loop timer
+  // 5-second relaxed cinematic loop timer
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       goToNext();
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [isPaused, goToNext]);
 
@@ -116,34 +116,28 @@ export function SuccessStoriesClient() {
   const nearRight = getStoryAtOffset(1);
   const farRight = getStoryAtOffset(2);
 
-  // Cinematic Capsule Morph: Expands from near-right capsule into center, collapses to near-left capsule
+  // Cinematic Capsule Morph: Fluid horizontal displacement with uniform proportional scale & inertia
   const centerCardVariants = {
     enter: (dir: number) => ({
-      x: dir > 0 ? 380 : -380,
-      scaleX: 0.18,
-      scaleY: 0.85,
-      borderRadius: 9999,
+      x: dir > 0 ? 140 : -140,
+      scale: 0.94,
       opacity: 0,
     }),
     center: {
       x: 0,
-      scaleX: 1,
-      scaleY: 1,
-      borderRadius: 32,
+      scale: 1,
       opacity: 1,
       transition: {
-        duration: 0.7,
+        duration: 0.75,
         ease: CINEMATIC_EASE,
       },
     },
     exit: (dir: number) => ({
-      x: dir > 0 ? -380 : 380,
-      scaleX: 0.18,
-      scaleY: 0.85,
-      borderRadius: 9999,
+      x: dir > 0 ? -140 : 140,
+      scale: 0.94,
       opacity: 0,
       transition: {
-        duration: 0.55,
+        duration: 0.6,
         ease: CINEMATIC_EASE,
       },
     }),
@@ -216,10 +210,10 @@ export function SuccessStoriesClient() {
             >
               {/* Left Column: Metric + Quote + Author Meta */}
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35, delay: 0.15 }}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5, delay: 0.12, ease: CINEMATIC_EASE }}
                 className="flex-1 flex flex-col justify-between overflow-hidden min-w-[340px]"
               >
                 <div>
@@ -250,14 +244,22 @@ export function SuccessStoriesClient() {
 
               {/* Right Column: Photo Canvas + Client Logo Badge */}
               <div className="relative w-[280px] xl:w-[320px] h-full rounded-[22px] xl:rounded-[26px] overflow-hidden bg-white shrink-0 border border-[#E8E2D9]/70">
-                <Image
-                  src={activeStory.image}
-                  alt={t(activeStory.authorKey)}
-                  fill
-                  sizes="320px"
-                  priority
-                  className="object-cover"
-                />
+                <motion.div
+                  key={`photo-${activeStory.id}`}
+                  initial={{ scale: 1.07, opacity: 0.85 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.85, ease: CINEMATIC_EASE }}
+                  className="relative w-full h-full"
+                >
+                  <Image
+                    src={activeStory.image}
+                    alt={t(activeStory.authorKey)}
+                    fill
+                    sizes="320px"
+                    priority
+                    className="object-cover"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-start pointer-events-none z-10">
                   <span className="text-white font-mono font-black text-sm xl:text-base tracking-widest drop-shadow-md uppercase">

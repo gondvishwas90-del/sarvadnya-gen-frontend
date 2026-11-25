@@ -20,6 +20,11 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/LanguageContext";
+import {
+  translateBrandName,
+  translateGeneratorFeature,
+  translateCategoryName,
+} from "@/lib/generatorTranslations";
 
 export interface CompareGenerator {
   id: string;
@@ -157,7 +162,7 @@ function ActiveSlotHeader({
   onReplace: (newId: string) => void;
   onRemove: () => void;
 }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isChanging, setIsChanging] = useState(false);
 
   const [kvaNumber, kvaUnit = "kVA"] = generator.kva.split(" ");
@@ -178,7 +183,7 @@ function ActiveSlotHeader({
               {/* Top Slot Tag & Remove Button */}
               <div className="flex items-center justify-between gap-2 mb-3">
                 <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#FF5500]">
-                  {t("generators.compare.unit", "Unit")} 0{slotIndex + 1} • {generator.type}
+                  {t("generators.compare.unit", "Unit")} 0{slotIndex + 1} • {translateCategoryName(generator.type, language)}
                 </span>
 
                 {canRemove && (
@@ -205,10 +210,10 @@ function ActiveSlotHeader({
 
               {/* Brand & Highlight Line */}
               <p className="font-sans font-bold text-sm text-[#1F1F1E] mb-1">
-                {generator.brand}
+                {translateBrandName(generator.brand, language)}
               </p>
               <p className="font-sans text-xs text-[#625D55] line-clamp-1 mb-3">
-                {generator.bestFor}
+                {translateGeneratorFeature(generator.bestFor, language)}
               </p>
             </div>
 
@@ -400,7 +405,7 @@ function MobileCompareView({
   onRemove,
   onReset,
 }: MobileCompareViewProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [pickerTarget, setPickerTarget] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -443,16 +448,10 @@ function MobileCompareView({
     <div className="w-full flex flex-col">
       {/* Mobile Top Interactive Controls Bar */}
       <div className="flex items-center justify-between gap-2 pb-3.5 mb-3.5 border-b border-[#E8E2D9]">
-        {/* Fleet title & active count badge */}
+        {/* Fleet title */}
         <div className="flex items-center gap-2">
           <span className="font-sans font-extrabold text-sm text-[#1F1F1E]">
             {t("generators.compare.compareFleet", "Compare Fleet")}
-          </span>
-          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#FF5500] bg-[#FF5500]/10 px-2 py-0.5 rounded-full">
-            {selectedGenerators.length}{" "}
-            {selectedGenerators.length > 1
-              ? t("generators.compare.unitsPlural", "Units")
-              : t("generators.compare.units", "Unit")}
           </span>
         </div>
 
@@ -547,10 +546,10 @@ function MobileCompareView({
                 </div>
 
                 <p className="font-sans font-bold text-sm text-[#1F1F1E]">
-                  {gen.brand}
+                  {translateBrandName(gen.brand, language)}
                 </p>
                 <p className="font-sans text-xs text-[#625D55] line-clamp-1 mb-2.5">
-                  {gen.bestFor}
+                  {translateGeneratorFeature(gen.bestFor, language)}
                 </p>
 
                 {/* Price Bar */}

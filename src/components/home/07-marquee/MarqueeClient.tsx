@@ -35,13 +35,13 @@ export function MarqueeClient() {
   const line2Duplicated = [...line2Items, ...line2Items, ...line2Items];
 
   return (
-    <section className="w-full py-12 lg:py-16 bg-[#FAF8F5] overflow-hidden select-none border-y border-[#E8E2D9]">
-      <div className="flex flex-col gap-2 sm:gap-4">
+    <section className="w-full py-1 sm:py-1.5 bg-[#FAF8F5] overflow-hidden select-none border-y border-[#E8E2D9]">
+      <div className="flex flex-col gap-0">
         
         {/* Track 1: Solid Typography (Slow, Calm & Readable, Scrolls Left) */}
-        <div className="flex overflow-hidden whitespace-nowrap py-4 sm:py-6">
+        <div className="flex overflow-hidden whitespace-nowrap py-0">
           <motion.div
-            className="flex items-center gap-6 sm:gap-10 shrink-0 py-2"
+            className="flex items-center gap-6 sm:gap-10 shrink-0 py-0"
             animate={{ x: ["0%", "-33.333%"] }}
             transition={{
               x: {
@@ -54,7 +54,7 @@ export function MarqueeClient() {
           >
             {line1Duplicated.map((text, i) => (
               <div key={i} className="flex items-center gap-6 sm:gap-10">
-                <span className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-[#1F1F1E] tracking-tight uppercase leading-[1.45] sm:leading-[1.5] pt-2.5 pb-1.5 inline-block">
+                <span className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-[#1F1F1E] tracking-tight uppercase leading-none py-0 inline-block">
                   {text}
                 </span>
                 <span className="size-2 sm:size-3 rounded-full bg-[#FF5500] shrink-0" />
@@ -64,9 +64,9 @@ export function MarqueeClient() {
         </div>
 
         {/* Track 2: Outline Architectural Typography (Scrolls Right) */}
-        <div className="flex overflow-hidden whitespace-nowrap py-4 sm:py-6">
+        <div className="flex overflow-hidden whitespace-nowrap py-0">
           <motion.div
-            className="flex items-center gap-6 sm:gap-10 shrink-0 py-2"
+            className="flex items-center gap-6 sm:gap-10 shrink-0 py-0"
             animate={{ x: ["-33.333%", "0%"] }}
             transition={{
               x: {
@@ -80,7 +80,7 @@ export function MarqueeClient() {
             {line2Duplicated.map((text, i) => (
               <div key={i} className="flex items-center gap-6 sm:gap-10">
                 <span
-                  className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight uppercase leading-[1.45] sm:leading-[1.5] pt-2.5 pb-1.5 inline-block"
+                  className="font-sans font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight uppercase leading-none py-0 inline-block"
                   style={{
                     WebkitTextStroke: "1.5px #A8A29E",
                     color: "transparent",

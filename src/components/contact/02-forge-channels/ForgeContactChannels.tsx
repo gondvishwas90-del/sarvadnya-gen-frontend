@@ -120,8 +120,12 @@ export function ForgeContactChannels() {
                 </a>
 
                 <div className="flex flex-col text-[11px] text-[#625D55] gap-1 pt-1 font-sans">
-                  <span className="truncate">Support: support@sarvadnyagenerators.com</span>
-                  <span className="truncate">Sales: sales@sarvadnyagenerators.com</span>
+                  <span className="truncate">
+                    <span className="font-medium text-[#111315]">{t("contact.channel.email.support", "Support:")}</span> support@sarvadnyagenerators.com
+                  </span>
+                  <span className="truncate">
+                    <span className="font-medium text-[#111315]">{t("contact.channel.email.sales", "Sales:")}</span> sales@sarvadnyagenerators.com
+                  </span>
                 </div>
               </div>
             </div>
@@ -306,10 +310,10 @@ export function ForgeContactChannels() {
 
                 <div className="flex flex-col text-[11px] text-[#625D55] gap-1 pt-2.5 font-sans">
                   <span className="whitespace-nowrap truncate">
-                    Support: support@sarvadnyagenerators.com
+                    <span className="font-medium text-[#111315]">{t("contact.channel.email.support", "Support:")}</span> support@sarvadnyagenerators.com
                   </span>
                   <span className="whitespace-nowrap truncate">
-                    Sales: sales@sarvadnyagenerators.com
+                    <span className="font-medium text-[#111315]">{t("contact.channel.email.sales", "Sales:")}</span> sales@sarvadnyagenerators.com
                   </span>
                 </div>
               </div>

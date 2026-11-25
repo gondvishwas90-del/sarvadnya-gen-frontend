@@ -10,6 +10,7 @@ import { GENERATOR_IMAGES } from "@/constants";
 interface OEMPartner {
   id: string;
   number: string;
+  brandKey: string;
   brand: string;
   typeKey: string;
   defaultType: string;
@@ -25,6 +26,7 @@ const OEM_PARTNERS: OEMPartner[] = [
   {
     id: "cummins",
     number: "01",
+    brandKey: "about.innovation.cumminsBrand",
     brand: "Cummins",
     typeKey: "about.innovation.cumminsType",
     defaultType: "Heavy Industrial Sets",
@@ -38,6 +40,7 @@ const OEM_PARTNERS: OEMPartner[] = [
   {
     id: "kirloskar",
     number: "02",
+    brandKey: "about.innovation.kirloskarBrand",
     brand: "Kirloskar",
     typeKey: "about.innovation.kirloskarType",
     defaultType: "Prime Commercial Series",
@@ -51,6 +54,7 @@ const OEM_PARTNERS: OEMPartner[] = [
   {
     id: "honda",
     number: "03",
+    brandKey: "about.innovation.hondaBrand",
     brand: "Honda",
     typeKey: "about.innovation.hondaType",
     defaultType: "Portable Ultra-Silent",
@@ -64,6 +68,7 @@ const OEM_PARTNERS: OEMPartner[] = [
   {
     id: "mahindra",
     number: "04",
+    brandKey: "about.innovation.mahindraBrand",
     brand: "Mahindra",
     typeKey: "about.innovation.mahindraType",
     defaultType: "Construction & Prime",
@@ -77,6 +82,7 @@ const OEM_PARTNERS: OEMPartner[] = [
   {
     id: "leyland",
     number: "05",
+    brandKey: "about.innovation.leylandBrand",
     brand: "Ashok Leyland",
     typeKey: "about.innovation.leylandType",
     defaultType: "High-Torque Industrial",
@@ -189,7 +195,7 @@ export function Innovation() {
                             : "text-xl sm:text-2xl text-[#625D55] opacity-50 hover:opacity-80"
                         )}
                       >
-                        {partner.brand}
+                        {t(partner.brandKey, partner.brand)}
                       </h3>
                     </div>
 
@@ -229,7 +235,9 @@ export function Innovation() {
 
                         {/* Ideal For Note */}
                         <p className="text-xs text-[#71695F] font-['Outfit',sans-serif]">
-                          <span className="font-semibold text-[#1F1F1E]">Ideal Deployment: </span>
+                          <span className="font-semibold text-[#1F1F1E]">
+                            {t("about.innovation.idealDeployment", "Ideal Deployment:")}{" "}
+                          </span>
                           {t(partner.bestForKey, partner.defaultBestFor)}
                         </p>
                       </motion.div>
@@ -270,7 +278,7 @@ export function Innovation() {
                   >
                     <Image
                       src={activePartner.image}
-                      alt={`${activePartner.brand} Generator Machinery`}
+                      alt={`${t(activePartner.brandKey, activePartner.brand)} Generator Machinery`}
                       fill
                       sizes="(max-width: 1024px) 340px, 440px"
                       className="object-contain filter drop-shadow-[0_20px_32px_rgba(31,31,30,0.18)]"

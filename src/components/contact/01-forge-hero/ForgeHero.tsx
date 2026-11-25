@@ -19,7 +19,7 @@ export function ForgeHero() {
     language === "hi"
       ? ["हर", "काम", "की", "शुरुआत", "एक", "बातचीत", "से", "होती", "है"]
       : language === "mr"
-        ? ["प्रत्येक", "तैनाती", "एका", "संवादातून", "सुरू", "होते"]
+        ? ["प्रत्येक", "कामाची", "सुरुवात", "एका", "संवादातून", "होते"]
         : ["Every", "deployment", "starts", "with", "a", "conversation"];
 
   const accentWords = new Set(["conversation", "बातचीत", "संवादातून"]);
@@ -43,7 +43,7 @@ export function ForgeHero() {
         {/* Display Title with Word-by-Word Masked Reveal Animation */}
         <h1
           data-no-translate="true"
-          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-normal tracking-tight text-white leading-[1.2] sm:leading-[1.14] flex flex-wrap items-start text-left gap-x-2.5 sm:gap-x-4 gap-y-1.5 sm:gap-y-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] max-w-full"
+          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-normal tracking-tight text-white leading-[1.22] sm:leading-[1.18] flex flex-wrap items-start text-left gap-x-2.5 sm:gap-x-4 gap-y-1.5 sm:gap-y-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] max-w-full"
         >
           {headlineWords.map((word, index) => (
             <span
@@ -52,7 +52,8 @@ export function ForgeHero() {
                 "inline-block",
                 language === "en"
                   ? "overflow-hidden pt-1 pb-0.5"
-                  : "pt-1 pb-0.5 overflow-visible"
+                  : "pt-2 sm:pt-2.5 pb-1 overflow-visible",
+                accentWords.has(word) && "mr-3 sm:mr-4.5 pr-1.5"
               )}
             >
               <motion.span

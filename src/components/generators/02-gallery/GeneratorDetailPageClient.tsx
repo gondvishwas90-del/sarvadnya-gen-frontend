@@ -285,7 +285,7 @@ export function GeneratorDetailPageClient({
                         </span>
                       </td>
                       <td className="py-3 px-4 sm:px-5 font-sans font-bold text-[#111315]">
-                        CPCB-II / Stage IV+ {t("generators.specs.certified", "Certified")}
+                        CPCB-II / {t("generators.specs.stage", language === "en" ? "Stage" : "स्टेज")} IV+ {t("generators.specs.certified", "Certified")}
                       </td>
                     </tr>
                   </tbody>

@@ -104,9 +104,9 @@ export function GeneratorHero() {
         <div className="max-w-4xl lg:max-w-[85%] w-full flex flex-col items-start text-left">
 
           {/* Monumental Headline with Masked Kinetic Line Reveals */}
-          <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[78px] tracking-tight leading-[1.12] sm:leading-[1.12] text-white pt-0.5 pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] max-w-full">
+          <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[78px] tracking-tight leading-[1.18] sm:leading-[1.2] text-white pt-1.5 sm:pt-2 pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] max-w-full">
             {/* Line 1 Masked Reveal */}
-            <span className="block overflow-hidden py-0.5">
+            <span className="block overflow-hidden pt-2.5 sm:pt-3 pb-1 px-1">
               <motion.span
                 className="inline-block text-white"
                 initial={{ y: "115%", opacity: 0 }}
@@ -122,7 +122,7 @@ export function GeneratorHero() {
             </span>
 
             {/* Line 2 Masked Reveal with Signature Orange Accent */}
-            <span className="block overflow-hidden py-0.5">
+            <span className="block overflow-hidden pt-2 sm:pt-2.5 pb-1 px-1">
               <motion.span
                 className="inline-block text-[#FF5500] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
                 initial={{ y: "115%", opacity: 0 }}

@@ -132,20 +132,24 @@ export function ServicesWeOffer() {
     },
   ];
 
-  // Pin & track scroll through the 260vh track container
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Pin & track scroll through the mobile-calibrated track container
   const { scrollYProgress } = useScroll({
     target: trackRef,
     offset: ["start start", "end end"],
   });
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // Calibrated vertical switching:
-    // [0.00, 0.35) -> Vertical 01
-    // [0.35, 0.70) -> Vertical 02
-    // [0.70, 1.00] -> Vertical 03
-    if (latest < 0.35) {
+    if (isProgrammaticScroll.current) return;
+    // Calibrated vertical switching with expanded middle dwell window:
+    // [0.00, 0.28) -> Vertical 01
+    // [0.28, 0.72) -> Vertical 02 (generous 44% dwell time so option 2 is not skipped on phones)
+    // [0.72, 1.00] -> Vertical 03
+    if (latest < 0.28) {
       setActiveIndex(0);
-    } else if (latest < 0.70) {
+    } else if (latest < 0.72) {
       setActiveIndex(1);
     } else {
       setActiveIndex(2);
@@ -155,19 +159,26 @@ export function ServicesWeOffer() {
   const handleVerticalClick = (index: number) => {
     setActiveIndex(index);
     if (!trackRef.current) return;
+    isProgrammaticScroll.current = true;
+    if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+
     const rect = trackRef.current.getBoundingClientRect();
     const scrollTop = window.scrollY + rect.top;
     const scrollableDistance = trackRef.current.offsetHeight - window.innerHeight;
-    const stepFractions = [0.1, 0.5, 0.85];
+    const stepFractions = [0.12, 0.5, 0.86];
     const targetScroll = scrollTop + scrollableDistance * (stepFractions[index] ?? 0.5);
     window.scrollTo({ top: targetScroll, behavior: "smooth" });
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      isProgrammaticScroll.current = false;
+    }, 850);
   };
 
   return (
     <section
       id="applications"
       ref={trackRef}
-      className="relative w-full h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
+      className="relative w-full h-[360vh] sm:h-[300vh] lg:h-[260vh] bg-[#FAF8F5] border-b border-[#E8E2D9]"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center pt-10 pb-6 sm:pt-0 sm:pb-0 px-4 sm:px-6 lg:px-10 xl:px-14 overflow-hidden z-10">
         <div className="max-w-7xl mx-auto w-full flex flex-col gap-3.5 sm:gap-6 lg:gap-8 my-auto">

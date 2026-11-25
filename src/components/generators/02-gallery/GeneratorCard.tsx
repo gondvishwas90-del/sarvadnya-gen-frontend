@@ -16,7 +16,11 @@ import {
 import { Generator } from "@/types/generator";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/LanguageContext";
-import { translateGeneratorName } from "@/lib/generatorTranslations";
+import { 
+  translateGeneratorName, 
+  translateBrandName, 
+  translateFuelType 
+} from "@/lib/generatorTranslations";
 
 interface GeneratorCardProps {
   generator: Generator;
@@ -119,7 +123,7 @@ export function GeneratorCard({
               {translateGeneratorName(generator.name, language)}
             </h3>
             <p className="text-[#71695F] text-[10px] sm:text-sm font-['Outfit',sans-serif] line-clamp-1">
-              {generator.brand} • {generator.type}
+              {translateBrandName(generator.brand, language)} • {translateFuelType(generator.type, language)}
             </p>
           </div>
 

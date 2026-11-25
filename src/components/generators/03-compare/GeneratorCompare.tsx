@@ -8,6 +8,7 @@ import {
   translateGeneratorName,
   translateCategoryName,
   translateGeneratorFeature,
+  translateBrandName,
 } from "@/lib/generatorTranslations";
 
 /**
@@ -24,7 +25,7 @@ export function GeneratorCompare() {
     .map((gen) => ({
       id: gen.id,
       name: translateGeneratorName(gen.name, language),
-      brand: gen.brand,
+      brand: translateBrandName(gen.brand, language),
       kva: `${parseFloat(gen.power_output_kva)} kVA`,
       type: translateCategoryName(gen.type, language),
       pricePerDay: "₹" + parseInt(gen.daily_rate, 10).toLocaleString("en-IN"),

@@ -72,11 +72,57 @@ export function translateCategoryName(category: string | undefined | null, lang:
   const lower = category.toLowerCase();
   if (lower.includes("resident")) return lang === "mr" ? "रेसिडेन्शियल" : "रेसिडेंशियल";
   if (lower.includes("commercial")) return "कमर्शियल";
-  if (lower.includes("industr")) return "इंडस्ट्रियल";
+  if (lower.includes("industr")) return lang === "mr" ? "औद्योगिक" : "इंडस्ट्रियल";
   if (lower.includes("event")) return lang === "mr" ? "इव्हेंट्स" : "इवेंट्स";
   if (lower.includes("silent")) return lang === "mr" ? "सायलेंट फ्लीट" : "साइलेंट फ्लीट";
   if (lower.includes("construct")) return "कन्स्ट्रक्शन";
   return category;
+}
+
+/**
+ * Translates generator fuel types (diesel, petrol, gas).
+ */
+export function translateFuelType(fuelType: string | undefined | null, lang: Language): string {
+  if (!fuelType) return "";
+  const lower = fuelType.toLowerCase().trim();
+  if (lang === "en") {
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  }
+  if (lower.includes("diesel")) {
+    return lang === "mr" ? "डिझेल" : "डीज़ल";
+  }
+  if (lower.includes("petrol") || lower.includes("gasoline")) {
+    return "पेट्रोल";
+  }
+  if (lower.includes("cng") || lower.includes("lpg") || lower.includes("gas")) {
+    return lang === "mr" ? "गॅस" : "गैस";
+  }
+  return fuelType;
+}
+
+/**
+ * Translates brand names and manufacturer labels.
+ */
+export function translateBrandName(brand: string | undefined | null, lang: Language): string {
+  if (!brand) return "";
+  if (lang === "en") return brand;
+
+  const lower = brand.toLowerCase().trim();
+  if (lower.includes("yamaha")) return "यामाहा";
+  if (lower.includes("honda")) return "होंडा";
+  if (lower.includes("kirloskar")) return "किर्लोस्कर";
+  if (lower.includes("cummins")) return lang === "mr" ? "कमिन्स" : "कमिंस";
+  if (lower.includes("mahindra")) return "महिंद्रा";
+  if (lower.includes("leyland") || lower.includes("ashok")) return lang === "mr" ? "अशोक लेलँड" : "अशोक लीलैंड";
+  if (lower.includes("caterpillar") || lower.includes("cat")) return lang === "mr" ? "कॅटरपिलर" : "कैटरपिलर";
+  if (lower.includes("greaves")) return lang === "mr" ? "ग्रीव्हज" : "ग्रीव्स";
+  if (lower.includes("commercial")) return "कमर्शियल";
+  if (lower.includes("residential")) return lang === "mr" ? "रेसिडेन्शियल" : "रेसिडेंशियल";
+  if (lower.includes("industrial")) return lang === "mr" ? "औद्योगिक" : "इंडस्ट्रियल";
+  if (lower.includes("portable")) return "पोर्टेबल";
+  if (lower.includes("silent")) return lang === "mr" ? "सायलेंट" : "साइलेंट";
+
+  return translateCategoryName(brand, lang);
 }
 
 /**
@@ -119,6 +165,30 @@ export function translateGeneratorFeature(feature: string | undefined | null, la
     "Low Fuel Consumption": "कमी इंधन वापर",
     "High Reliability": "उच्च विश्वासार्हता",
     "3 Phase Power": "थ्री फेज अखंडित वीज",
+    "Safe for laptops and mobiles": "लॅपटॉप आणि मोबाईलसाठी सुरक्षित",
+    "Starts automatically during power cuts": "लाईट जाताच आपोआप सुरू होणारा",
+    "16 hours runtime on full tank": "फुल टँकवर 16 तास अखंड वीज",
+    "Only 65dB noise level": "केवळ 65dB शांत कार्यप्रदर्शन",
+    "Suitable for AC, refrigerator, TV, lights": "AC, फ्रिज, टीव्ही आणि दिव्यांसाठी योग्य",
+    "Compact and portable design": "कॉम्पॅक्ट आणि सुलभ पोर्टेबल डिझाइन",
+    "Quieter than normal conversation": "संवादापेक्षाही अत्यंत शांत ऑपरेशन्स",
+    "Fuel-efficient eco mode": "कमी इंधन वापरणारा प्रगत इको मोड",
+    "Ideal for residential areas": "निवासी भागांसाठी अत्यंत योग्य",
+    "Suitable for 3-phase loads": "थ्री-फेज लोडसाठी संपूर्ण सुसंगत",
+    "Industrial-grade reliability": "औद्योगिक दर्जाची सर्वोच्च विश्वसनीयता",
+    "Can power lifts, ACs, and heavy equipment": "लिफ्ट, AC आणि अवजड यंत्रांसाठी सक्षम",
+    "24/7 continuous operation capability": "24/7 अविरत चालण्याची पूर्ण क्षमता",
+    "Suitable for factories and large facilities": "कारखाने आणि मोठ्या प्रकल्पांसाठी आदर्श",
+    "Low maintenance Cummins engine": "कमी देखभालीचे मूळ कमिन्स इंजिन",
+    "Can run multiple heavy machines simultaneously": "एकाच वेळी अनेक यंत्रे चालवण्यास सक्षम",
+    "Hospital & data center grade reliability": "रुग्णालये आणि डेटा सेंटरसाठी प्रमाणित",
+    "Ideal for large weddings and concerts": "भव्य विवाह सोहळे आणि इव्हेंट्ससाठी आदर्श",
+    "Can power entire buildings": "संपूर्ण इमारतीला वीज पुरवण्यास सक्षम",
+    "Forklift pockets for easy positioning": "सुलभ हालचालीसाठी फोर्कलिफ्ट पॉकेट्स",
+    "Made in India - easy servicing": "मेड इन इंडिया - जलद व सुलभ सर्व्हिसिंग",
+    "Can run AC, refrigerator, and lights together": "AC, फ्रिज व लाईट्स एकत्र चालवण्यास सक्षम",
+    "Budget-friendly rental": "कमी खर्चातील किफायतशीर भाडेतत्वावर",
+    "Suitable for small shops and homes": "लहान दुकाने आणि घरांसाठी आदर्श",
   };
 
   const mapHi: Record<string, string> = {
@@ -130,6 +200,30 @@ export function translateGeneratorFeature(feature: string | undefined | null, la
     "Low Fuel Consumption": "कम ईंधन खपत",
     "High Reliability": "अत्यधिक भरोसेमंद",
     "3 Phase Power": "थ्री फेज निर्बाध बिजली",
+    "Safe for laptops and mobiles": "लैपटॉप और मोबाइल के लिए सुरक्षित",
+    "Starts automatically during power cuts": "बिजली कटने पर तुरंत ऑटो स्टार्ट",
+    "16 hours runtime on full tank": "फुल टैंक पर 16 घंटे का बैकअप",
+    "Only 65dB noise level": "सिर्फ 65dB शांत संचालन",
+    "Suitable for AC, refrigerator, TV, lights": "AC, फ्रिज, टीवी और लाइट्स के लिए उपयुक्त",
+    "Compact and portable design": "कॉम्पैक्ट व पोर्टेबल डिज़ाइन",
+    "Quieter than normal conversation": "सामान्य बातचीत से भी अधिक शांत",
+    "Fuel-efficient eco mode": "ईंधन बचत वाला इको मोड",
+    "Ideal for residential areas": "आवासीय क्षेत्रों के लिए सर्वोत्कृष्ट",
+    "Suitable for 3-phase loads": "3-फेज लोड के लिए पूर्णतः उपयुक्त",
+    "Industrial-grade reliability": "इंडस्ट्रियल ग्रेड उच्च विश्वसनीयता",
+    "Can power lifts, ACs, and heavy equipment": "लिफ्ट, AC और भारी उपकरणों के लिए सक्षम",
+    "24/7 continuous operation capability": "24/7 लगातार चलने की पूर्ण क्षमता",
+    "Suitable for factories and large facilities": "फैक्ट्रियों और बड़े परिसरों के लिए उपयुक्त",
+    "Low maintenance Cummins engine": "कम मेंटेनेंस वाला कमिंस इंजन",
+    "Can run multiple heavy machines simultaneously": "एक साथ कई मशीनें चलाने में सक्षम",
+    "Hospital & data center grade reliability": "अस्पतालों व डेटा सेंटर्स के लिए प्रमाणित",
+    "Ideal for large weddings and concerts": "भव्य शादियों और कॉन्सर्ट्स के लिए आदर्श",
+    "Can power entire buildings": "पूरी इमारत को पावर देने में सक्षम",
+    "Forklift pockets for easy positioning": "आसान मूवमेंट के लिए फोर्कलिफ्ट पॉकेट्स",
+    "Made in India - easy servicing": "मेड इन इंडिया - आसान व त्वरित सर्विसिंग",
+    "Can run AC, refrigerator, and lights together": "AC, फ्रिज और लाइट्स एक साथ चलाने में सक्षम",
+    "Budget-friendly rental": "किफायती बजट रेंटल विकल्प",
+    "Suitable for small shops and homes": "छोटी दुकानों और घरों के लिए उपयुक्त",
   };
 
   const map = lang === "mr" ? mapMr : mapHi;
