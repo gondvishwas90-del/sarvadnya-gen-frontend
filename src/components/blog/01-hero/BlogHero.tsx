@@ -76,27 +76,27 @@ export function BlogHero() {
 
       {/* 2. OVERLAID EDITORIAL TYPOGRAPHY & INTERACTION - 85% PRESENCE */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-10 sm:pb-14 lg:pb-18">
-        <div className="max-w-4xl lg:max-w-[85%] space-y-3 sm:space-y-4">
+        <div className="max-w-4xl lg:max-w-[85%] mx-auto sm:mx-0 flex flex-col items-center sm:items-start text-center sm:text-left space-y-3 sm:space-y-4">
 
           {/* Masked Kinetic Headline */}
-          <div className="overflow-hidden pt-2 sm:pt-3 pb-1 px-1">
+          <div className="overflow-hidden pt-2.5 sm:pt-3 pb-1 px-1 w-full">
             <motion.h1
               initial={{ y: "115%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.85, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl lg:text-6xl xl:text-[66px] font-extrabold text-white leading-[1.18] sm:leading-[1.12] tracking-tight font-['Poppins',sans-serif] pt-1 pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-[66px] font-extrabold text-white leading-[1.18] sm:leading-[1.12] tracking-tight font-['Poppins',sans-serif] pt-1 pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] text-center sm:text-left"
             >
               {t("blog.hero.title", featuredPost.title)}
             </motion.h1>
           </div>
 
           {/* Masked Excerpt */}
-          <div className="overflow-hidden pt-1 pb-1">
+          <div className="overflow-hidden pt-1 pb-1 w-full flex justify-center sm:justify-start">
             <motion.p
               initial={{ y: 35, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.75, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/95 font-['Outfit',sans-serif] text-xs sm:text-base lg:text-lg leading-relaxed max-w-2xl sm:max-w-3xl font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]"
+              className="text-white/95 font-['Outfit',sans-serif] text-xs sm:text-base lg:text-lg leading-relaxed max-w-2xl sm:max-w-3xl font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] text-center sm:text-left mx-auto sm:mx-0"
             >
               {t("blog.hero.excerpt", featuredPost.excerpt)}
             </motion.p>
@@ -107,7 +107,7 @@ export function BlogHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="pt-2 sm:pt-4"
+            className="pt-2 sm:pt-4 flex justify-center sm:justify-start w-full"
           >
             <Link
               href={`/blog/${featuredPost.slug}`}
