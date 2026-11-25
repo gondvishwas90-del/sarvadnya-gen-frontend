@@ -43,7 +43,7 @@ export function GeneratorHero() {
   };
 
   return (
-    <section className="relative w-full min-h-[70vh] lg:h-[75vh] lg:min-h-[620px] max-h-[760px] flex flex-col justify-center bg-[#FAF8F5] pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden select-none border-b border-[#E8E2D9]">
+    <section className="relative w-full min-h-[70vh] lg:h-[85vh] lg:min-h-[640px] max-h-[820px] flex flex-col justify-center bg-[#0D0E10] pt-24 sm:pt-28 pb-10 sm:pb-16 overflow-hidden select-none border-b border-white/10">
       
       {/* 
         ========================================================================
@@ -88,22 +88,12 @@ export function GeneratorHero() {
             sizes="100vw"
             className="object-cover object-center lg:object-right"
           />
-
-          {/* 
-            Ultra-refined localized text scrim:
-            Softens only the leftmost ~36% behind typography,
-            leaving the generator, exhaust, facility, and sky 100% crystal-clear!
-          */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5]/92 via-[#FAF8F5]/45 to-transparent via-38% lg:via-34% pointer-events-none" />
-
-          {/* Soft bottom edge transition blend */}
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#FAF8F5] to-transparent pointer-events-none" />
         </motion.div>
       </motion.div>
 
       {/* 
         ========================================================================
-        2. HERO CONTENT CLUSTER (LEFT-ALIGNED EDITORIAL NARRATIVE)
+        2. HERO CONTENT CLUSTER (LEFT-ALIGNED EDITORIAL NARRATIVE - 85% PRESENCE)
         - Masked kinetic text reveal headline
         - Signature orange accent line
         - High-signal editorial copy
@@ -111,14 +101,14 @@ export function GeneratorHero() {
         ========================================================================
       */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-auto py-4">
-        <div className="max-w-2xl lg:max-w-3xl flex flex-col items-start text-left">
+        <div className="max-w-4xl lg:max-w-[85%] w-full flex flex-col items-start text-left">
 
           {/* Monumental Headline with Masked Kinetic Line Reveals */}
-          <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] tracking-tight leading-[1.12] sm:leading-[1.14] text-[#111315] pt-0.5 pb-1 drop-shadow-xs">
+          <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[70px] xl:text-[78px] tracking-tight leading-[1.12] sm:leading-[1.12] text-white pt-0.5 pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] max-w-full">
             {/* Line 1 Masked Reveal */}
             <span className="block overflow-hidden py-0.5">
               <motion.span
-                className="inline-block"
+                className="inline-block text-white"
                 initial={{ y: "115%", opacity: 0 }}
                 animate={{ y: "0%", opacity: 1 }}
                 transition={{
@@ -134,7 +124,7 @@ export function GeneratorHero() {
             {/* Line 2 Masked Reveal with Signature Orange Accent */}
             <span className="block overflow-hidden py-0.5">
               <motion.span
-                className="inline-block text-[#FF5500]"
+                className="inline-block text-[#FF5500] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
                 initial={{ y: "115%", opacity: 0 }}
                 animate={{ y: "0%", opacity: 1 }}
                 transition={{
@@ -153,11 +143,11 @@ export function GeneratorHero() {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="w-16 h-0.5 bg-[#FF5500] origin-left mt-3 mb-2"
+            className="w-20 h-0.5 bg-[#FF5500] origin-left mt-3 mb-2 shadow-[0_0_12px_rgba(255,85,0,0.6)]"
           />
 
           {/* High-Signal Editorial Description */}
-          <div className="overflow-hidden mt-1.5">
+          <div className="overflow-hidden mt-1.5 max-w-2xl sm:max-w-3xl">
             <motion.p
               initial={{ y: 26, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -166,7 +156,7 @@ export function GeneratorHero() {
                 delay: 0.8,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-xs sm:text-sm lg:text-base text-[#302D28] max-w-xl font-sans leading-relaxed font-medium text-balance"
+              className="text-xs sm:text-sm lg:text-base text-white/95 leading-relaxed font-sans font-medium text-balance drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]"
             >
               {t(
                 "generators.hero.desc",
@@ -185,7 +175,7 @@ export function GeneratorHero() {
             <button
               type="button"
               onClick={scrollToGallery}
-              className="group inline-flex items-center gap-3 px-6 py-3.5 sm:px-7 sm:py-4 rounded-2xl bg-[#111315] hover:bg-[#FF5500] text-white font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-[#FF5500]/20 cursor-pointer active:scale-[0.98]"
+              className="group inline-flex items-center gap-3 px-6 py-3.5 sm:px-7 sm:py-4 rounded-2xl bg-white/15 hover:bg-[#FF5500] text-white font-bold text-xs sm:text-sm tracking-wide transition-all duration-300 shadow-md backdrop-blur-md border border-white/20 hover:border-transparent hover:shadow-xl hover:shadow-[#FF5500]/20 cursor-pointer active:scale-[0.98]"
             >
               <span>{t("generators.hero.browse", "Browse All 18 Fleet Models")}</span>
               <ArrowDown className="w-4 h-4 text-[#FF5500] group-hover:text-white transition-colors duration-300 group-hover:translate-y-0.5" />

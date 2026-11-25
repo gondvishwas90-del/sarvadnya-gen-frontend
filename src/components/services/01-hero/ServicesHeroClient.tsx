@@ -56,7 +56,7 @@ export function ServicesHeroClient() {
   const currentScene = SCENES[activeScene] || SCENES[0];
 
   return (
-    <section className="relative w-full h-screen min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] max-h-[960px] flex items-end overflow-hidden group bg-[#0D0E10] select-none">
+    <section className="relative w-full min-h-[70vh] lg:h-[85vh] lg:min-h-[640px] max-h-[820px] flex items-end overflow-hidden group bg-[#0D0E10] select-none border-b border-white/10">
       
       {/* ========================================================================
           1. FULLSCREEN 100% EDGE-TO-EDGE CINEMATIC BACKGROUND
@@ -78,56 +78,42 @@ export function ServicesHeroClient() {
               priority
               unoptimized
               sizes="100vw"
-              className="object-cover object-center filter contrast-[1.05] brightness-[0.92] transition-transform duration-1000 group-hover:scale-[1.05]"
+              className="object-cover object-center filter contrast-[1.05] transition-transform duration-1000 group-hover:scale-[1.05]"
             />
           </motion.div>
         </AnimatePresence>
-
-        {/* Directional Cinematic Contrast Scrims */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-[#0D0E10] via-[#0D0E10]/60 to-transparent via-55% pointer-events-none"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-[#0D0E10]/85 via-[#0D0E10]/35 to-transparent via-50% pointer-events-none"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#0D0E10]/60 to-transparent pointer-events-none"
-        />
       </div>
 
       {/* ========================================================================
-          2. FOREGROUND EDITORIAL CONTENT (ZERO CLUTTER)
+          2. FOREGROUND EDITORIAL CONTENT (ZERO CLUTTER - 85% PRESENCE)
           ======================================================================== */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-12 sm:pb-16 lg:pb-20">
-        <div className="max-w-3xl flex flex-col items-start text-left space-y-4 sm:space-y-6">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-10 sm:pb-14 lg:pb-18">
+        <div className="max-w-4xl lg:max-w-[85%] flex flex-col items-start text-left space-y-3 sm:space-y-4">
 
           {/* Masked Kinetic Headline with Generous Matra Headroom */}
-          <div className="overflow-hidden pt-3 sm:pt-4 pb-2 px-1">
+          <div className="overflow-hidden pt-2 sm:pt-3 pb-1 px-1">
             <motion.h1
               initial={{ y: "115%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-3xl sm:text-5xl lg:text-6xl xl:text-[64px] font-extrabold text-white tracking-tight leading-[1.18] sm:leading-[1.12] font-['Poppins',sans-serif] pt-1 pb-1"
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-[66px] font-extrabold text-white tracking-tight leading-[1.18] sm:leading-[1.12] font-['Poppins',sans-serif] pt-1 pb-1 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
             >
               <span className="block text-white">
                 {t("services.hero.title1", "Uninterrupted Power,")}
               </span>
-              <span className="block text-[#FF5500] mt-1 sm:mt-2">
+              <span className="block text-[#FF5500] mt-1 sm:mt-1.5">
                 {t("services.hero.title2", "Engineered for Zero Downtime")}
               </span>
             </motion.h1>
           </div>
 
           {/* Masked Subtitle Narrative */}
-          <div className="overflow-hidden pt-1 pb-1 max-w-2xl">
+          <div className="overflow-hidden pt-1 pb-1 max-w-2xl sm:max-w-3xl">
             <motion.p
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.75, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/85 text-base sm:text-lg lg:text-xl leading-relaxed font-['Outfit',sans-serif] font-normal"
+              className="text-white/95 text-xs sm:text-base lg:text-lg leading-relaxed font-['Outfit',sans-serif] font-medium drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]"
             >
               {t(
                 "services.hero.subtitle",

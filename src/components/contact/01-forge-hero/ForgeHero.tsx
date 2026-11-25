@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
  * and localized headline words for English, Hindi, and Marathi.
  */
 export function ForgeHero() {
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
 
   const headlineWords =
     language === "hi"
@@ -25,7 +25,7 @@ export function ForgeHero() {
   const accentWords = new Set(["conversation", "बातचीत", "संवादातून"]);
 
   return (
-    <section className="relative min-h-[45vh] sm:min-h-[82vh] flex flex-col justify-end bg-[#FAF8F5] text-[#111315] overflow-hidden select-none pb-10 sm:pb-20 px-4 sm:px-10 lg:px-20 pt-28 sm:pt-36 border-b border-[#E8E2D9]">
+    <section className="relative min-h-[70vh] lg:h-[85vh] lg:min-h-[640px] max-h-[820px] flex flex-col justify-center bg-[#0D0E10] text-white overflow-hidden select-none pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-10 lg:px-20 border-b border-white/10">
       {/* High-Resolution Engineering Background Image - Crisp, Sharp & Clearly Visible */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <Image
@@ -34,19 +34,16 @@ export function ForgeHero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center filter contrast-[1.05] saturate-[1.05] opacity-65"
+          className="object-cover object-center filter contrast-[1.05] saturate-[1.05]"
         />
-        {/* Crisp Directional Gradient Wash for Flawless Text Readability without Blurriness */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/85 to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF8F5] via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Main Foreground Editorial Content */}
-      <div className="relative z-10 max-w-6xl w-full">
+      {/* Main Foreground Editorial Content - Vertically Centered, Left-Aligned */}
+      <div className="relative z-10 max-w-5xl lg:max-w-6xl w-full flex flex-col items-start text-left my-auto">
         {/* Display Title with Word-by-Word Masked Reveal Animation */}
         <h1
           data-no-translate="true"
-          className="font-serif text-2xl sm:text-6xl md:text-7xl lg:text-[84px] font-normal tracking-tight text-[#111315] leading-[1.35] sm:leading-[1.32] mb-3 sm:mb-6 flex flex-wrap gap-x-2 sm:gap-x-5 gap-y-2 sm:gap-y-4"
+          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-[76px] xl:text-[84px] font-normal tracking-tight text-white leading-[1.2] sm:leading-[1.14] flex flex-wrap items-start text-left gap-x-2.5 sm:gap-x-4 gap-y-1.5 sm:gap-y-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)] max-w-full"
         >
           {headlineWords.map((word, index) => (
             <span
@@ -54,8 +51,8 @@ export function ForgeHero() {
               className={cn(
                 "inline-block",
                 language === "en"
-                  ? "overflow-hidden pt-2 pb-1"
-                  : "pt-2 pb-1 overflow-visible"
+                  ? "overflow-hidden pt-1 pb-0.5"
+                  : "pt-1 pb-0.5 overflow-visible"
               )}
             >
               <motion.span
@@ -67,10 +64,10 @@ export function ForgeHero() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className={cn(
-                  "inline-block leading-normal",
+                  "inline-block leading-tight",
                   accentWords.has(word)
-                    ? "text-[#FF5500] italic font-serif"
-                    : "text-[#111315]"
+                    ? "text-[#FF5500] italic font-serif drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
+                    : "text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]"
                 )}
               >
                 {word}
@@ -78,19 +75,6 @@ export function ForgeHero() {
             </span>
           ))}
         </h1>
-
-        {/* Editorial Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="font-sans text-xs sm:text-base text-[#403C36] max-w-xl leading-relaxed mb-2 sm:mb-4"
-        >
-          {t(
-            "contact.hero.subtitle",
-            "Connect with Nashik's senior power engineers for 60-minute site dispatch, wedding silent DG sets, and turnkey industrial operations."
-          )}
-        </motion.p>
       </div>
     </section>
   );
