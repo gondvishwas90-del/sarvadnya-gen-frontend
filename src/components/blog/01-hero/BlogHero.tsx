@@ -30,7 +30,7 @@ export function BlogHero() {
   };
 
   return (
-    <section className="relative w-full min-h-[70vh] lg:h-[85vh] lg:min-h-[640px] max-h-[820px] flex items-end overflow-hidden group bg-[#0D0E10] border-b border-white/10">
+    <section className="relative w-full min-h-[70vh] lg:h-[85vh] lg:min-h-[640px] max-h-[820px] flex flex-col justify-center overflow-hidden group bg-[#0D0E10] border-b border-white/10 pt-20 sm:pt-24 pb-8 sm:pb-12">
       {/* Background Ambience / Deep Obsidian Canvas */}
       <div 
         aria-hidden="true" 
@@ -74,8 +74,8 @@ export function BlogHero() {
         </motion.div>
       </motion.div>
 
-      {/* 2. OVERLAID EDITORIAL TYPOGRAPHY & INTERACTION - 85% PRESENCE */}
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] pb-10 sm:pb-14 lg:pb-18">
+      {/* 2. OVERLAID EDITORIAL TYPOGRAPHY & INTERACTION - VERTICALLY CENTERED */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 lg:px-[60px] my-auto">
         <div className="max-w-4xl lg:max-w-[85%] mx-auto sm:mx-0 flex flex-col items-center sm:items-start text-center sm:text-left space-y-3 sm:space-y-4">
 
           {/* Masked Kinetic Headline */}
